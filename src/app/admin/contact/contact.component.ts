@@ -4,6 +4,7 @@ import { CompanyService } from 'src/app/services/company.service';
 import { MatDialog } from '@angular/material/dialog'
 import { ModalEditComponent } from 'src/app/modal/modal-edit/modal-edit.component';
 
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -24,7 +25,7 @@ export class ContactComponent implements OnInit {
       numberStaff: 50,
       linkWeb: 'https://itsol.vn/',
       description: 'Rat vui duoc lam viec cung ban',
-      backdropImg: 'xxxxxx'
+      backdropImg: 'xxxxxx12345'
     }
   ];
   noAvatar: string = '../../../assets/imags/default-avatar.png';
