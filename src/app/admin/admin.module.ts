@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
-
+import { RecruitmentComponent } from './recruitment/recruitment.component';
 import { AdminListComponent } from './admin-list/admin-list.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -10,7 +10,6 @@ import { AdminComponent } from './admin.component';
 import { ProfileDetailComponent } from './profile/profile-detail/profile-detail.component';
 import { EditCompanyComponent } from './contact/edit-company/edit-company.component';
 import { FormsModule } from '@angular/forms';
-import { RecruitmentComponent } from './recruitment/recruitment.component';
 
 const routes: Routes = [
   {
@@ -52,7 +51,7 @@ const routes: Routes = [
     ProfileDetailComponent,
     EditCompanyComponent,
   ],
-  imports: [  CommonModule, RouterModule.forChild(routes), FormsModule],
+  imports: [CommonModule, RouterModule.forChild(routes), FormsModule],
   exports: [RouterModule],
 })
 export class AdminModule {}
