@@ -21,7 +21,7 @@ export class ContactComponent implements OnInit {
       taxCode: '000000',
       taxDate: '20/11/2010',
       taxPlace: 'Ha Noi',
-      headOffice: 'Duy Tan, Cau Giay, Ha Noi',
+      headOffice: 'Duy Tan',
       numberStaff: 50,
       linkWeb: 'https://itsol.vn/',
       description: 'Rat vui duoc lam viec cung ban',
