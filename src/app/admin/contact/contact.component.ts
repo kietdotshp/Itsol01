@@ -24,7 +24,7 @@ export class ContactComponent implements OnInit {
       numberStaff: 50,
       linkWeb: 'https://itsol.vn/',
       description: 'Rat vui duoc lam viec cung ban',
-      backdropImg: 'xxxxxx'
+      backdropImg: 'xxxxxx09012312321'
     }
   ];
   noAvatar: string = '../../../assets/imags/default-avatar.png';
