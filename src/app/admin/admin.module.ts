@@ -12,6 +12,7 @@ import { ProfileDetailComponent } from './profile/profile-detail/profile-detail.
 import { EditCompanyComponent } from './contact/edit-company/edit-company.component';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog'
+import {MatTableModule} from '@angular/material/table';
 
 const routes: Routes = [
   {
@@ -54,7 +55,7 @@ const routes: Routes = [
     EditCompanyComponent,
     ModalEditComponent
   ],
-  imports: [CommonModule, RouterModule.forChild(routes), FormsModule, MatDialogModule],
+  imports: [CommonModule, RouterModule.forChild(routes), FormsModule, MatDialogModule, MatTableModule],
   exports: [RouterModule],
 })
 export class AdminModule { }
