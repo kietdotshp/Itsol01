@@ -1,25 +1,39 @@
-<div class="main-panel px-4">
+<div class="main-panel">
   <main class="flex-1">
-    <div class="container">
+    <div class="h--30 w-100 mb-5 position-relative">
+      <img
+        class="img-cover"
+        src="https://img.freepik.com/free-photo/3d-rendering-perspective-cement-concrete-backdrop-plaster-stucco-texture-surface_163855-5.jpg?size=626&ext=jpg"
+        alt=""
+      />
+      <div *ngFor="let item of company" class="w--36 h--36">
+        <img
+          src="{{ item.avatar ? item.avatar : noAvatar }}"
+          alt="image"
+          class="img-cover rounded-circle"
+        />
+      </div>
+    </div>
+    <div class="container px-4">
       <div class="row">
-        <div class="col-12 mt-3 mb-3">
-          <div class="image-item flex-center mb-4">
-            <div *ngFor="let item of company" class="w--36 h--36">
-              <img
-                src="{{ item.avatar ? item.avatar : noAvatar }}"
-                alt="image"
-                class="img-cover rounded-circle"
-              />
-            </div>
-          </div>
-        </div>
         <div class="mb-5">
           <div class="row">
             <div class="col-12 col-xl-6 mb-3">
               <div class="item d-flex align-items-center mb-3">
                 <label class="w--40 pr-3 mb-0">Name</label>
                 <div *ngFor="let item of company" class="flex-1">
-                  <input disabled class="minh--9 form-control bg-white cursor-default text-dark" type="text" [(ngModel)]="item.name">
+                  <input
+                    disabled
+                    class="
+                      minh--9
+                      form-control
+                      bg-white
+                      cursor-default
+                      text-dark
+                    "
+                    type="text"
+                    [(ngModel)]="item.name"
+                  />
                 </div>
               </div>
             </div>
@@ -29,7 +43,18 @@
               <div class="item d-flex align-items-center mb-3">
                 <label class="w--40 pr-3 mb-0">Email</label>
                 <div *ngFor="let item of company" class="flex-1">
-                  <input disabled class="minh--9 form-control bg-white cursor-default text-dark" type="text" [(ngModel)]="item.email">
+                  <input
+                    disabled
+                    class="
+                      minh--9
+                      form-control
+                      bg-white
+                      cursor-default
+                      text-dark
+                    "
+                    type="text"
+                    [(ngModel)]="item.email"
+                  />
                 </div>
               </div>
             </div>
@@ -39,7 +64,18 @@
               <div class="item d-flex align-items-center mb-3">
                 <label class="w--40 pr-3 mb-0">HotLine</label>
                 <div *ngFor="let item of company" class="flex-1">
-                  <input disabled class="minh--9 form-control bg-white cursor-default text-dark" type="text" [(ngModel)]="item.hotLine">
+                  <input
+                    disabled
+                    class="
+                      minh--9
+                      form-control
+                      bg-white
+                      cursor-default
+                      text-dark
+                    "
+                    type="text"
+                    [(ngModel)]="item.hotLine"
+                  />
                 </div>
               </div>
             </div>
@@ -47,11 +83,20 @@
             <!-- dateIncorporation -->
             <div class="col-12 col-xl-6 mb-3">
               <div class="item d-flex align-items-center mb-3">
-                <label class="w--40 pr-3 mb-0"
-                  >dateIncorporation</label
-                >
+                <label class="w--40 pr-3 mb-0">dateIncorporation</label>
                 <div *ngFor="let item of company" class="flex-1">
-                  <input disabled class="minh--9 form-control bg-white cursor-default text-dark" type="text" [(ngModel)]="item.dateIncorporation">
+                  <input
+                    disabled
+                    class="
+                      minh--9
+                      form-control
+                      bg-white
+                      cursor-default
+                      text-dark
+                    "
+                    type="text"
+                    [(ngModel)]="item.dateIncorporation"
+                  />
                 </div>
               </div>
             </div>
@@ -61,7 +106,18 @@
               <div class="item d-flex align-items-center mb-3">
                 <label class="w--40 pr-3 mb-0">taxCode</label>
                 <div *ngFor="let item of company" class="flex-1">
-                  <input disabled class="minh--9 form-control bg-white cursor-default text-dark" type="text" [(ngModel)]="item.taxCode">
+                  <input
+                    disabled
+                    class="
+                      minh--9
+                      form-control
+                      bg-white
+                      cursor-default
+                      text-dark
+                    "
+                    type="text"
+                    [(ngModel)]="item.taxCode"
+                  />
                 </div>
               </div>
             </div>
@@ -71,7 +127,18 @@
               <div class="item d-flex align-items-center mb-3">
                 <label class="w--40 pr-3 mb-0">taxDate</label>
                 <div *ngFor="let item of company" class="flex-1">
-                  <input disabled class="minh--9 form-control bg-white cursor-default text-dark" type="text" [(ngModel)]="item.taxDate">
+                  <input
+                    disabled
+                    class="
+                      minh--9
+                      form-control
+                      bg-white
+                      cursor-default
+                      text-dark
+                    "
+                    type="text"
+                    [(ngModel)]="item.taxDate"
+                  />
                 </div>
               </div>
             </div>
@@ -81,7 +148,18 @@
               <div class="item d-flex align-items-center mb-3">
                 <label class="w--40 pr-3 mb-0">taxPlace</label>
                 <div *ngFor="let item of company" class="flex-1">
-                  <input disabled class="minh--9 form-control bg-white cursor-default text-dark" type="text" [(ngModel)]="item.taxPlace">
+                  <input
+                    disabled
+                    class="
+                      minh--9
+                      form-control
+                      bg-white
+                      cursor-default
+                      text-dark
+                    "
+                    type="text"
+                    [(ngModel)]="item.taxPlace"
+                  />
                 </div>
               </div>
             </div>
@@ -91,7 +169,18 @@
               <div class="item d-flex align-items-center mb-3">
                 <label class="w--40 pr-3 mb-0">headOffice</label>
                 <div *ngFor="let item of company" class="flex-1">
-                  <input disabled class="minh--9 form-control bg-white cursor-default text-dark" type="text" [(ngModel)]="item.headOffice">
+                  <input
+                    disabled
+                    class="
+                      minh--9
+                      form-control
+                      bg-white
+                      cursor-default
+                      text-dark
+                    "
+                    type="text"
+                    [(ngModel)]="item.headOffice"
+                  />
                 </div>
               </div>
             </div>
@@ -101,7 +190,18 @@
               <div class="item d-flex align-items-center mb-3">
                 <label class="w--40 pr-3 mb-0">numberStaff</label>
                 <div *ngFor="let item of company" class="flex-1">
-                  <input disabled class="minh--9 form-control bg-white cursor-default text-dark" type="text" [(ngModel)]="item.numberStaff">
+                  <input
+                    disabled
+                    class="
+                      minh--9
+                      form-control
+                      bg-white
+                      cursor-default
+                      text-dark
+                    "
+                    type="text"
+                    [(ngModel)]="item.numberStaff"
+                  />
                 </div>
               </div>
             </div>
@@ -111,7 +211,18 @@
               <div class="item d-flex align-items-center mb-3">
                 <label class="w--40 pr-3 mb-0">linkWeb</label>
                 <div *ngFor="let item of company" class="flex-1">
-                  <input disabled class="minh--9 form-control bg-white cursor-default text-dark" type="text" [(ngModel)]="item.linkWeb">
+                  <input
+                    disabled
+                    class="
+                      minh--9
+                      form-control
+                      bg-white
+                      cursor-default
+                      text-dark
+                    "
+                    type="text"
+                    [(ngModel)]="item.linkWeb"
+                  />
                 </div>
               </div>
             </div>
@@ -121,7 +232,18 @@
               <div class="item d-flex align-items-center mb-3">
                 <label class="w--40 pr-3 mb-0">description</label>
                 <div *ngFor="let item of company" class="flex-1">
-                  <input disabled class="minh--9 form-control bg-white cursor-default text-dark" type="text" [(ngModel)]="item.description">
+                  <input
+                    disabled
+                    class="
+                      minh--9
+                      form-control
+                      bg-white
+                      cursor-default
+                      text-dark
+                    "
+                    type="text"
+                    [(ngModel)]="item.description"
+                  />
                 </div>
               </div>
             </div>
@@ -131,16 +253,29 @@
               <div class="item d-flex align-items-center mb-3">
                 <label class="w--40 pr-3 mb-0">backdropImg</label>
                 <div *ngFor="let item of company" class="flex-1">
-                  <input disabled class="minh--9 form-control bg-white cursor-default text-dark" type="text" [(ngModel)]="item.backdropImg">
+                  <input
+                    disabled
+                    class="
+                      minh--9
+                      form-control
+                      bg-white
+                      cursor-default
+                      text-dark
+                    "
+                    type="text"
+                    [(ngModel)]="item.backdropImg"
+                  />
                 </div>
               </div>
             </div>
-            </div>
+          </div>
 
           <div class="col-12">
             <div class="item">
               <div class="d-flex justify-content-end">
-                <button (click)="openModalEdit()" class="btn btn-primary">Chỉnh sửa</button>
+                <button (click)="openModalEdit()" class="btn btn-primary">
+                  Chỉnh sửa
+                </button>
               </div>
             </div>
           </div>

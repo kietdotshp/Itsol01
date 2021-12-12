@@ -127,3 +127,7 @@ body {
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
+
+.h--30 {
+  height: 120px;
+}
