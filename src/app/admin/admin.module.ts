@@ -1,3 +1,4 @@
+import { ModalEditComponent } from 'src/app/modal/modal-edit/modal-edit.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
@@ -10,6 +11,7 @@ import { AdminComponent } from './admin.component';
 import { ProfileDetailComponent } from './profile/profile-detail/profile-detail.component';
 import { EditCompanyComponent } from './contact/edit-company/edit-company.component';
 import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog'
 
 const routes: Routes = [
   {
@@ -50,8 +52,9 @@ const routes: Routes = [
     RecruitmentComponent,
     ProfileDetailComponent,
     EditCompanyComponent,
+    ModalEditComponent
   ],
-  imports: [CommonModule, RouterModule.forChild(routes), FormsModule],
+  imports: [CommonModule, RouterModule.forChild(routes), FormsModule, MatDialogModule],
   exports: [RouterModule],
 })
-export class AdminModule {}
+export class AdminModule { }
