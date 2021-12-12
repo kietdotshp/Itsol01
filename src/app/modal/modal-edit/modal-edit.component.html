@@ -1,0 +1,165 @@
+<mat-dialog-content class="mat-typography">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mt-3 mb-3">
+        <div class="image-item flex-center mb-4">
+          <div class="w--36 h--36">
+            <img src="{{ contact.avatar ? contact.avatar : noAvatar }}"
+              alt="image" class="img-cover rounded-circle" />
+          </div>
+        </div>
+        <div class="flex-center mb-4">
+          <input type="file" id="upload-avatar" class="h-0 w-0 overflow-hidden"
+            accept="*" (click)="resetValue($event)"
+            (change)="onAvatarChange($event)" />
+          <label for="upload-avatar"
+            class="btn btn-primary position-relative cursor-pointer mb-0">Tải ảnh
+            lên</label>
+        </div>
+      </div>
+      <div class="mb-5">
+        <div class="row">
+          <div class="col-12 col-xl-6 mb-3">
+            <div class="item d-flex align-items-center mb-3">
+              <label class="w--40 pr-3 mb-0" for="name">Name</label>
+              <div class="flex-1">
+                <input [(ngModel)]="contact.name"
+                  class="minh--9 form-control shadow-none" type="text">
+              </div>
+            </div>
+          </div>
+  
+          <!-- Email -->
+          <div class="col-12 col-xl-6 mb-3">
+            <div class="item d-flex align-items-center mb-3">
+              <label class="w--40 pr-3 mb-0" for="name">Email</label>
+              <div class="flex-1">
+                <input [(ngModel)]="contact.email"
+                  class="minh--9 form-control shadow-none" type="text">
+              </div>
+            </div>
+          </div>
+  
+          <!-- HotLine -->
+          <div class="col-12 col-xl-6 mb-3">
+            <div class="item d-flex align-items-center mb-3">
+              <label class="w--40 pr-3 mb-0" for="name">HotLine</label>
+              <div class="flex-1">
+                <input [(ngModel)]="contact.hotLine"
+                  class="minh--9 form-control shadow-none" type="text">
+              </div>
+            </div>
+          </div>
+  
+          <!-- dateIncorporation -->
+          <div class="col-12 col-xl-6 mb-3">
+            <div class="item d-flex align-items-center mb-3">
+              <label class="w--40 pr-3 mb-0" for="name">dateIncorporation</label>
+              <div class="flex-1">
+                <input [(ngModel)]="contact.dateIncorporation"
+                  class="minh--9 form-control shadow-none" type="text">
+              </div>
+            </div>
+          </div>
+  
+          <!-- taxCode -->
+          <div class="col-12 col-xl-6 mb-3">
+            <div class="item d-flex align-items-center mb-3">
+              <label class="w--40 pr-3 mb-0" for="name">taxCode</label>
+              <div class="flex-1">
+                <input [(ngModel)]="contact.taxCode"
+                  class="minh--9 form-control shadow-none" type="text">
+              </div>
+            </div>
+          </div>
+  
+          <!--taxDate -->
+          <div class="col-12 col-xl-6 mb-3">
+            <div class="item d-flex align-items-center mb-3">
+              <label class="w--40 pr-3 mb-0" for="name">taxDate</label>
+              <div class="flex-1">
+                <input [(ngModel)]="contact.taxDate"
+                  class="minh--9 form-control shadow-none" type="text">
+              </div>
+            </div>
+          </div>
+  
+          <!-- taxPlace -->
+          <div class="col-12 col-xl-6 mb-3">
+            <div class="item d-flex align-items-center mb-3">
+              <label class="w--40 pr-3 mb-0" for="name">taxPlace</label>
+              <div class="flex-1">
+                <input [(ngModel)]="contact.taxPlace"
+                  class="minh--9 form-control shadow-none" type="text">
+              </div>
+            </div>
+          </div>
+  
+          <!-- headOffice -->
+          <div class="col-12 col-xl-6 mb-3">
+            <div class="item d-flex align-items-center mb-3">
+              <label class="w--40 pr-3 mb-0" for="name">headOffice</label>
+              <div class="flex-1">
+                <input [(ngModel)]="contact.headOffice"
+                  class="minh--9 form-control shadow-none" type="text">
+              </div>
+            </div>
+          </div>
+  
+          <!-- numberStaff -->
+          <div class="col-12 col-xl-6 mb-3">
+            <div class="item d-flex align-items-center mb-3">
+              <label class="w--40 pr-3 mb-0" for="name">numberStaff</label>
+              <div class="flex-1">
+                <input [(ngModel)]="contact.numberStaff"
+                  class="minh--9 form-control shadow-none" type="text">
+              </div>
+            </div>
+          </div>
+  
+          <!-- linkWeb -->
+          <div class="col-12 col-xl-6 mb-3">
+            <div class="item d-flex align-items-center mb-3">
+              <label class="w--40 pr-3 mb-0" for="name">linkWeb</label>
+              <div class="flex-1">
+                <input [(ngModel)]="contact.linkWeb"
+                  class="minh--9 form-control shadow-none" type="text">
+              </div>
+            </div>
+          </div>
+  
+          <!-- description -->
+          <div class="col-12 col-xl-6 mb-3">
+            <div class="item d-flex align-items-center mb-3">
+              <label class="w--40 pr-3 mb-0" for="name">description</label>
+              <div class="flex-1">
+                <input [(ngModel)]="contact.description"
+                  class="minh--9 form-control shadow-none" type="text">
+              </div>
+            </div>
+          </div>
+  
+          <!-- backdropImg -->
+          <div class="col-12 col-xl-6 mb-3">
+            <div class="item d-flex align-items-center mb-3">
+              <label class="w--40 pr-3 mb-0" for="name">backdropImg</label>
+              <div class="flex-1">
+                <input [(ngModel)]="contact.backdropImg"
+                  class="minh--9 form-control shadow-none" type="text">
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-12">
+          <div class="item">
+            <div class="d-flex justify-content-end">
+              <button (click)="updateData()" class="btn btn-primary">Lưu thông
+                tin</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

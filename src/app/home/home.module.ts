@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListJobComponent } from './list-job/list-job.component';
 import { DetailJobComponent } from './list-job/detail-job/detail-job.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,8 @@ const routes: Routes = [
     HomeComponent,
     ListJobComponent,
     DetailJobComponent,
-    HomePageComponent
+    HomePageComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

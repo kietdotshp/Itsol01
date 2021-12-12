@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Company } from 'src/app/model/company';
 import { CompanyService } from 'src/app/services/company.service';
+import { MatDialog } from '@angular/material/dialog'
+import { ModalEditComponent } from 'src/app/modal/modal-edit/modal-edit.component';
 
 @Component({
   selector: 'app-contact',
@@ -8,33 +10,40 @@ import { CompanyService } from 'src/app/services/company.service';
   styleUrls: ['./contact.component.css'],
 })
 export class ContactComponent implements OnInit {
-  comapny: Company[] = [];
-  avatarUrl: string = '../../../assets/imags/default-avatar.png';
-  //  noAvatar: string = require('../../../assets/imags/default-avatar.png');
-  constructor(private companyService: CompanyService) {}
+  company: Company[] = [
+    {
+      avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXQKxnlgxsOyKQ-bimseQCyJ5w_2TxbRwG1Q&usqp=CAU',
+      name: 'Cong ty X',
+      email: 'xxxxx@gmail.com',
+      hotLine: '0123456789',
+      dateIncorporation: '20/11/2010',
+      taxCode: '000000',
+      taxDate: '20/11/2010',
+      taxPlace: 'Ha Noi',
+      headOffice: 'Duy Tan, Cau Giay, Ha Noi',
+      numberStaff: 50,
+      linkWeb: 'https://itsol.vn/',
+      description: 'Rat vui duoc lam viec cung ban',
+      backdropImg: 'xxxxxx'
+    }
+  ];
+  noAvatar: string = '../../../assets/imags/default-avatar.png';
+  constructor(private companyService: CompanyService, public matDialog: MatDialog) { }
   // data:any
 
   ngOnInit(): void {
     this.companyService.getAll().subscribe((data: Company[]) => {
-      this.comapny = data;
+      this.company = data;
     });
   }
 
-  onAvatarChange(event: any): void {
-    const files = event.target.files || event.dataTransfer.files;
-    let file = files[0];
-    let reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = (e: any) => {
-      let image = new Image();
-      image.onload = () => {
-        this.avatarUrl = image.src;
-      };
-      image.src = e.target.result;
-    };
-  }
+  openModalEdit() {
+    let dialogRef = this.matDialog.open(ModalEditComponent, {
+      data: this.company[0],
+    })
 
-  resetValue(event: any): void {
-    event.target.value = null
+    dialogRef.afterClosed().subscribe(response => {
+      console.log(response.data)
+    })
   }
 }
