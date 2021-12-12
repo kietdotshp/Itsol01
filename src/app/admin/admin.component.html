@@ -1,137 +1,68 @@
-<!--
-<div><h1>Đây là ADMIN</h1></div>
-<header></header>
-<nav>
-  <div id="menu">
-    <ul>
-      <li><a routerLink="./admin-home">Admin Home</a></li>
-      <li><a routerLink="admin-list">Admin List</a></li>
-      <li><a routerLink="profile">profile</a></li>
-      <li><a routerLink="recruitment">recruitment</a></li>
-      <li><a routerLink="contact">contact</a></li>
-    </ul>
-  </div>
-</nav>
-
-<footer></footer> -->
-<div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
-  <!--
-Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
-
-Tip 2: you can also add an image using data-image tag
--->
-  <div class="sidebar-wrapper">
-    <div class="logo">
-      <a routerLink="" class="simple-text"> ITSOL </a>
-    </div>
-    <ul class="nav">
-      <li *ngFor=" let menu of menus" class="nav-item cursor-pointer" [ngClass]="router.url === menu.path ? 'active' : ''">
-        <div (click)="gotoPage(menu)" class="nav-link">
-          <i [ngClass]="menu.icon"></i>
-          <p>{{menu.name}}</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div>
-<!-- <nav class="navbar navbar-expand-lg " color-on-scroll="500">
-  <div class="container-fluid">
-      <a class="navbar-brand" href="#pablo"> Dashboard </a>
-      <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-bar burger-lines"></span>
-          <span class="navbar-toggler-bar burger-lines"></span>
-          <span class="navbar-toggler-bar burger-lines"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navigation">
-          <ul class="nav navbar-nav mr-auto">
-              <li class="nav-item">
-                  <a href="#" class="nav-link" data-toggle="dropdown">
-                      <i class="nc-icon nc-palette"></i>
-                      <span class="d-lg-none">Dashboard</span>
-                  </a>
-              </li>
-              <li class="dropdown nav-item">
-                  <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                      <i class="nc-icon nc-planet"></i>
-                      <span class="notification">5</span>
-                      <span class="d-lg-none">Notification</span>
-                  </a>
-                  <ul class="dropdown-menu">
-                      <a class="dropdown-item" href="#">Notification 1</a>
-                      <a class="dropdown-item" href="#">Notification 2</a>
-                      <a class="dropdown-item" href="#">Notification 3</a>
-                      <a class="dropdown-item" href="#">Notification 4</a>
-                      <a class="dropdown-item" href="#">Another notification</a>
-                  </ul>
-              </li>
-              <li class="nav-item">
-                  <a href="#" class="nav-link">
-                      <i class="nc-icon nc-zoom-split"></i>
-                      <span class="d-lg-block">&nbsp;Search</span>
-                  </a>
-              </li>
-          </ul>
-          <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                  <a class="nav-link" href="#pablo">
-                      <span class="no-icon">Account</span>
-                  </a>
-              </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span class="no-icon">Dropdown</span>
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                      <div class="divider"></div>
-                      <a class="dropdown-item" href="#">Separated link</a>
-                  </div>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#pablo">
-                      <span class="no-icon">Log out</span>
-                  </a>
-              </li>
-          </ul>
+<div class="main-page">
+  <!-- Header -->
+  <header class="h--15 bg-light">
+    <nav class="nav flex-center h-100">
+      <div id="menu">
+        <ul class="flex-center list-unstyled mb-0">
+          <li *ngFor="let menu of menus" class="flex-center cursor-pointer p-2">
+            <p class="mb-0">{{ menu.name }}</p>
+          </li>
+        </ul>
       </div>
-  </div>
-</nav> -->
-<!-- <footer class="footer">
-  <div class="container-fluid">
-      <nav>
-          <ul class="footer-menu">
-              <li>
-                  <a href="#">
-                      Home
-                  </a>
-              </li>
-              <li>
-                  <a href="#">
-                      Company
-                  </a>
-              </li>
-              <li>
-                  <a href="#">
-                      Portfolio
-                  </a>
-              </li>
-              <li>
-                  <a href="#">
-                      Blog
-                  </a>
-              </li>
-          </ul>
-          <p class="copyright text-center">
-              ©
-              <script>
-                  document.write(new Date().getFullYear())
-              </script>
-              <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-          </p>
-      </nav>
-  </div>
-</footer> -->
-<router-outlet></router-outlet>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-1 d-flex main-contentt">
+    <!-- SideBar -->
+    <div
+      [ngClass]="showSidebar ? 'w--60' : 'w--12'"
+      class="w-60 flex-fixed bg-dark-shade slide-in-sidebar"
+    >
+      <ul class="list-unstyled mb-0 fs-14 cursor-pointer">
+        <li
+          *ngFor="let menu of menus"
+          class="
+            d-flex
+            align-items-center
+            p-3
+            text-white
+            cursor-pointer
+            sidebar-item
+            overflow-hidden
+            text-nowrap
+          "
+          [ngClass]="router.url === menu.path ? 'sidebar-active' : ''"
+          (click)="gotoPage(menu)"
+        >
+          <i [ngClass]="menu.icon" class="text-white fwb mr-4"></i>
+          <span class="word-break text-dark"> {{ menu.name }} </span>
+        </li>
+        <li
+          class="
+            d-flex
+            align-items-center
+            p-3
+            text-white
+            cursor-pointer
+            sidebar-item
+            overflow-hidden
+            text-nowrap
+          "
+          (click)="toggleSidebar()"
+        >
+          <i class="nc-icon nc-chart-pie-35 text-white fwb mr-4"></i>
+          <span class="word-break text-dark"> Close </span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Content of the page -->
+    <div class="flex-1">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>
+
+<!-- Footer -->
+<footer class="footer fixed-bottom bg-light p-5">footer</footer>
