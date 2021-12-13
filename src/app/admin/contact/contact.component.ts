@@ -12,28 +12,29 @@ import { ModalEditComponent } from 'src/app/modal/modal-edit/modal-edit.componen
 })
 export class ContactComponent implements OnInit {
   company: Company[] = [
-    {
-      avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXQKxnlgxsOyKQ-bimseQCyJ5w_2TxbRwG1Q&usqp=CAU',
-      name: 'Cong ty X',
-      email: 'xxxxx@gmail.com',
-      hotLine: '0123456789',
-      dateIncorporation: '20/11/2010',
-      taxCode: '000000',
-      taxDate: '20/11/2010',
-      taxPlace: 'Ha Noi',
-      headOffice: 'Duy Tan',
-      numberStaff: 50,
-      linkWeb: 'https://itsol.vn/',
-      description: 'Rat vui duoc lam viec cung ban',
-      backdropImg: 'xxxxxx12345'
-    }
-  ];
+  //  {
+  //     avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXQKxnlgxsOyKQ-bimseQCyJ5w_2TxbRwG1Q&usqp=CAU',
+  //     name: 'Cong ty X',
+  //     email: 'xxxxx@gmail.com',
+  //     hotLine: '0123456789',
+  //     dateIncorporation: '20/11/2010',
+  //     taxCode: '000000',
+  //     taxDate: '20/11/2010',
+  //     taxPlace: 'Ha Noi',
+  //     headOffice: 'Duy Tan',
+  //     numberStaff: 50,
+  //     linkWeb: 'https://itsol.vn/',
+  //     description: 'Rat vui duoc lam viec cung ban',
+  //     backdropImg: 'xxxxxx12345'
+  //   }
+];
   noAvatar: string = '../../../assets/imags/default-avatar.png';
   constructor(private companyService: CompanyService, public matDialog: MatDialog) { }
   // data:any
 
   ngOnInit(): void {
     this.companyService.getAll().subscribe((data: Company[]) => {
+      console.log(data);
       this.company = data;
     });
   }

@@ -29,6 +29,7 @@ export class ProfileComponent implements OnInit,AfterViewInit  {
   // dataSource: JobRegister[] = [];
   dataSource = Object.create(null)
   ngOnInit(): void {
+
     // this.loaddata();
     this.JobRegisterService.getAllJobregister().subscribe(data => {
       debugger;
@@ -37,6 +38,7 @@ export class ProfileComponent implements OnInit,AfterViewInit  {
       console.log(this.dataSource);
 
     })
+
   }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
