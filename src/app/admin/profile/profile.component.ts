@@ -45,13 +45,6 @@ export class ProfileComponent implements OnInit {
   dataSource: JobRegister[] = [];
 
   ngOnInit(): void {
-    // this.loaddata();
-    this.JobRegisterService.getAllJobregister().subscribe(data => {
-      debugger;
-      this.dataSource = data;
-      console.log(this.dataSource);
-
-    })
   }
 
 }

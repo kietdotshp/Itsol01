@@ -11,7 +11,7 @@ import { ModalEditComponent } from 'src/app/modal/modal-edit/modal-edit.componen
   styleUrls: ['./contact.component.css'],
 })
 export class ContactComponent implements OnInit {
-  company: Company[] = [];
+  company: Company[] = [
   //  {
   //     avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXQKxnlgxsOyKQ-bimseQCyJ5w_2TxbRwG1Q&usqp=CAU',
   //     name: 'Cong ty X',
@@ -27,7 +27,7 @@ export class ContactComponent implements OnInit {
   //     description: 'Rat vui duoc lam viec cung ban',
   //     backdropImg: 'xxxxxx12345'
   //   }
-
+];
   noAvatar: string = '../../../assets/imags/default-avatar.png';
   constructor(private companyService: CompanyService, public matDialog: MatDialog) { }
   // data:any
