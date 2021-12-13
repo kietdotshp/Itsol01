@@ -9,10 +9,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { ProfileDetailComponent } from './profile/profile-detail/profile-detail.component';
-import { EditCompanyComponent } from './contact/edit-company/edit-company.component';
 import { FormsModule } from '@angular/forms';
-import { MatDialogModule } from '@angular/material/dialog'
-import {MatTableModule} from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 const routes: Routes = [
   {
@@ -52,10 +53,17 @@ const routes: Routes = [
     AdminComponent,
     RecruitmentComponent,
     ProfileDetailComponent,
-    EditCompanyComponent,
-    ModalEditComponent
+    ModalEditComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild(routes), FormsModule, MatDialogModule, MatTableModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    FormsModule,
+    MatDialogModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule
+  ],
   exports: [RouterModule],
 })
-export class AdminModule { }
+export class AdminModule {}
