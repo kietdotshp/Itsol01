@@ -1,71 +1,38 @@
-<div class="container" >
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
-          <ng-container matColumnDef="user">
-            <th mat-header-cell *matHeaderCellDef>user</th>
-            <td mat-cell *matCellDef="let element">{{element.user.fullName}}</td>
-          </ng-container>
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
 
-          <ng-container matColumnDef="vacancies">
-            <th mat-header-cell *matHeaderCellDef>vacancies</th>
-            <td mat-cell *matCellDef="let element">{{element.vacancies}}</td>
-          </ng-container>
+      <ng-container matColumnDef="user">
+        <th mat-header-cell *matHeaderCellDef>User Name</th>
+        <td mat-cell *matCellDef="let element">{{element.user.fullName}}</td>
+      </ng-container>
 
-          <ng-container matColumnDef="applicationTime">
-            <th mat-header-cell *matHeaderCellDef>applicationTime</th>
-            <td mat-cell *matCellDef="let element">{{element.applicationTime}}</td>
-          </ng-container>
+      <ng-container matColumnDef="vacancies">
+        <th mat-header-cell *matHeaderCellDef>Vacancies</th>
+        <td mat-cell *matCellDef="let element">{{element.vacancies}}</td>
+      </ng-container>
 
-          <ng-container matColumnDef="status">
-            <th mat-header-cell *matHeaderCellDef>status</th>
-            <td mat-cell *matCellDef="let element">{{element.status}}</td>
-          </ng-container>
+      <ng-container matColumnDef="applicationTime">
+        <th mat-header-cell *matHeaderCellDef>Application Time</th>
+        <td mat-cell *matCellDef="let element">{{element.applicationTime}}</td>
+      </ng-container>
 
-          <ng-container matColumnDef="cvFile">
-            <th mat-header-cell *matHeaderCellDef>cvFile</th>
-            <td mat-cell *matCellDef="let element">{{element.cvFile}}</td>
-          </ng-container>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let element">{{element.status}}</td>
+      </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr
-              mat-row
-              *matRowDef="let row; columns: displayedColumns;"
-          ></tr>
-        </table>
+      <ng-container matColumnDef="cvFile">
+        <th mat-header-cell *matHeaderCellDef>Cv File</th>
+        <td  mat-cell *matCellDef="let element" routerLink="">{{element.cvFile}}</td>
+      </ng-container>
 
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements">
+    </mat-paginator>
   </div>
 
-  <footer class="footer">
-      <div class="container-fluid">
-          <nav>
-              <ul class="footer-menu">
-                  <li>
-                      <a href="#">
-                          Home
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#">
-                          Company
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#">
-                          Portfolio
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#">
-                          Blog
-                      </a>
-                  </li>
-              </ul>
-              <p class="copyright text-center">
-                  ©
-                  <script>
-                      document.write(new Date().getFullYear())
-                  </script>
-                  <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-              </p>
-          </nav>
-      </div>
-  </footer>
+
