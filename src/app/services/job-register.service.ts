@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { JobRegister } from '../model/job-register';
 import { ResponseData } from '../model/response-data';
 
 @Injectable({
@@ -11,14 +10,23 @@ import { ResponseData } from '../model/response-data';
 export class JobRegisterService {
 
  constructor(private http: HttpClient) { }
- private API_URL = 'http://localhost:8001/api/jobsRegister/getAll'
+ private API_URL_GetAll = 'http://localhost:8001/api/jobsRegister/getAll'
+ private API_URL_GetById = 'http://localhost:8001/api/jobsRegister/getById'
 
- public getAllJobregister(): Observable<ResponseData>{
-   return this.http.get<ResponseData>(`${this.API_URL}`, {
+ public getAllJobregister(pageN: number, pageS: number): Observable<ResponseData>{
+   return this.http.get<ResponseData>(`${this.API_URL_GetAll}`, {
     params: {
-      pageNumber: 0,
-      pageSize: 2
+      pageNumber: pageN,
+      pageSize: pageS
     }
    });
  }
+
+ public getJobregisterById(IdN: number): Observable<ResponseData>{
+  return this.http.get<ResponseData>(`${this.API_URL_GetById}`, {
+   params: {
+    IdNumber: IdN
+   }
+  });
+}
 }
