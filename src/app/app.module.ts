@@ -11,6 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Router, Routes } from '@angular/router';
 import { MessageComponent } from './authen/message/message.component';
 import { LoginComponent } from './authen/login/login.component';
 import { AuthenComponent } from './authen/authen.component';
@@ -62,4 +63,11 @@ import { EmployeeAddComponent } from './authen/employee-add/employee-add.compone
   ],
   bootstrap: [AppComponent]
 })
+
+// const routes: Routes=[
+//   { path: 'phones', component: ItemsListComponent },
+//   { path: 'phones/:id/edit', component: ItemFormComponent },
+//   { path: 'phones/new', component: ItemFormComponent },
+//   { path: 'cart', component: CartComponent }
+// ]
 export class AppModule { }

@@ -6,14 +6,18 @@ import { ListJobComponent } from './list-job/list-job.component';
 import { DetailJobComponent } from './list-job/detail-job/detail-job.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatTableModule } from '@angular/material/table';
+import { TableModule } from 'primeng/table';
+import { PopupComponent } from './list-job/detail-job/popup/popup.component';
 import { InfomationUserComponent } from './infomation-user/infomation-user.component';
 import { EditInformationComponent } from './edit-information/edit-information.component';
 
 const routes: Routes = [
   {
 
-   path: '',
-   component: HomeComponent,
+    path: '',
+    component: HomeComponent,
     children: [
       {
         path: '',
@@ -21,7 +25,15 @@ const routes: Routes = [
       },
       {
         path: 'list-job',
-        component:ListJobComponent,
+        component: ListJobComponent,
+      },
+      {
+        path:'detail-job',
+        component:DetailJobComponent,
+      },
+      {
+        path:'popup',
+        component:PopupComponent,
       },
       {
         path: 'infomation/:id',
@@ -33,7 +45,7 @@ const routes: Routes = [
       }
     ]
   }
- ];
+];
 
 @NgModule({
   declarations: [
@@ -42,12 +54,16 @@ const routes: Routes = [
     DetailJobComponent,
     HomePageComponent,
     ProfileComponent,
+    PopupComponent,
     InfomationUserComponent,
     EditInformationComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    MatSliderModule,
+    MatTableModule,
+    TableModule
   ]
 })
 export class HomeModule { }
