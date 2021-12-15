@@ -15,6 +15,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { RecruitmentDetailComponent } from './recruitment/recruitment-detail/recruitment-detail.component';
+
 
 const routes: Routes = [
   {
@@ -41,6 +44,14 @@ const routes: Routes = [
         path: 'recruitment',
         component: RecruitmentComponent,
       },
+      {
+        path: 'profile-detail',
+        component: ProfileDetailComponent,
+      },
+      {
+        path: 'recruitment-detail',
+        component: RecruitmentDetailComponent,
+      }
     ],
   },
 ];
@@ -55,6 +66,7 @@ const routes: Routes = [
     RecruitmentComponent,
     ProfileDetailComponent,
     ModalEditComponent,
+    RecruitmentDetailComponent,
   ],
   imports: [
     CommonModule,
@@ -64,7 +76,8 @@ const routes: Routes = [
     MatTableModule,
     MatPaginatorModule,
     MatFormFieldModule,
-    PaginationModule
+    PaginationModule,
+    Ng2SearchPipeModule
   ],
   exports: [RouterModule],
 })

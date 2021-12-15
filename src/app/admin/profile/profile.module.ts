@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './profile.component';
 import { ProfileDetailComponent } from './profile-detail/profile-detail.component';
+import { RecruitmentComponent } from '../recruitment/recruitment.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,10 @@ const routes: Routes = [
         path: 'profileDetail',
         component: ProfileDetailComponent,
       },
-
+      {
+        path: 'recruitmentDetail',
+        component: RecruitmentComponent,
+      }
     ],
   },
 ];
@@ -23,6 +27,6 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
-  ]
+  ],
 })
 export class ProfileModule { }
