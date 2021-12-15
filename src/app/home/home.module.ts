@@ -10,6 +10,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material/table';
 import { TableModule } from 'primeng/table';
 import { PopupComponent } from './list-job/detail-job/popup/popup.component';
+import { InfomationUserComponent } from './infomation-user/infomation-user.component';
+import { EditInformationComponent } from './edit-information/edit-information.component';
 
 const routes: Routes = [
   {
@@ -32,8 +34,15 @@ const routes: Routes = [
       {
         path:'popup',
         component:PopupComponent,
+      },
+      {
+        path: 'infomation/:id',
+        component:InfomationUserComponent,
+      },
+      {
+        path:'editinfomation',
+        component:EditInformationComponent
       }
-
     ]
   }
 ];
@@ -45,7 +54,9 @@ const routes: Routes = [
     DetailJobComponent,
     HomePageComponent,
     ProfileComponent,
-    PopupComponent
+    PopupComponent,
+    InfomationUserComponent,
+    EditInformationComponent
   ],
   imports: [
     CommonModule,

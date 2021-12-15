@@ -1,0 +1,46 @@
+
+<section class="changePass">
+  <div class="container">
+    <div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
+      <form>
+        <img class="img-responsive" alt="logo" src="http://itsol.vn/wp-content/uploads/2019/11/logo_itsol.png" />
+        <div class="card-header">
+          <h3 class="text-center">Xác nhận OTP</h3>
+        </div>
+        <div class="form-gorup">
+          <input
+            type="text"
+            [(ngModel)]="otp.otpCode"
+            class="form-control"
+            name="otp"
+            id="otp"
+            aria-describedby="otpHid"
+            placeholder="otp"
+          />
+          <small id="otpHid" class="form-text text-muted">
+
+          </small>
+        </div>
+
+        <div class="form-gorup">
+          <input
+            type="text"
+            [(ngModel)]="otp.password"
+            class="form-control"
+            name="password"
+            id="password"
+            aria-describedby="passwordHid"
+            placeholder="new password"
+          />
+          <small id="passwordHid" class="form-text text-muted">
+
+          </small>
+        </div>
+
+        <label><a href="">Xác nhận OTP</a></label>
+        <button type="submit" class="btn btn-primary"  (click)="saveOtp()">Xác nhận otp</button>
+        <p>Have't Any Account <a href="">Create An Account</a></p>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,21 +1,6 @@
-.demo-table {
+table {
   width: 100%;
 }
-
-.mat-row .mat-cell {
-  border-bottom: 1px solid transparent;
-  border-top: 1px solid transparent;
-  cursor: pointer;
-}
-
-.mat-row:hover .mat-cell {
-  background-color: #f5f5f5;
-}
-
-.demo-row-is-clicked {
-  font-weight: bold;
-}
-
-.center-parent {
-  margin-right: 200px;
+.absolute{
+  position: fixed;
 }
