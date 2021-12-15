@@ -1,0 +1,185 @@
+<section id="userAdd">
+  <div class="container p-2">
+    <div class="row mt-2">
+      <div class="col-8 offset-2">
+        <!-- <app-message>
+        </app-message> -->
+        <hr />
+        <form [formGroup]="exform">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="text-center">Add new user</h3>
+            </div>
+            <div class="card-body">
+              <div class="form-group col-md-6">
+                <label for="name">Name</label>
+                <input
+                  formControlName="fullName"
+                  type="text"
+                  [(ngModel)]="employee.fullName"
+                  class="form-control"
+                  name="name"
+                  id="name"
+                  aria-describedby="helpid"
+                  placeholder="name"
+                />
+                <small
+                  *ngIf="f['fullName'].invalid && f['fullName'].touched"
+                  id="nameid"
+                  class="form-text text-muted"
+                >
+                  name is required
+                </small>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="email">Email</label>
+                <input
+                  formControlName="email"
+                  type="email"
+                  [(ngModel)]="employee.email"
+                  class="form-control"
+                  name="name"
+                  id="email"
+                  aria-describedby="emailHid"
+                  placeholder="Email"
+                />
+                <small
+                  *ngIf="f['email'].invalid && f['email'].touched"
+                  id="emailHid"
+                  class="form-text text-muted"
+                >
+                  Email is required
+                </small>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="userName">UserName</label>
+                <input
+                  formControlName="userName"
+                  type="userName"
+                  [(ngModel)]="employee.userName"
+                  class="form-control"
+                  name="userName"
+                  id="userName"
+                  aria-describedby="userNameHid"
+                  placeholder="userName"
+                />
+                <small
+                  *ngIf="f['userName'].errors?.['required']"
+                  id="userNameHid"
+                  class="form-text text-muted"
+                >
+                  UserName is required
+                </small>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="password">Password</label>
+                <input
+                  formControlName="password"
+                  type="password"
+                  [(ngModel)]="employee.password"
+                  class="form-control"
+                  name="password"
+                  id="password"
+                  aria-describedby="passwordHid"
+                  placeholder="Password"
+                />
+                <small
+                  *ngIf="f['password'].invalid && f['password'].touched"
+                  id="passwordHid"
+                  class="form-text text-muted">
+                  Password is required
+                </small>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="phone">Phone</label>
+                <input
+                  formControlName="phone"
+                  type="phone"
+                  [(ngModel)]="employee.phoneNumber"
+                  class="form-control"
+                  name="phone"
+                  id="phone"
+                  aria-describedby="phoneHid"
+                  placeholder="phone"
+                />
+                <small
+                  *ngIf="f['phone'].invalid && f['phone'].touched"
+                  id="phoneHid"
+                  class="form-text text-muted"
+                >
+                  Phone is required
+                </small>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="homeTown">HomeTown</label>
+                <input
+                  formControlName="homeTown"
+                  type="homeTown"
+                  [(ngModel)]="employee.homeTown"
+                  class="form-control"
+                  name="homeTown"
+                  id="homeTown"
+                  aria-describedby="homeTownHid"
+                  placeholder="homeTown"
+                />
+                <small
+                  *ngIf="f['homeTown'].invalid && f['homeTown'].touched"
+                  id="homeTownHid"
+                  class="form-text text-muted"
+                >
+                  HomeTown is required
+                </small>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="gender">Gender</label>
+                <input
+                  formControlName="gender"
+                  type="gender"
+                  [(ngModel)]="employee.gender"
+                  class="form-control"
+                  name="gender"
+                  id="gender"
+                  aria-describedby="genderHid"
+                  placeholder="gender"
+                />
+                <small
+                *ngIf="f['gender'].invalid && f['gender'].touched"
+                 id="genderHid" class="form-text text-muted">
+                  gender is required
+                </small>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="birthDay">BirthDay</label>
+                <input
+                  formControlName="birthDay"
+                  type="date"
+                  [(ngModel)]="employee.birthDay"
+                  class="form-control"
+                  name="birthDay"
+                  id="birthDay"
+                  aria-describedby="birthDayHid"
+                  placeholder="birthDay"
+                />
+                <small
+                *ngIf="f['birthDay'].invalid && f['birthDay'].touched"
+                id="birthDayHid" class="form-text text-muted">
+                  birthDay is required
+                </small>
+
+              </div>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                (click)="save()"
+              >
+                Đăng kí
+              </button>
+              <a href="#" routerLink="../login" d="cancel_signup"><i class="fas fa-angle-left"></i> Back</a>
+            </div>
+            <div class="card-footer text-muted"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

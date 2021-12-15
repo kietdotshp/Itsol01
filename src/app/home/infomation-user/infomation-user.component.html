@@ -1,0 +1,220 @@
+<main class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <p>
+        <a [routerLink] = "['../editinfomation']" routerLinkActive="router-link-active">next</a>
+      </p>
+      <form action="" metdod="post">
+        <div class="card">
+          <div class="card-header">
+            <b></b>
+          </div>
+          <div class="card-body">
+            <div>
+              <b>Thông tin cá nhân:</b>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="hoten">Họ Tên</label>
+                    <input
+                      type="text"
+                      disabled
+                      class="form-control"
+                      name="hoten"
+                      id="hoten"
+                      aria-describedby="hotenid"
+                      placeholder=""
+                      value="{{ profile.data.fullName }}"
+                    />
+                    <small id="hotenid" class="form-text text-muted"></small>
+                  </div>
+                  <div class="form-group">
+                    <label for="sdt">Số điện thoại </label>
+                    <input
+                      type="text"
+                      disabled
+                      class="form-control"
+                      name="sdt"
+                      id="sdt"
+                      aria-describedby="sdtid"
+                      placeholder="+84"
+                      value="{{ profile.data.phone_number }}"
+                    />
+                    <small id="sdtid" class="form-text text-muted"></small>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="form-group">
+                    <label for="birthday">Ngày sinh</label>
+                    <input
+                      type="birthday"
+                      class="form-control"
+                      name="birthday"
+                      id="birthday"
+                      placeholder=""
+                      value="{{ profile.data.birth_day }}"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="email"
+                      id="email"
+                      aria-describedby="emailHid"
+                      placeholder=""
+                      value="{{ profile.data.email }}"
+                    />
+                    <small id="emailHid" class="form-text text-muted"></small>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="hometown">Quê Quán</label>
+                    <input
+                      type="hometown"
+                      class="form-control"
+                      name="hometown"
+                      id="hometown"
+                      placeholder=""
+                      value="{{ profile.data.homeTown }}"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="gender">Giới Tính</label>
+                    <input
+                      type="gender"
+                      class="form-control"
+                      name="gender"
+                      id="gender"
+                      aria-describedby="gender"
+                      placeholder=""
+                      value="{{ profile.data.gender }}"
+                    />
+                    <small id="gender" class="form-text text-muted"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <b>Thông tin kinh nghiệm:</b>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="skill">Kĩ Năng</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="skill"
+                      id="skill"
+                      aria-describedby="skill"
+                      placeholder=""
+                      value="{{ profile.data.skill }}"
+                    />
+                    <small id="skill" class="form-text text-muted"></small>
+                  </div>
+                  <div class="form-group">
+                    <label for="experience">Số năm kinh nghiệm</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="experience"
+                      id="experience"
+                      aria-describedby="experience"
+                      placeholder=""
+                      value="{{ profile.data.number_years_experience }}"
+                    />
+                    <small id="experience" class="form-text text-muted"></small>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="Education">Trình độ học vấn</label>
+                    <input
+                      type="Education"
+                      class="form-control"
+                      name="Education"
+                      id="Education"
+                      placeholder=""
+                      value="{{ profile.data.academic_name }}"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <b>Thông tin mong muốn:</b>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="DesiredSalary">Mức Lương</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="DesiredSalary"
+                      id="DesiredSalary"
+                      aria-describedby="
+                                    DesiredSalary"
+                      placeholder=""
+                      value="{{ profile.data.desired_salary }}"
+                    />
+                    <small
+                      id="DesiredSalary"
+                      class="form-text text-muted"
+                    ></small>
+                  </div>
+                  <div class="form-group">
+                    <label for="desiredAddress">Địa chỉ </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="desiredAddress"
+                      id="desiredAddress"
+                      aria-describedby="desiredAddress"
+                      placeholder=""
+                      value="{{ profile.data.desired_working_address }}"
+                    />
+                    <small
+                      id="desiredAddress"
+                      class="form-text text-muted"
+                    ></small>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="disiredWork">Làm việc</label>
+                    <input
+                      type="disiredWork"
+                      class="form-control"
+                      name="disiredWork"
+                      id="disiredWork"
+                      placeholder=""
+                      value="{{ profile.data.desiredworkname }}"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="col-12">
+                      <div class="item mb--25">
+                        <div class="d-flex justify-content-end">
+                          <button  routerLink = "../editUser" class="btn btn-primary">
+                            Chỉnh sửa
+                          </button>
+                        </div>
+                      </div>
+                    </div> -->
+        </div>
+      </form>
+
+      <!-- <div class="d-flex justify-content-end">
+        <button class="btn btn-success" [routerLink]="['../editinfomation']">
+          Update
+        </button>
+      </div> -->
+    </div>
+  </div>
+</main>

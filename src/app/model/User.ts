@@ -14,8 +14,8 @@
   export interface User {
     id?: number;
     birthday?: any;
-    email?: any;
-    fullName?: any;
+    email: string;
+    fullName: string;
     gender?: any;
     hometown?: any;
     isactive?: any;
