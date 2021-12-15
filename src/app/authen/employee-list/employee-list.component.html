@@ -1,0 +1,30 @@
+<section id="employeeList">
+  <div class="container p-2">
+    <div class="row mt-2">
+      <div class="col-8 offset-2">
+
+        <hr />
+      
+       <table class="table" >
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Homtown</th>
+          </tr>
+        </thead>
+        <tbody >
+          <div *ngFor="let item of employees">
+          <tr >
+            <td>{{item.fullName}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.homeTown}}</td>
+          </tr>
+          </div>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</section>
