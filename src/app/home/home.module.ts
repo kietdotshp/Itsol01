@@ -6,6 +6,8 @@ import { ListJobComponent } from './list-job/list-job.component';
 import { DetailJobComponent } from './list-job/detail-job/detail-job.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ProfileComponent } from './profile/profile.component';
+import { InfomationUserComponent } from './infomation-user/infomation-user.component';
+import { EditInformationComponent } from './edit-information/edit-information.component';
 
 const routes: Routes = [
   {
@@ -20,8 +22,15 @@ const routes: Routes = [
       {
         path: 'list-job',
         component:ListJobComponent,
+      },
+      {
+        path: 'infomation/:id',
+        component:InfomationUserComponent,
+      },
+      {
+        path:'editinfomation',
+        component:EditInformationComponent
       }
-
     ]
   }
  ];
@@ -32,7 +41,9 @@ const routes: Routes = [
     ListJobComponent,
     DetailJobComponent,
     HomePageComponent,
-    ProfileComponent
+    ProfileComponent,
+    InfomationUserComponent,
+    EditInformationComponent
   ],
   imports: [
     CommonModule,
