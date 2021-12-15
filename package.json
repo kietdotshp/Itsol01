@@ -24,6 +24,7 @@
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "bootstrap": "^4.5.0",
     "ng-http-interceptor": "^4.0.0",
+    "ngx-bootstrap": "^7.1.0",
     "ngx-cookie-service": "^13.1.0-rc.1",
     "primeicons": "^5.0.0",
     "primeng": "^13.0.2",

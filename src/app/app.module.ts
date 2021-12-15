@@ -10,6 +10,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Router, Routes } from '@angular/router';
 // import { AuthInterceptor } from './interceptor/auth.interceptor';
 
 
@@ -36,4 +37,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   bootstrap: [AppComponent]
 })
+
+// const routes: Routes=[
+//   { path: 'phones', component: ItemsListComponent },
+//   { path: 'phones/:id/edit', component: ItemFormComponent },
+//   { path: 'phones/new', component: ItemFormComponent },
+//   { path: 'cart', component: CartComponent }
+// ]
 export class AppModule { }
