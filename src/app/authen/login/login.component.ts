@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   employee: Employee;
   btnDisable = false;
-  url = 'http://localhost:8080/login';
+  url = 'http://localhost:8001/login';
   constructor(private rest: RestApiService, private data: DataService,private router:Router) {
     this.employee = new Employee();
   }

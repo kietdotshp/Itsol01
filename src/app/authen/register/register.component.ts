@@ -12,7 +12,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class RegisterComponent implements OnInit {
   forgotPassword: Forgotpassword;
   btnDisable = false;
-  url = 'http://localhost:8080/api/user/fogotpass';
+  url = 'http://localhost:8001/api/user/fogotpass';
 
   constructor(private rests: RestApiService, private data: DataService, private router: Router, private http: HttpClient) {
     this.forgotPassword = new Forgotpassword();

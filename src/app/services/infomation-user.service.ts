@@ -10,7 +10,7 @@ import { Profiles } from '../model/profiles';
 export class InfomationUserService {
 
   constructor(private http: HttpClient) { }
-  private API_URL = 'http://localhost:8080/pesonalInfomation'
+  private API_URL = 'http://localhost:8001/pesonalInfomation'
   // public getid(id:number): Observable<[Profiles]>{
   //   return this.http.get<[Profiles]>(`${this.API_URL+'/getInformationUserById'+id}`)
   // }

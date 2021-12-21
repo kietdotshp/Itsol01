@@ -9,7 +9,7 @@ import { Company } from '../model/company';
 export class CompanyService {
 
   constructor(private http: HttpClient) { }
-  private API_URL = 'http://localhost:8080/company'
+  private API_URL = 'http://localhost:8001/company'
   // public getAll(): Observable<any>{
   //   return this.http.get(this.API_URL)
   // }

@@ -16,8 +16,8 @@ export class EditJeComponent implements OnInit {
   editForm!: FormGroup;
 
   btnDisable = false;
-  url = 'http://localhost:8080/api/admin/getje';
-  url1 = 'http://localhost:8080/api/admin/updateJE';
+  url = 'http://localhost:8001/api/admin/getje';
+  url1 = 'http://localhost:8001/api/admin/updateJE';
   constructor(
     private route: ActivatedRoute,
     private router: Router,

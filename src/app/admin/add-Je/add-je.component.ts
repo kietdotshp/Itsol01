@@ -15,7 +15,7 @@ export class AddJeComponent implements OnInit {
   employee: Employee;
   addForm!: FormGroup;
   btnDisable = false;
-  url = 'http://localhost:8080/api/admin/signupje';
+  url = 'http://localhost:8001/api/admin/signupje';
   constructor(
     private rest: EmployeeService,
     private data: DataService,
