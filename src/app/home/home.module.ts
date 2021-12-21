@@ -12,6 +12,8 @@ import { TableModule } from 'primeng/table';
 import { PopupComponent } from './list-job/detail-job/popup/popup.component';
 import { InfomationUserComponent } from './infomation-user/infomation-user.component';
 import { EditInformationComponent } from './edit-information/edit-information.component';
+import { HttpClientModule } from '@angular/common/http';
+// import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [
   {
@@ -28,7 +30,7 @@ const routes: Routes = [
         component: ListJobComponent,
       },
       {
-        path:'detail-job',
+        path:'detail-job/:id',
         component:DetailJobComponent,
       },
       {
@@ -63,7 +65,9 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     MatSliderModule,
     MatTableModule,
-    TableModule
+    TableModule,
+    // BrowserModule,
+     HttpClientModule
   ]
 })
 export class HomeModule { }

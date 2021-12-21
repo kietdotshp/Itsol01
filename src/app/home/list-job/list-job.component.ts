@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Jobs } from 'src/app/model/job.model';
 import { listJobService } from 'src/app/services/list-job.service';
 
@@ -11,11 +12,12 @@ import { listJobService } from 'src/app/services/list-job.service';
 })
 
 export class ListJobComponent implements OnInit {
+
   jobs: Jobs[];
   displayedColumns: string[] = [ 'name', 'addressWork'];
 
  
-  constructor(private listJobService: listJobService) { }
+  constructor(private listJobService: listJobService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getAllData();
@@ -31,6 +33,11 @@ export class ListJobComponent implements OnInit {
     });
     
   }
+
+
+
+
+ 
   
 
 }
