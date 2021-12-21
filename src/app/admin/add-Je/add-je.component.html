@@ -1,0 +1,89 @@
+<section id="addJE">
+  <div class="container p-2">
+    <div class="row mt-2">
+      <div class="col-8 offset-2">
+        <!-- <app-message>
+        </app-message> -->
+        <hr />
+        <form [formGroup]="addForm" (ngSubmit)="saveJE()">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="text-center">ADD NEW JOB_EDITOR</h3>
+            </div>
+            <div class="card-body">
+              <div class="form-group col-md-6">
+                <label for="name">Name</label>
+                <input type="text" formControlName="fullName" class="form-control" name="name" id="name"
+                  aria-describedby="helpid" placeholder="name" />
+                <small id="nameid" class="form-text text-muted">
+                  name is required
+                </small>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="email">Email</label>
+                <input type="email" formControlName="email" class="form-control" name="name" id="email"
+                  aria-describedby="emailHid" placeholder="Email" />
+                <small id="emailHid" class="form-text text-muted">
+                  Email is required
+                </small>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="userName">UserName</label>
+                <input type="userName" formControlName="userName" class="form-control" name="userName" id="userName"
+                  aria-describedby="userNameHid" placeholder="userName" />
+                <small id="userNameHid" class="form-text text-muted">
+                  UserName is required
+                </small>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" class="form-control" name="password" id="password"
+                  aria-describedby="passwordHid" placeholder="Password" />
+                <small id="passwordHid" class="form-text text-muted">
+                  Password is required
+                </small>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="phone">Phone</label>
+                <input type="phone" formControlName="phoneNumber" class="form-control" name="phone" id="phone"
+                  aria-describedby="phoneHid" placeholder="phone" />
+                <small id="phoneHid" class="form-text text-muted">
+                  Phone is required
+                </small>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="homeTown">HomeTown</label>
+                <input type="homeTown" formControlName="homeTown" class="form-control" name="homeTown" id="homeTown"
+                  aria-describedby="homeTownHid" placeholder="homeTown" />
+                <small id="homeTownHid" class="form-text text-muted">
+                  HomeTown is required
+                </small>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="gender">Gender</label>
+                <input type="gender" formControlName="gender" class="form-control" name="gender" id="gender"
+                  aria-describedby="genderHid" placeholder="gender" />
+                <small id="genderHid" class="form-text text-muted">
+                  gender is required
+                </small>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="birthDay">BirthDay</label>
+                <input type="date" formControlName="birthDay" class="form-control" name="birthDay" id="birthDay"
+                  aria-describedby="birthDayHid" placeholder="birthDay" />
+                <small id="birthDayHid" class="form-text text-muted">
+                  birthDay is required
+                </small>
+
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Đăng kí
+              </button>
+            </div>
+            <div class="card-footer text-muted"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

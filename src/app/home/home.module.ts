@@ -12,6 +12,7 @@ import { TableModule } from 'primeng/table';
 import { PopupComponent } from './list-job/detail-job/popup/popup.component';
 import { InfomationUserComponent } from './infomation-user/infomation-user.component';
 import { EditInformationComponent } from './edit-information/edit-information.component';
+import { ListJeComponent } from '../admin/list-Je/list-je.component';
 
 const routes: Routes = [
   {
@@ -57,6 +58,7 @@ const routes: Routes = [
     PopupComponent,
     InfomationUserComponent,
     EditInformationComponent
+
   ],
   imports: [
     CommonModule,

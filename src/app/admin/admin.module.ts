@@ -9,14 +9,18 @@ import { ProfileComponent } from './profile/profile.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { ProfileDetailComponent } from './profile/profile-detail/profile-detail.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { RecruitmentDetailComponent } from './recruitment/recruitment-detail/recruitment-detail.component';
+import { ListJeComponent } from './list-Je/list-je.component';
+import { AddJeComponent } from './add-Je/add-je.component';
+import { EditJeComponent } from './update-Je/edit-je.component';
+import { ListUserComponent } from './employee-list/list-user.component';
 
 
 const routes: Routes = [
@@ -35,6 +39,23 @@ const routes: Routes = [
       {
         path: 'admin-list',
         component: AdminListComponent,
+      },
+      {
+        path: 'list-je',
+        component: ListJeComponent,
+      },
+      {
+        path: 'add-Je',
+        component: AddJeComponent,
+      },
+      {
+        path: 'employee-list',
+        component: ListUserComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'update-Je/:id',
+        component: EditJeComponent,
       },
       {
         path: 'home',
@@ -67,6 +88,10 @@ const routes: Routes = [
     ProfileDetailComponent,
     ModalEditComponent,
     RecruitmentDetailComponent,
+    ListJeComponent,
+    AddJeComponent,
+    EditJeComponent,
+    ListUserComponent
   ],
   imports: [
     CommonModule,
@@ -77,8 +102,9 @@ const routes: Routes = [
     MatPaginatorModule,
     MatFormFieldModule,
     PaginationModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    ReactiveFormsModule
   ],
   exports: [RouterModule],
 })
-export class AdminModule {}
+export class AdminModule { }
