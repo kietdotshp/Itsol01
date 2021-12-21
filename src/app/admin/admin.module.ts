@@ -13,10 +13,11 @@ import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { RecruitmentDetailComponent } from './recruitment/recruitment-detail/recruitment-detail.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 const routes: Routes = [
@@ -41,17 +42,9 @@ const routes: Routes = [
         component: AdminHomeComponent,
       },
       {
-        path: 'recruitment',
-        component: RecruitmentComponent,
-      },
-      {
-        path: 'profile-detail',
+        path: 'profile-detail/:id',
         component: ProfileDetailComponent,
       },
-      {
-        path: 'recruitment-detail',
-        component: RecruitmentDetailComponent,
-      }
     ],
   },
 ];
@@ -77,8 +70,9 @@ const routes: Routes = [
     MatPaginatorModule,
     MatFormFieldModule,
     PaginationModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatDatepickerModule
   ],
   exports: [RouterModule],
 })
-export class AdminModule {}
+export class AdminModule { }

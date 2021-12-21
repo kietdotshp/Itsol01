@@ -7,13 +7,13 @@ export interface Jobs {
     // createId?:any;
     // contactId?:any;
     jobName?: any;
-    // jobPosition?:any;
+    jobPosition?:any;
     numberExperience?: any;
     addressWork?: any;
     // quantityPerson?:any;
     // dueDate?:any;
     // skills?:any;
-    // description?:any;
+    description?:any;
     // interrest?:any;
     // minSalary?:any;
     // views?:any;
