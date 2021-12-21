@@ -9,7 +9,7 @@ export interface Profiles {
   desiredSalary: string;
   desiredWorkingAddress:string;
   isDelete:any;
-  user:User;
+  users:User;
   acdemiclevel: AcademicLevel;
   desiredwork:DesiredWork;
 }
