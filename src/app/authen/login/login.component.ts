@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
     return true;
   }
   async login() {
+    
     this.btnDisable = true;
     if (this.validate()) {
       this.rest
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
           let value = data as{employeeId:string, token: string};
           localStorage.setItem('token',value.token);
          // await this.data.getProfile();
-
+         alert("login thanh cong")
           this.router.navigate(['./home'])
         })
         .catch((error) => {

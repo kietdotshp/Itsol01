@@ -4,6 +4,7 @@ import { EmployeeService } from './../../services/employee.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Employee } from './../../model/employee';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-je',
@@ -18,6 +19,7 @@ export class AddJeComponent implements OnInit {
   url = 'http://localhost:8001/api/admin/signupje';
   constructor(
     private rest: EmployeeService,
+    private router: Router,
     private data: DataService,
     private http: HttpClient,
     private Fb: FormBuilder
@@ -44,11 +46,12 @@ export class AddJeComponent implements OnInit {
 
     this.btnDisable = true;
     console.log(this.addForm.value);
-
+    alert('đăng kí thành công! Vui lòng check mail và xác nhận.');
+    this.router.navigate(['./admin/list-je'])
     this.rest.addJE(this.addForm.value).subscribe((data) => {
       this.data.success('Employee is save');
       this.btnDisable = false;
-      console.log('đăng kí thành công! Vui lòng check mail và xác nhận.');
+    
     });
   }
 

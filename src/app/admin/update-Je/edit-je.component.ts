@@ -61,11 +61,14 @@ export class EditJeComponent implements OnInit {
   }
 
   public updateEmployee() {
+ 
     this.employeeService
+    
       .updateJE(this.editForm.value, this.route.snapshot.params['id'])
       .subscribe((data) => {
         console.log('data', data);
         alert("update thanh cong")
+        this.router.navigate(['./admin/list-je'])
       });
   }
 

@@ -57,15 +57,19 @@ export class ListUserComponent implements OnInit {
       console.log(this.employees);
     });
   }
-  deleteJE(id: number) {
-
+  deleteUSER(id: number) {
+    debugger
+    this.router.navigate(['/admin/employee-list'])
+    alert('xoa thanh cong');
+   
     this.btnDisable = true;
-
+   
 
     this.rest.deleteUSER(id).subscribe(data => {
-      alert('xoa thanh cong');
+     
       this.data.success('Employee is save');
       this.btnDisable = false;
+      alert('xoa thanh cong');
     },
 
     );

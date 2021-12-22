@@ -3,7 +3,7 @@ import { Employee } from '../../model/employee';
 // import { EmployeeComponent } from './../employee/employee.component';
 import { DataService } from 'src/app/services/data.service';
 import { RestApiService } from '../../services/rest-api.service';
-
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -16,7 +16,7 @@ export class EmployeeAddComponent implements OnInit {
   employee: Employee;
   btnDisable = false;
   url = 'http://localhost:8001/signup';
-  constructor(private rest: RestApiService, private data: DataService) {
+  constructor(private rest: RestApiService, private data: DataService,private router:Router) {
     this.employee = new Employee();
   }
 
@@ -42,14 +42,19 @@ export class EmployeeAddComponent implements OnInit {
     return true;
   }
   save() {
+    debugger
     this.btnDisable = true;
+  
     if (this.validate()) {
+      alert("đăng kí thành công! Vui lòng check mail và xác nhận.");
+      this.router.navigate(['./login'])
       this.rest
         .post(this.url, this.employee)
+        
         .then((data) => {
           this.data.success('Employee is save');
           this.btnDisable = false;
-          alert("đăng kí thành công! Vui lòng check mail và xác nhận.");
+          
         })
         .catch((error) => {
           this.data.error(error['message']);

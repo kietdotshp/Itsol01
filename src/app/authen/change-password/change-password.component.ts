@@ -26,7 +26,6 @@ export class ChangePasswordComponent implements OnInit {
     return true;
   }
   async changePass() {
-  
     this.btnDisable = true;
       this.post(this.url, this.changePassword)
         .subscribe(
@@ -36,7 +35,7 @@ export class ChangePasswordComponent implements OnInit {
         
         ,(data) => {
           console.log(data);
-        
+          alert(" Vui lòng check mail và xác nhận nhập mã OTP.");
           let otp = prompt("Mã OTP:");
   password:this.changePassword.newPassword
           this.rests.put(this.urlOtp,{
@@ -46,6 +45,7 @@ export class ChangePasswordComponent implements OnInit {
              alert("Doi mat khau thất bại!")
            }).catch((error)=>{
              alert("Doi mat khau thanh cong")
+             this.router.navigate(['./home'])
            })
 
          
