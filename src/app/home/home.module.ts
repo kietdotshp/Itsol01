@@ -9,9 +9,13 @@ import { ProfileComponent } from './profile/profile.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material/table';
 import { TableModule } from 'primeng/table';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { PopupComponent } from './list-job/detail-job/popup/popup.component';
 import { InfomationUserComponent } from './infomation-user/infomation-user.component';
 import { EditInformationComponent } from './edit-information/edit-information.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+// import { BrowserModule } from '@angular/platform-browser';
 
 import { ListJeComponent } from '../admin/list-Je/list-je.component';
 
@@ -33,7 +37,7 @@ const routes: Routes = [
         component: ListJobComponent,
       },
       {
-        path:'detail-job',
+        path:'detail-job/:id',
         component:DetailJobComponent,
       },
       {
@@ -73,8 +77,11 @@ const routes: Routes = [
     MatSliderModule,
     MatTableModule,
     TableModule,
+    PaginationModule,
+    HttpClientModule
     ReactiveFormsModule,
     FormsModule,
+
   ]
 })
 export class HomeModule { }

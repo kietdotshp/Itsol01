@@ -26,7 +26,7 @@
                     <option>Category1</option>
                     <option>Category2</option>
                 </select>
-                <span class="large material-icons margin-top search">place</span>
+               <span class="large material-icons margin-top search">place</span> 
                 <input class="search-box_search_input " placeholder="Location" required="required" type="search">
             </div>
             <button type="submit" class="search-box_search_button">Search Jobs</button>
@@ -41,7 +41,7 @@
         <div class="vertical-space-30"></div>
         <div class="row">
             <div class="col-lg-4 col-md-12">
-                <div class="Job-Category-box">
+                <!-- <div class="Job-Category-box">
                     <p class="title">Job Category</p>
                     <ul>
                         <li class="list-item1 "><a href="#" class="font-color-black">Web Developer (54)</a></li>
@@ -54,7 +54,7 @@
                         </li>
                         <li class="list-item1 "><a href="#" class="font-color-black">Digital Marketer (72)</a></li>
                     </ul>
-                </div>
+                </div> -->
                 <div class="Job-Nature-box">
                     <p class="title">Job Nature</p>
                     <ul>
@@ -66,21 +66,22 @@
                 <div class="Salary-Range-box">
                     <p class="title">Salary Range</p>
                     <p>
-                        <input type="text" id="amount1" class="salery-range"> <i class="fa fa-minus minus">1</i>
+                        <input type="text" id="amount1" class="salery-range">
+                        <i class="fa fa-minus minus"></i>
                         <input type="text" id="amount2" class="salery-range">
                     </p>
                     <mat-slider aria-label="unit(s)"></mat-slider>
                     <mat-slider thumbLabel tickInterval="1"></mat-slider>
-                    <mat-slider step="4" tickInterval="3"></mat-slider>
-                    <mat-slider tickInterval="auto"></mat-slider>
-                    <mat-slider min="1" max="5" step="0.5" value="1.5"></mat-slider>
+
 
                     <p class="small-title">Experience Level</p>
                     <form action="#" class="search-box_search_form">
                         <select class="dropdown_item_select search-box_search_input">
-                            <option>Select experience level</option>
-                            <option>Select experience level1</option>
-                            <option>Select experience level2</option>
+                            <option>Fresher</option>
+                            <option>Intern</option>
+                            <option>Junior</option>
+                            <option>Senior</option>
+                            <option>Leade</option>
                         </select>
                         <!-- <p class="small-title">Location</p> -->
                         <!-- <input class="search-box_search_input Location " placeholder="Location" required="required"
@@ -88,14 +89,14 @@
                         <!-- <span class="fa fa-map-marker location-icone"></span> -->
                     </form>
                 </div>
-                <div class="Industry-box">
+                <!-- <div class="Industry-box">
                     <p class="title">Industry</p>
                     <ul>
                         <li class="deactivate"><a href="#" class="font-color-black">Full Time jobs</a></li>
                         <li class="list-item1 "><a href="#" class="font-color-black">Part Time jobs</a></li>
                         <li class="list-item1 "><a href="#" class="font-color-black">Hourly</a></li>
                     </ul>
-                </div>
+                </div> -->
             </div>
 
             <div class="col-lg-8 col-md-12">
@@ -112,33 +113,49 @@
                                 <i class="large material-icons">place</i>
                                 <span class="text font-size">11907 Doyle Cape Cydneyview</span>
                                 <div class="float-right margin-top text-align-center">
-                                    <a routerLink="../detail-job" class="part-full-time">Xem Chi Tiết</a>
+                                    <a [routerLink]="['../detail-job/'+item.id]" class="part-full-time">Xem Chi Tiết</a>
                                     <p class="date-time">{{item.createDate | date:'mediumDate'}}</p>
                                 </div>
                             </div>
                         </div>
-                        </div>
-                        <div class="vertical-space-20"></div>
-                        <div class="vertical-space-25"></div>
-                        
                     </div>
-                    <div class="job-list width-100">
-                        <ul class="pagination justify-content-end margin-auto">
-                            <li class="page-item"><a class="page-link pdding-none" href="javascript:void(0);"><i
-                                        class=" material-icons keyboard_arrow_left_right">keyboard_arrow_left</i></a>
-                            </li>
-                            <li class="page-item"><a class="page-link active" href="javascript:void(0);">1</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-                            <li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
-                            <li class="page-item">
-                                <a class="page-link pdding-none" href="javascript:void(0);"> <i
-                                        class=" material-icons keyboard_arrow_left_right">keyboard_arrow_right</i></a>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                
+                    <div class="vertical-space-20"></div>
+                    <div class="vertical-space-25"></div>
+
+                </div>
+                <!-- <div class="job-list width-100">
+                    <ul class="pagination justify-content-end margin-auto">
+                        <li class="page-item"><a class="page-link pdding-none" href="javascript:void(0);"><i
+                                    class=" material-icons keyboard_arrow_left_right">keyboard_arrow_left</i></a>
+                        </li>
+                        <li class="page-item"><a class="page-link active" href="javascript:void(0);">1</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
+                        <li class="page-item">
+                            <a class="page-link pdding-none" href="javascript:void(0);"> <i
+                                    class=" material-icons keyboard_arrow_left_right">keyboard_arrow_right</i></a>
+                        </li>
+                    </ul>
+                </div> -->
+
+                <div class="paging">
+                    <span>
+                      <pagination
+                        [boundaryLinks]="true"
+                        [totalItems]="totalRecord"
+                        [(ngModel)]="pageN"
+                        [itemsPerPage]="pageS"
+                        previousText="&lsaquo;"
+                        nextText="&rsaquo;"
+                        firstText="&laquo;"
+                        lastText="&raquo;"
+                        (pageChanged)="pageChanged($event)"
+                        (click)="setPage(pageN)"
+                      >
+                      </pagination>
+                    </span>
+                  </div>
             </div>
 
 
@@ -146,6 +163,3 @@
     </div>
     <div class="vertical-space-60"></div>
 </section>
-
-
-
