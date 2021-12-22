@@ -9,15 +9,16 @@ import { ProfileComponent } from './profile/profile.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { ProfileDetailComponent } from './profile/profile-detail/profile-detail.component';
-import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { RecruitmentDetailComponent } from './recruitment/recruitment-detail/recruitment-detail.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { EditCompanyComponent } from './edit-company/edit-company.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -51,7 +52,11 @@ const routes: Routes = [
       {
         path: 'recruitment-detail',
         component: RecruitmentDetailComponent,
-      }
+      },
+      {
+        path: 'editcontact/:id',
+        component: EditCompanyComponent,
+      },
     ],
   },
 ];
@@ -67,17 +72,21 @@ const routes: Routes = [
     ProfileDetailComponent,
     ModalEditComponent,
     RecruitmentDetailComponent,
+    EditCompanyComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    FormsModule,
     MatDialogModule,
     MatTableModule,
     MatPaginatorModule,
     MatFormFieldModule,
     PaginationModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   exports: [RouterModule],
 })

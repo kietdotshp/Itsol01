@@ -22,41 +22,41 @@ const routes: Routes = [
   },
 
   {
-    path:'home',
+    path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
   },
-//   {
-//     path: 'login',
-//     component:LoginComponent,
-//     loadChildren:() => import('./login/login.module').then (m => m.LoginModule)
-//   },
+  //   {
+  //     path: 'login',
+  //     component:LoginComponent,
+  //     loadChildren:() => import('./login/login.module').then (m => m.LoginModule)
+  //   },
   {
     path: 'authen',
-    component:AuthenComponent,
+    component: AuthenComponent,
     loadChildren: () => import("src/app/authen/authen.module").then((m) => m.AuthenModule)
-},
-{
-  path: 'employee-add', component:EmployeeAddComponent
-},
-{
-  path: 'employee-list', component:EmployeeListComponent
-},
-{
-  path: 'login', component:LoginComponent
-},
-{
-  path: 'change-password', component:ChangePasswordComponent
-},
-{
-  path: 'otp', component:OtpComponent
-},
+  },
+  {
+    path: 'employee-add', component: EmployeeAddComponent
+  },
+  {
+    path: 'employee-list', component: EmployeeListComponent
+  },
+  {
+    path: 'login', component: LoginComponent
+  },
+  {
+    path: 'change-password', component: ChangePasswordComponent
+  },
+  {
+    path: 'otp', component: OtpComponent
+  },
   {
     path: 'admin',
-    loadChildren:() => import('./admin/admin.module').then(m=>m.AdminModule)
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   },
   {
     path: '**',
-    component:NotFoundComponent,
+    component: NotFoundComponent,
   }
   // { path: '', redirectTo: 'login', pathMatch: 'full'},
 ];
