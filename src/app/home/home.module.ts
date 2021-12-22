@@ -14,11 +14,7 @@ import { PopupComponent } from './list-job/detail-job/popup/popup.component';
 import { InfomationUserComponent } from './infomation-user/infomation-user.component';
 import { EditInformationComponent } from './edit-information/edit-information.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-// import { BrowserModule } from '@angular/platform-browser';
-
 import { ListJeComponent } from '../admin/list-Je/list-je.component';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -78,7 +74,7 @@ const routes: Routes = [
     MatTableModule,
     TableModule,
     PaginationModule,
-    HttpClientModule
+    HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
 
