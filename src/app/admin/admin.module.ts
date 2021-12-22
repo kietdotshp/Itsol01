@@ -18,6 +18,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { RecruitmentDetailComponent } from './recruitment/recruitment-detail/recruitment-detail.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -71,7 +72,8 @@ const routes: Routes = [
     MatFormFieldModule,
     PaginationModule,
     Ng2SearchPipeModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    ReactiveFormsModule
   ],
   exports: [RouterModule],
 })

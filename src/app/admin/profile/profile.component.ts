@@ -3,6 +3,7 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { JobRegister } from '../../model/job-register';
 import { JobRegisterService } from '../../services/job-register.service';
 import { User } from '../../model/User';
+import { FormBuilder, FormControl, FormGroup, Form } from '@angular/forms';
 
 
 @Component({
@@ -13,10 +14,18 @@ import { User } from '../../model/User';
 export class ProfileComponent implements OnInit {
   showDirectionLinks = true;
 
-  constructor(public JobRegisterService: JobRegisterService) {
+  constructor(public JobRegisterService: JobRegisterService, public form: FormBuilder) {
     // this.paginator =Object.create(null)
   }
   // data:any
+
+  searchForm: FormGroup = this.form.group({
+    applicantName: new FormControl(""),
+    positionName: new FormControl(""),
+    jobRegisterStatus: new FormControl(""),
+    applicationTimeFrom: new FormControl(""),
+    applicationTimeTo: new FormControl(""),
+  })
 
   dataSource: JobRegister[] = [];
   totalRecord: number = 0;
@@ -49,31 +58,39 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  SearchName() {
-    if (this.name == "") {
-      this.JobRegisterService.getAllJobregister(this.pageN - 1, this.pageS).subscribe(data => {
-        this.totalRecord = data.totalRecord;
-        return this.dataSource = data.data;
-      })
-    } else {
-      this.dataSource = this.dataSource.filter(data => {
-        return data.user.fullName.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
-      })
-    }
+
+  onSearchJobRegister() {
+    debugger;
+    this.JobRegisterService.searchJobRegister(this.searchForm.value).subscribe(data => {
+      this.dataSource = data;
+    })
   }
 
-  SearchVacancies() {
-    if (this.vacancies == "") {
-      this.JobRegisterService.getAllJobregister(this.pageN - 1, this.pageS).subscribe(data => {
-        this.totalRecord = data.totalRecord;
-        return this.dataSource = data.data;
-      })
-    } else {
-      this.dataSource = this.dataSource.filter(data => {
-        return data.jobs.jobPosition.toLocaleLowerCase().match(this.vacancies.toLocaleLowerCase());
-      })
-    }
-  }
+  // SearchName() {
+  //   if (this.name == "") {
+  //     this.JobRegisterService.getAllJobregister(this.pageN - 1, this.pageS).subscribe(data => {
+  //       this.totalRecord = data.totalRecord;
+  //       return this.dataSource = data.data;
+  //     })
+  //   } else {
+  //     this.dataSource = this.dataSource.filter(data => {
+  //       return data.user.fullName.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+  //     })
+  //   }
+  // }
+
+  // SearchVacancies() {
+  //   if (this.vacancies == "") {
+  //     this.JobRegisterService.getAllJobregister(this.pageN - 1, this.pageS).subscribe(data => {
+  //       this.totalRecord = data.totalRecord;
+  //       return this.dataSource = data.data;
+  //     })
+  //   } else {
+  //     this.dataSource = this.dataSource.filter(data => {
+  //       return data.jobs.jobPosition.toLocaleLowerCase().match(this.vacancies.toLocaleLowerCase());
+  //     })
+  //   }
+  // }
 }
 
 

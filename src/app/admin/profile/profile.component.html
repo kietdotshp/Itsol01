@@ -1,13 +1,13 @@
 <div>
-  <form class="needs-validation" novalidate>
+  <form class="needs-validation" [formGroup]="searchForm" (ngSubmit)="onSearchJobRegister()">
     <div class="form-row">
       <div class="col-md-6 mb-3">
         <label for="validationTooltip03">User Name</label>
         <input
           type="text"
           class="form-control"
-          id="validationTooltip03"
-          required
+          id="applicantName"
+          formControlName="applicantName"
         />
       </div>
 
@@ -16,30 +16,40 @@
         <input
           type="text"
           class="form-control"
-          id="validationTooltip03"
-          required
+          id="positionName"
+          formControlName="positionName"
         />
       </div>
     </div>
     <div class="form-row">
-      <div class="col-md-6 mb-3">
-        <label for="validationTooltip03">APPLICATION TIME</label>
+      <div class="col-md-4 mb-3">
+        <label for="validationTooltip03">APPLICATION TIME FROM</label>
         <input
           type="date"
           class="form-control"
-          id="validationTooltip03"
-          required
+          id="applicationTimeFrom"
+          formControlName="applicationTimeFrom"
         />
       </div>
 
-      <div class="col-md-6 mb-3">
+      <div class="col-md-4 mb-3">
+        <label for="validationTooltip03">APPLICATION TIME TO</label>
+        <input
+          type="date"
+          class="form-control"
+          id="applicationTimeTo"
+          formControlName="applicationTimeTo"
+        />
+      </div>
+
+      <div class="col-md-4 mb-3">
         <label for="validationTooltip03">Status</label>
         <select
           class="form-select"
           aria-label="Default select example"
           class="form-control"
-        >
-          <option selected>Open this select menu</option>
+          id="jobRegisterStatus"
+          formControlName="jobRegisterStatus">
           <option value="1">cho xet duyet</option>
           <option value="2">da tu choi</option>
           <option value="3">dang tuyen</option>
@@ -49,9 +59,10 @@
         </select>
       </div>
     </div>
-    <button class="btn btn-primary" type="submit">Submit form</button>
+    <button class="btn btn-primary" type="submit" (click)="onSearchJobRegister()">Submit form</button>
   </form>
 </div>
+
 <div>
   <table class="table table-striped">
     <thead>
