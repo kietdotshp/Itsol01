@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { Profiles } from 'src/app/model/profiles';
 import { InfomationUserService } from 'src/app/services/infomation-user.service';
 
@@ -45,30 +46,42 @@ export class EditInformationComponent implements OnInit {
   }
   getdata() {
     this.updateservice.find(this.route.snapshot.params['id']).subscribe((data) => {
+      const profile = data.data
       this.profileForm.patchValue({
-        fullName: data.users.fullName,
-        birthday: data.users.birthDay,
-        avatar: data.users.avatar,
-        homeTown: data.users.homeTown,
-        gender: data.users.gender,
-        phoneNumber: data.users.phoneNumber,
-        email: data.users.email,
-        skill: data.skill,
-        numberYearsExperience: data.numberYearsExperience,
-        desiredWorkingAddress: data.desiredWorkingAddress,
-        desiredSalary: data.desiredSalary,
-        academicName: data.acdemiclevel.academicName,
-        desiredworkname: data.desiredwork.desiredworkname,
+        fullName: profile.users.fullName,
+        birthday: profile.users.birthDay,
+        avatar: profile.users.avatar,
+        homeTown: profile.users.homeTown,
+        gender: profile.users.gender,
+        phoneNumber: profile.users.phoneNumber,
+        email: profile.users.email,
+        skill: profile.skill,
+        numberYearsExperience: profile.numberYearsExperience,
+        desiredWorkingAddress: profile.desiredWorkingAddress,
+        desiredSalary: profile.desiredSalary,
+        academicName: profile.academicLevel.academicName,
+        desiredworkname: profile.desiredwork.desiredworkname
       });
-      console.log(data);
     });
   }
   public updateProfile() {
-    console.log("ok", this.profileForm.value)
+    debugger;
+    const data =
+    {
+      data:{
+        academicLevel:{
+          academicName: this.profileForm.value.academicName
+        },
+        users: {
+
+        }
+      }
+    };
     this.updateservice.update(this.route.snapshot.params['id'], this.profileForm.value).subscribe((data) => {
-      console.log('data', data);
-      // alert('ok')
-      // this.router.navigate(['./home/infomation'])
+
+
+      console.log( data);
+      // this.router.navigate(['./home/infomation'] );
     })
 
   }

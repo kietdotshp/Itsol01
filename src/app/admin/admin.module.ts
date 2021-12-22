@@ -86,6 +86,7 @@ const routes: Routes = [
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule
   ],
   exports: [RouterModule],
 })

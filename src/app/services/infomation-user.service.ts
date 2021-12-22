@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { InfomationUser } from '../model/InformationUser';
 import { Profiles } from '../model/profiles';
+import { ResponseData } from '../model/response-data';
 import { User } from '../model/User';
 
 @Injectable({
@@ -19,11 +20,12 @@ export class InfomationUserService {
   //   return this.httpClient.get<Product>(`${apiUrl}/${id}`).pipe(
   //   )
   // }
-  find(id: number): Observable<Profiles> {
-    return this.http.get<Profiles>(`${this.API_URL + '/getInformationUserById'}/${id}`)
+  find(id: number): Observable<ResponseData> {
+    return this.http.get<ResponseData>(`${this.API_URL + '/getInformationUserById'}/${id}`)
   }
 
   update(id: number, body: Object = {}): Observable<Profiles[]> {
+    debugger;
     return this.http.put<Profiles[]>(`${this.API_URL}` + "/updateInformationUserById/" + `${id}`, body);
   }
   // updateById(id:number,company:Company): Observable<Company>{

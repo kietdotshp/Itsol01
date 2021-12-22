@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-8 offset-2">
       <h2>Chỉnh sửa thông tin:</h2>
-      <form action="" metdod="post" [formGroup]="profileForm">
+      <form action="" metdod="post" [formGroup]="profileForm" (submit)="updateProfile()" >
         <div class="card">
           <div class="card-header">
           </div>
@@ -10,7 +10,7 @@
             <div>
               <b>Thông tin cá nhân:</b>
               <div class="row">
-                <div class="col">
+                <div class="col" >
                   <div class="form-group">
                     <label for="hoten">Họ Tên</label>
                     <input type="text" class="form-control" formControlName="fullName" name="fullName" id="fullName"
@@ -110,7 +110,7 @@
           <div class="col-12">
             <div class="item mb--25">
               <div class="d-flex justify-content-end">
-                <button type="submit" (click)="updateProfile()" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary"  >
                   Chỉnh sửa
                 </button>
               </div>
