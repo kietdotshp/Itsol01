@@ -3,6 +3,7 @@ import { Company } from 'src/app/model/company';
 import { CompanyService } from 'src/app/services/company.service';
 import { MatDialog } from '@angular/material/dialog'
 import { ModalEditComponent } from 'src/app/modal/modal-edit/modal-edit.component';
+import { FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { ModalEditComponent } from 'src/app/modal/modal-edit/modal-edit.componen
   styleUrls: ['./contact.component.css'],
 })
 export class ContactComponent implements OnInit {
+  editForm: FormGroup;
   company: Company[] = [
   //  {
   //     avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXQKxnlgxsOyKQ-bimseQCyJ5w_2TxbRwG1Q&usqp=CAU',
@@ -47,5 +49,8 @@ export class ContactComponent implements OnInit {
     dialogRef.afterClosed().subscribe(response => {
       console.log(response.data)
     })
+  }
+  updateCompany(){
+
   }
 }

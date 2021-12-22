@@ -5,11 +5,12 @@ import { User } from "./User";
 export interface Profiles {
   id: number;
   skill: string;
-  numberYearsExperience: number;
-  desiredSalary: number;
-  desiredWorkingAddress: string;
-  isDelete: any;
-  user: User;
+  numberYearsExperience:number;
+  desiredSalary: string;
+  desiredWorkingAddress:string;
+  isDelete:any;
+  users:User;
+
   acdemiclevel: AcademicLevel;
   desiredwork: DesiredWork;
 }

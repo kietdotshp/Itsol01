@@ -1,15 +1,11 @@
+import { AcademicLevel } from "./academiclevel";
+import { DesiredWork } from "./desiredwork";
+import { Profiles } from "./profiles";
+import { User } from "./User";
+
 export interface InfomationUser{
-  id: number;
-  email: string;
-  phoneNumber: string;
-  homeTown: string;
-  gender: string;
-  birthDay: any;
-  fullName: string;
-  skill: string;
-  numberYearsExperience: number;
-  desiredSalary: string;
-  desiredWorkingAddress: string;
-  desiredworkname: string;
-  academicName: string;
+  user: User;
+  profile: Profiles;
+  acdemiclevel: AcademicLevel;
+  disireWork:DesiredWork;
 };

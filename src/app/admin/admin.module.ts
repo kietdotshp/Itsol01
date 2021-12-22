@@ -9,7 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { ProfileDetailComponent } from './profile/profile-detail/profile-detail.component';
-import { FormsModule } from '@angular/forms';
+
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -19,6 +19,16 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { RecruitmentDetailComponent } from './recruitment/recruitment-detail/recruitment-detail.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { ListJeComponent } from './list-Je/list-je.component';
+import { AddJeComponent } from './add-Je/add-je.component';
+import { EditJeComponent } from './update-Je/edit-je.component';
+import { ListUserComponent } from './employee-list/list-user.component';
+
+
+import { HttpClientModule } from '@angular/common/http';
+import { EditCompanyComponent } from './edit-company/edit-company.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -39,6 +49,23 @@ const routes: Routes = [
         component: AdminListComponent,
       },
       {
+        path: 'list-je',
+        component: ListJeComponent,
+      },
+      {
+        path: 'add-Je',
+        component: AddJeComponent,
+      },
+      {
+        path: 'employee-list',
+        component: ListUserComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'update-Je/:id',
+        component: EditJeComponent,
+      },
+      {
         path: 'home',
         component: AdminHomeComponent,
       },
@@ -46,6 +73,16 @@ const routes: Routes = [
         path: 'profile-detail/:id',
         component: ProfileDetailComponent,
       },
+
+      {
+        path: 'recruitment-detail',
+        component: RecruitmentDetailComponent,
+      },
+      {
+        path: 'editcontact/:id',
+        component: EditCompanyComponent,
+      },
+
     ],
   },
 ];
@@ -61,19 +98,32 @@ const routes: Routes = [
     ProfileDetailComponent,
     ModalEditComponent,
     RecruitmentDetailComponent,
+
+    ListJeComponent,
+    AddJeComponent,
+    EditJeComponent,
+    ListUserComponent
+
+    EditCompanyComponent
+
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    FormsModule,
     MatDialogModule,
     MatTableModule,
     MatPaginatorModule,
     MatFormFieldModule,
     PaginationModule,
     Ng2SearchPipeModule,
+
     MatDatepickerModule,
-    ReactiveFormsModule
+   
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
+
   ],
   exports: [RouterModule],
 })

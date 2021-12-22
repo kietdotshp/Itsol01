@@ -1,10 +1,7 @@
 <main class="container">
   <div class="row">
     <div class="col-8 offset-2">
-      <p>
-        <a [routerLink] = "['../editinfomation']" routerLinkActive="router-link-active">next</a>
-      </p>
-      <form action="" metdod="post">
+      <form  action="" metdod="post" >
         <div class="card">
           <div class="card-header">
             <b></b>
@@ -18,13 +15,14 @@
                     <label for="hoten">Họ Tên</label>
                     <input
                       type="text"
-                      disabled
+
                       class="form-control"
                       name="hoten"
+                      formControlName="fullName"
                       id="hoten"
                       aria-describedby="hotenid"
                       placeholder=""
-                      value="{{ profile.data.fullName }}"
+                      value="{{item.data.users.fullName}}"
                     />
                     <small id="hotenid" class="form-text text-muted"></small>
                   </div>
@@ -38,7 +36,7 @@
                       id="sdt"
                       aria-describedby="sdtid"
                       placeholder="+84"
-                      value="{{ profile.data.phone_number }}"
+                      value="{{ item.data.users.phoneNumber}}"
                     />
                     <small id="sdtid" class="form-text text-muted"></small>
                   </div>
@@ -53,7 +51,7 @@
                       name="birthday"
                       id="birthday"
                       placeholder=""
-                      value="{{ profile.data.birth_day }}"
+                      value="{{ item.data.users.birthDay }}"
                     />
                   </div>
                   <div class="form-group">
@@ -65,7 +63,7 @@
                       id="email"
                       aria-describedby="emailHid"
                       placeholder=""
-                      value="{{ profile.data.email }}"
+                      value="{{ item.data.users.email }}"
                     />
                     <small id="emailHid" class="form-text text-muted"></small>
                   </div>
@@ -79,7 +77,7 @@
                       name="hometown"
                       id="hometown"
                       placeholder=""
-                      value="{{ profile.data.homeTown }}"
+                      value="{{ item.data.users.homeTown}}"
                     />
                   </div>
                   <div class="form-group">
@@ -91,7 +89,7 @@
                       id="gender"
                       aria-describedby="gender"
                       placeholder=""
-                      value="{{ profile.data.gender }}"
+                      value="{{ item.data.users.gender }}"
                     />
                     <small id="gender" class="form-text text-muted"></small>
                   </div>
@@ -111,7 +109,7 @@
                       id="skill"
                       aria-describedby="skill"
                       placeholder=""
-                      value="{{ profile.data.skill }}"
+                      value="{{ item.data.skill }}"
                     />
                     <small id="skill" class="form-text text-muted"></small>
                   </div>
@@ -124,7 +122,7 @@
                       id="experience"
                       aria-describedby="experience"
                       placeholder=""
-                      value="{{ profile.data.number_years_experience }}"
+                      value="{{ item.data.numberYearsExperience}}"
                     />
                     <small id="experience" class="form-text text-muted"></small>
                   </div>
@@ -138,7 +136,7 @@
                       name="Education"
                       id="Education"
                       placeholder=""
-                      value="{{ profile.data.academic_name }}"
+                      value="{{ item.data.academicLevel.academicName }}"
                     />
                   </div>
                 </div>
@@ -158,7 +156,7 @@
                       aria-describedby="
                                     DesiredSalary"
                       placeholder=""
-                      value="{{ profile.data.desired_salary }}"
+                      value="{{ item.data.desiredSalary }}"
                     />
                     <small
                       id="DesiredSalary"
@@ -174,7 +172,7 @@
                       id="desiredAddress"
                       aria-describedby="desiredAddress"
                       placeholder=""
-                      value="{{ profile.data.desired_working_address }}"
+                      value="{{ item.data.desiredWorkingAddress }}"
                     />
                     <small
                       id="desiredAddress"
@@ -191,22 +189,22 @@
                       name="disiredWork"
                       id="disiredWork"
                       placeholder=""
-                      value="{{ profile.data.desiredworkname }}"
+                      value="{{ item.data.desiredwork.desiredworkname }}"
                     />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- <div class="col-12">
+          <div class="col-12">
                       <div class="item mb--25">
                         <div class="d-flex justify-content-end">
-                          <button  routerLink = "../editUser" class="btn btn-primary">
+                          <button   [routerLink]="['/home/editinfomation/'+ item.data.users.id]" class="btn btn-primary">
                             Chỉnh sửa
                           </button>
                         </div>
                       </div>
-                    </div> -->
+                    </div>
         </div>
       </form>
 
@@ -217,4 +215,4 @@
       </div> -->
     </div>
   </div>
-</main>
+

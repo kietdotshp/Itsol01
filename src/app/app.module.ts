@@ -15,35 +15,29 @@ import { Router, Routes } from '@angular/router';
 import { MessageComponent } from './authen/message/message.component';
 import { LoginComponent } from './authen/login/login.component';
 import { AuthenComponent } from './authen/authen.component';
-import { EmployeeListComponent } from './authen/employee-list/employee-list.component';
+
 import { RegisterComponent } from './authen/register/register.component';
 import { EmployeeAddComponent } from './authen/employee-add/employee-add.component';
-// import { AuthInterceptor } from './interceptor/auth.interceptor';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
-    // HeaderComponent,
-    // FooterComponent,
-    // HomeComponent,
+
     LoginComponent,
     RegisterComponent,
-    // JobDetailComponent,
-    // RecruitmentComponent,
-    // ContactComponent,
-    // ListJobComponent,
-    // PersonalInfoComponent,
-    // UserComponent,
-     AuthenComponent,
-    // AdminComponent,
+
+    AuthenComponent,
+
     MessageComponent,
     EmployeeAddComponent,
     ChangePasswordComponent,
-    EmployeeListComponent,
+
     OtpComponent
-    // RecruitmentComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -55,19 +49,10 @@ import { EmployeeAddComponent } from './authen/employee-add/employee-add.compone
     ReactiveFormsModule
   ],
   providers: [
-    // {
-    //   // provide: HTTP_INTERCEPTORS,
-    //   // useClass: AuthInterceptor,
-    //   // multi: true,
-    // }
+
   ],
   bootstrap: [AppComponent]
 })
 
-// const routes: Routes=[
-//   { path: 'phones', component: ItemsListComponent },
-//   { path: 'phones/:id/edit', component: ItemFormComponent },
-//   { path: 'phones/new', component: ItemFormComponent },
-//   { path: 'cart', component: CartComponent }
-// ]
+
 export class AppModule { }
