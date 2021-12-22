@@ -10,19 +10,28 @@
 // // avatar VARCHAR(100),
 // // user_status INTEGER NOT NULL,
 // // is_delete INTEGER NOT NULL
+
+import { AcademicLevel } from "./academiclevel";
+import { DesiredWork } from "./desiredwork";
+import { Profiles } from "./profiles";
+
 // export class User {
   export interface User {
-    id?: number;
-    birthday?: any;
+    id: number;
+    birthDay:Date;
+    avatar:string;
     email: string;
     fullName: string;
-    gender?: any;
-    hometown?: any;
-    isactive?: any;
-    isDelete?: any;
-    password?: any;
-    phoneNumber?: any;
-    userName?: any;
+    gender: string;
+    homeTown:string;
+    isactive: any;
+    isDelete: any;
+    password: string;
+    phoneNumber: string;
+    userName: string;
+    profile:Profiles;
+    academicLevel:AcademicLevel;
+    disireWork:DesiredWork;
   }
 
 // constructor(id: any, full_name: string, email: string, username: string, password: string, home_town: string, gender: string, birth_day: string, lastAccess: any, phoneNumber: number, departmentName: string, leaderId: number, fbLink: string, faculty: string, education: string, birthday: any, isLeader: any, isManager: any, skypeAcc: string, university: string, userType: string, graduationYear: number) {

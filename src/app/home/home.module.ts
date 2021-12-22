@@ -12,7 +12,11 @@ import { TableModule } from 'primeng/table';
 import { PopupComponent } from './list-job/detail-job/popup/popup.component';
 import { InfomationUserComponent } from './infomation-user/infomation-user.component';
 import { EditInformationComponent } from './edit-information/edit-information.component';
+
 import { ListJeComponent } from '../admin/list-Je/list-je.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 const routes: Routes = [
   {
@@ -41,7 +45,7 @@ const routes: Routes = [
         component:InfomationUserComponent,
       },
       {
-        path:'editinfomation',
+        path:'editinfomation/:id',
         component:EditInformationComponent
       }
     ]
@@ -57,7 +61,10 @@ const routes: Routes = [
     ProfileComponent,
     PopupComponent,
     InfomationUserComponent,
+
     EditInformationComponent
+
+
 
   ],
   imports: [
@@ -65,7 +72,9 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     MatSliderModule,
     MatTableModule,
-    TableModule
+    TableModule,
+    ReactiveFormsModule,
+    FormsModule,
   ]
 })
 export class HomeModule { }

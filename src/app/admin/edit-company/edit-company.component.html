@@ -1,0 +1,180 @@
+<div class="container">
+  <form [formGroup]="formUpdate">
+    <div class="form-row">
+      <div class="form-group col-md-5">
+        <label for="name">Tên công ty</label>
+        <input
+          type="name"
+          formControlName="name"
+          class="form-control"
+          id="inputEmail5"
+          placeholder=""
+        />
+      </div>
+      <div class="form-group col-md-5">
+        <label for="hotLine">Số điện thoại</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="hotLine"
+          id="hotLine"
+          placeholder="+84"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-5">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          formControlName="email"
+          placeholder="Email"
+        />
+      </div>
+      <div class="form-group col-md-5">
+        <label for="dateIncorporation">Ngày thành lập</label>
+        <input
+          type="date"
+          class="form-control"
+          id="dateIncorporation"
+          formControlName="dateIncorporation"
+          placeholder=""
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-5">
+        <label for="taxCode">Mã số thuế</label>
+        <input
+          type="taxCode"
+          formControlName="taxCode"
+          class="form-control"
+          id="taxCode"
+          placeholder=""
+        />
+      </div>
+      <div class="form-group col-md-5">
+        <label for="taxDate">Ngày cấp mã số thuế</label>
+        <input
+          type="date"
+          formControlName="taxDate"
+          class="form-control"
+          id="taxDate"
+          placeholder=""
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-5">
+        <label for="taxPlace">Nơi cấp mã số thuế</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="taxPlace"
+          id="taxPlace"
+          placeholder="Hà Nội..."
+        />
+      </div>
+      <div class="form-group col-md-5">
+        <label for="headOffice">Trụ sở chính</label>
+        <input
+          type="text"
+          formControlName="headOffice"
+          class="form-control"
+          id="headOffice"
+          placeholder=""
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-5">
+        <label for="numberStaff">Số lượng nhân viên</label>
+        <input
+          type="text"
+          formControlName="numberStaff"
+          class="form-control"
+          id="numberStaff"
+          placeholder=""
+        />
+      </div>
+      <div class="form-group col-md-5">
+        <label for="linkWeb">Trang web</label>
+        <input
+          type="text"
+          class="form-control"
+          id="linkWeb"
+          formControlName="linkWeb"
+          placeholder=""
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-5">
+        <label for="description">Mô tả công ty</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          formControlName="description"
+          placeholder=""
+        />
+      </div>
+      <div class="form-group col-md-5">
+        <label for="exampleFormControlFile1">Ảnh đại diện </label>
+        <input
+          type="file"
+
+          class="form-control-file"
+          id="exampleFormControlFile1"
+        />
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="update()">
+      Chỉnh sửa
+    </button>
+  </form>
+
+</div>
+<!-- <div class="container" style="margin-top: 20px;">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Upload and Download Files</h4>
+    </div><br>
+    <div class="panel-body">
+      <strong>Select files from your computer</strong>
+      <div *ngIf="fileStatus.status==='progress'">
+        <div class="progress">
+          <div [style.width.%]="fileStatus.percent" class="progress-bar progress-bar-animated bg-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+              {{ fileStatus.requestType }} {{ fileStatus.percent }}
+            </div>
+        </div>
+      </div> <hr>
+
+      <form enctype="multipart/form-data">
+        <fieldset>
+          <div class="form-group">
+            <div>
+              <input type="file" (change)="onUploadFiles($any($event.target).files)" name="files" multiple class="form-control" />
+            </div>
+          </div>
+        </fieldset>
+      </form>
+
+      <br>
+
+      <div *ngIf="filenames?.length > 0" class="js-upload-finished">
+        <h3>Processed files</h3>
+        <div *ngFor="let filename of filenames" class="list-group">
+          <a (click)="onDownloadFile(filename)" class="list-group-item list-group-item-success" style="cursor: pointer;">
+            {{ filename }}
+            <a class="alert-success float-right">Download</a>
+          </a><br>
+        </div>
+      </div>
+
+    </div>
+  </div>
+    </div> -->
