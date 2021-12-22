@@ -42,6 +42,18 @@ export class listJobService {
         });
       }
 
+      public getAllJobPage(
+        pageN: number,
+        pageS: number
+      ): Observable<ResponseData> {
+        return this.http.get<ResponseData>(`${this.API_URL+'getAllPage'}`, {
+          params: {
+            pageNumber: pageN,
+            pageSize: pageS,
+          },
+        });
+      }
+
 
 
 }

@@ -9,10 +9,12 @@ import { ProfileComponent } from './profile/profile.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material/table';
 import { TableModule } from 'primeng/table';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { PopupComponent } from './list-job/detail-job/popup/popup.component';
 import { InfomationUserComponent } from './infomation-user/infomation-user.component';
 import { EditInformationComponent } from './edit-information/edit-information.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 // import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [
@@ -66,6 +68,8 @@ const routes: Routes = [
     MatSliderModule,
     MatTableModule,
     TableModule,
+    PaginationModule,
+    FormsModule,
     // BrowserModule,
      HttpClientModule
   ]

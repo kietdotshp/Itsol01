@@ -1,3 +1,73 @@
 mat-slider {
     width: 300px;
   }
+
+
+  .paging {
+    display: block;
+    margin-left: 80%;
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+  }
+  
+  .button {
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+  }
+  .ngx-pagination {
+    padding-left: 0px !important;
+  }
+  
+  .ngx-pagination ::ng-deep.current,
+  .btn-info {
+    background: #17a2b8 !important;
+    border: transparent !important;
+    border-radius: 20px !important;
+  }
+  
+  .ngx-pagination ::ng-deep.current:hover {
+    background: #17a2b8 !important;
+    border-radius: 20px !important; 
+    border: transparent !important;
+
+  }
+
+  .pagination / deep / .ngx-pagination.current {
+    background: red;
+ }
+
+ .pagination / deep / .ngx-pagination li {
+    border: 1 px solid #CCCC;
+    margin-right: 0 px;
+ }
+
+ .pagination / deep / .ngx-pagination a::after {
+    display: none;
+ }
+
+ .pagination / deep / .ngx-pagination li::before {
+    display: none;
+ }
+
+ .pagination / deep / .ngx-pagination li::after {
+    display: none;
+ }
+
+ .pagination / deep / .ngx-pagination a::before {
+    display: none;
+ }
+
+ .page-item.active .page-link {
+  background-color: red;
+  border-color: red;
+}
+
+.page-link {
+  color: red; 
+}
+
+.page-link:hover {
+  color: red; 
+}

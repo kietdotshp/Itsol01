@@ -26,7 +26,7 @@
                     <option>Category1</option>
                     <option>Category2</option>
                 </select>
-                <span class="large material-icons margin-top search">place</span>
+               <span class="large material-icons margin-top search">place</span> 
                 <input class="search-box_search_input " placeholder="Location" required="required" type="search">
             </div>
             <button type="submit" class="search-box_search_button">Search Jobs</button>
@@ -41,7 +41,7 @@
         <div class="vertical-space-30"></div>
         <div class="row">
             <div class="col-lg-4 col-md-12">
-                <div class="Job-Category-box">
+                <!-- <div class="Job-Category-box">
                     <p class="title">Job Category</p>
                     <ul>
                         <li class="list-item1 "><a href="#" class="font-color-black">Web Developer (54)</a></li>
@@ -54,7 +54,7 @@
                         </li>
                         <li class="list-item1 "><a href="#" class="font-color-black">Digital Marketer (72)</a></li>
                     </ul>
-                </div>
+                </div> -->
                 <div class="Job-Nature-box">
                     <p class="title">Job Nature</p>
                     <ul>
@@ -123,7 +123,7 @@
                     <div class="vertical-space-25"></div>
 
                 </div>
-                <div class="job-list width-100">
+                <!-- <div class="job-list width-100">
                     <ul class="pagination justify-content-end margin-auto">
                         <li class="page-item"><a class="page-link pdding-none" href="javascript:void(0);"><i
                                     class=" material-icons keyboard_arrow_left_right">keyboard_arrow_left</i></a>
@@ -137,9 +137,25 @@
                                     class=" material-icons keyboard_arrow_left_right">keyboard_arrow_right</i></a>
                         </li>
                     </ul>
-                </div>
+                </div> -->
 
-
+                <div class="paging">
+                    <span>
+                      <pagination
+                        [boundaryLinks]="true"
+                        [totalItems]="totalRecord"
+                        [(ngModel)]="pageN"
+                        [itemsPerPage]="pageS"
+                        previousText="&lsaquo;"
+                        nextText="&rsaquo;"
+                        firstText="&laquo;"
+                        lastText="&raquo;"
+                        (pageChanged)="pageChanged($event)"
+                        (click)="setPage(pageN)"
+                      >
+                      </pagination>
+                    </span>
+                  </div>
             </div>
 
 
