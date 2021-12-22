@@ -1,61 +1,118 @@
-<!-- <section id="intro">
-  <div class="carousel-item active">
-  <div class="carousel-background"><img class="img-size" src="assets/imags/slider/slider1.jpg" alt=""></div>
-  <div class="carousel-container">
-  <div class="carousel-content">
-  <h2 class="font-color-white">JobRegister LIST</h2>
-  <p class="font-color-white width-100"><a href="index.html" class="font-color-white">Home</a>
-  </p>
-  </div>
-  </div>
-  </div>
-  </section> -->
+<div>
+  <form class="needs-validation" [formGroup]="searchForm" (ngSubmit)="onSearchJobRegister()">
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="validationTooltip03">User Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="applicantName"
+          formControlName="applicantName"
+        />
+      </div>
 
-<!-- Search form -->
-<div class="search-hero">
-  <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching ">
+      <div class="col-md-6 mb-3">
+        <label for="validationTooltip03">Vacancies</label>
+        <input
+          type="text"
+          class="form-control"
+          id="positionName"
+          formControlName="positionName"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationTooltip03">APPLICATION TIME FROM</label>
+        <input
+          type="date"
+          class="form-control"
+          id="applicationTimeFrom"
+          formControlName="applicationTimeFrom"
+        />
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label for="validationTooltip03">APPLICATION TIME TO</label>
+        <input
+          type="date"
+          class="form-control"
+          id="applicationTimeTo"
+          formControlName="applicationTimeTo"
+        />
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label for="validationTooltip03">Status</label>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          class="form-control"
+          id="jobRegisterStatus"
+          formControlName="jobRegisterStatus">
+          <option value="cho xet duyet">cho xet duyet</option>
+          <option value="da tu choi">da tu choi</option>
+          <option value="dang tuyen">dang tuyen</option>
+          <option value="chua dang tuyen">chua dang tuyen</option>
+          <option value="da duyet">da duyet</option>
+          <option value="da dong">da dong</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit" (click)="onSearchJobRegister()">Search</button>
+  </form>
 </div>
+
 <div>
   <table class="table table-striped">
     <thead>
-    <tr>
-      <th>USER NAME</th>
-      <th>VACANCIES</th>
-      <th>APPLICATION TIME</th>
-      <th>STATUS</th>
-      <th>CV FILE</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+      <tr>
+        <th>USER NAME</th>
+        <th>VACANCIES</th>
+        <th>APPLICATION TIME</th>
+        <th>STATUS</th>
+        <th>CV FILE</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let element of dataSource | filter:searchText">
-      <td>{{element.user.fullName}}</td>
-      <td>{{element.vacancies}}</td>
-      <td>{{element.applicationTime}}</td>
-      <td>{{element.status}}</td>
-      <td>{{element.cvFile}}</td>
-      <td> <button mat-raised-button class="button">Dowload</button></td>
-      <td> <button mat-raised-button class="button">Reason</button></td>
-      <td> <button mat-raised-button class="button">Appointment</button></td>
-      <td> <button mat-raised-button class="button" routerLink="../profile-detail">Detail</button></td>
-    </tr>
+      <tr *ngFor="let element of dataSource">
+        <td>{{ element.user.fullName }}</td>
+        <td>{{ element.jobs.jobPosition }}</td>
+        <td>{{ element.applicationTime }}</td>
+        <td>{{ element.jobStatus.statusName }}</td>
+        <td>
+          <button mat-raised-button class="button btn-primary">Dowload</button>
+        </td>
+        <td>
+          <button
+            mat-raised-button
+            class="button btn-primary"
+            routerLink="../profile-detail/{{ element.id }}"
+          >
+            Detail
+          </button>
+        </td>
+      </tr>
     </tbody>
   </table>
-  </div>
-  <div class="paging" >
-    <span>
-      <pagination [boundaryLinks]="true"
+</div>
+<div class="paging">
+  <span>
+    <pagination
+      [boundaryLinks]="true"
       [totalItems]="totalRecord"
       [(ngModel)]="pageN"
       [itemsPerPage]="pageS"
-      previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"
+      previousText="&lsaquo;"
+      nextText="&rsaquo;"
+      firstText="&laquo;"
+      lastText="&raquo;"
       (pageChanged)="pageChanged($event)"
       (click)="setPage(pageN)"
-      >
-      </pagination>
-    </span>
-
-  </div>
-
+    >
+    </pagination>
+  </span>
+</div>

@@ -9,6 +9,7 @@ import { Company } from '../model/company';
 export class CompanyService {
 
   constructor(private http: HttpClient) { }
+
   private API_URL = 'http://localhost:8001/company/'
   // public getAll(): Observable<any>{
   //   return this.http.get(this.API_URL)
@@ -24,5 +25,6 @@ export class CompanyService {
   }
   public getCompanyById(id: number) {
     return this.http.get<Company>(`${this.API_URL + 'getCompanyByID'}/${id}`);
+
   }
 }

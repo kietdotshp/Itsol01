@@ -10,6 +10,7 @@ export interface Profiles {
   desiredWorkingAddress:string;
   isDelete:any;
   users:User;
+
   acdemiclevel: AcademicLevel;
-  desiredwork:DesiredWork;
+  desiredwork: DesiredWork;
 }

@@ -17,6 +17,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { RecruitmentDetailComponent } from './recruitment/recruitment-detail/recruitment-detail.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { ListJeComponent } from './list-Je/list-je.component';
 import { AddJeComponent } from './add-Je/add-je.component';
@@ -68,13 +70,10 @@ const routes: Routes = [
         component: AdminHomeComponent,
       },
       {
-        path: 'recruitment',
-        component: RecruitmentComponent,
-      },
-      {
-        path: 'profile-detail',
+        path: 'profile-detail/:id',
         component: ProfileDetailComponent,
       },
+
       {
         path: 'recruitment-detail',
         component: RecruitmentDetailComponent,
@@ -83,6 +82,7 @@ const routes: Routes = [
         path: 'editcontact/:id',
         component: EditCompanyComponent,
       },
+
     ],
   },
 ];
@@ -117,12 +117,13 @@ const routes: Routes = [
     PaginationModule,
     Ng2SearchPipeModule,
 
- 
-=\
+    MatDatepickerModule,
+   
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule
+
   ],
   exports: [RouterModule],
 })

@@ -16,6 +16,7 @@ import { DesiredWork } from "./desiredwork";
 import { Profiles } from "./profiles";
 
 // export class User {
+
   export interface User {
     id: number;
     birthDay:Date;
@@ -33,6 +34,7 @@ import { Profiles } from "./profiles";
     academicLevel:AcademicLevel;
     disireWork:DesiredWork;
   }
+
 
 // constructor(id: any, full_name: string, email: string, username: string, password: string, home_town: string, gender: string, birth_day: string, lastAccess: any, phoneNumber: number, departmentName: string, leaderId: number, fbLink: string, faculty: string, education: string, birthday: any, isLeader: any, isManager: any, skypeAcc: string, university: string, userType: string, graduationYear: number) {
 //   this.id = id;

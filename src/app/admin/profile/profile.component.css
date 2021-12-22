@@ -2,16 +2,18 @@ table {
   margin-top: 10px;
   width: 100%;
 }
-.absolute{
+.absolute {
   position: relative;
 }
-.margin{
+.margin {
   margin-left: 80%;
 }
 
-tr:hover {background-color:  rgb(238, 238, 238);}
+tr:hover {
+  background-color: rgb(238, 238, 238);
+}
 
-.paging{
+.paging {
   display: block;
   margin-left: 80%;
   width: 100px;
@@ -19,14 +21,13 @@ tr:hover {background-color:  rgb(238, 238, 238);}
   padding: 5px;
 }
 
-.button{
-  border-radius: 12px;
-  background-color: rgb(122, 169, 202);
+.button {
+  border-radius: 5px;
   width: 100px;
   height: 30px;
 }
 
-.img-size{
+.img-size {
   height: 200px;
 }
 
@@ -62,7 +63,6 @@ section {
   width: 120px;
 }
 
-
 .container {
   padding-top: 50px;
   padding-bottom: 10px;
@@ -73,12 +73,12 @@ section {
   display: block;
   max-width: 500px;
   padding-bottom: 50px;
-  margin:auto;
+  margin: auto;
 }
 
 .form-control {
-  box-shadow: 0 10px 40px 0 #B0C1D9;
+  box-shadow: 0 10px 40px 0 #b0c1d9;
 }
-.form-control::placeholder  {
+.form-control::placeholder {
   font-family: FontAwesome;
 }
