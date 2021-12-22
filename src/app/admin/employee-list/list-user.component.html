@@ -1,0 +1,37 @@
+<form [formGroup]="addForm">
+
+  <table id="tb-view" class="table table-bordered table-sm table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Họ tên</th>
+        <th>Email</th>
+        <th>Tên tài khoản</th>
+        <th>Số điện thoại</th>
+        <th>Địa chỉ</th>
+        <th>Gioi tính</th>
+        <th>Ngày sinh</th>
+        <th>Trạng thái</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.fullName }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.userName }}</td>
+        <td>{{ employee.phoneNumber }}</td>
+        <td>{{ employee.homeTown }}</td>
+        <td>{{ employee.gender }}</td>
+        <td>{{ employee.birthDay }}</td>
+        <td>{{ employee.active }}</td>
+        <td class="text-nowrap" style="width: 1px">
+
+          <button type="button" class="btn btn-success" style="margin-right: 2px" (click)="deleteJE(employee.id)">
+            Xóa
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</form>
+<!---->

@@ -17,6 +17,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 // import { BrowserModule } from '@angular/platform-browser';
 
+import { ListJeComponent } from '../admin/list-Je/list-je.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 const routes: Routes = [
   {
 
@@ -44,7 +49,7 @@ const routes: Routes = [
         component:InfomationUserComponent,
       },
       {
-        path:'editinfomation',
+        path:'editinfomation/:id',
         component:EditInformationComponent
       }
     ]
@@ -60,7 +65,11 @@ const routes: Routes = [
     ProfileComponent,
     PopupComponent,
     InfomationUserComponent,
+
     EditInformationComponent
+
+
+
   ],
   imports: [
     CommonModule,
@@ -69,9 +78,10 @@ const routes: Routes = [
     MatTableModule,
     TableModule,
     PaginationModule,
+    HttpClientModule
+    ReactiveFormsModule,
     FormsModule,
-    // BrowserModule,
-     HttpClientModule
+
   ]
 })
 export class HomeModule { }

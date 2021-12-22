@@ -21,3 +21,4 @@ export interface Jobs {
     createDate?: any;
     maxSalary?: any;
 }
+
