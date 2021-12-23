@@ -18,7 +18,9 @@
       </tr>
     </thead>
     <tbody>
-      **ngIf="employee.active==true"
+      <!-- <div *ngIf="employee.active==true">
+         dang hoat dong ,{{employee.active}}
+      </div> -->
       <tr *ngFor="let employee of employees">
         <td>{{ employee.fullName }}</td>
         <td>{{ employee.email }}</td>
@@ -27,7 +29,7 @@
         <td>{{ employee.homeTown }}</td>
         <td>{{ employee.gender }}</td>
         <td>{{ employee.birthDay }}</td>
-        <td>{{ employee.active }}</td>
+        <td>Trạng thái tài khoản {{ employee.active }}</td>
         <td class="text-nowrap" style="width: 1px">
           <button type="button" class="btn btn-danger" style="margin-right: 2px"
             [routerLink]="['../update-Je/'+ employee.id]">

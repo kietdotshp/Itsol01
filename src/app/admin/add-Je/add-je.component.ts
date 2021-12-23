@@ -47,6 +47,7 @@ export class AddJeComponent implements OnInit {
     this.btnDisable = true;
     console.log(this.addForm.value);
     alert('đăng kí thành công! Vui lòng check mail và xác nhận.');
+    // alert('đăng kí thất bại! .');
     this.router.navigate(['./admin/list-je'])
     this.rest.addJE(this.addForm.value).subscribe((data) => {
       this.data.success('Employee is save');
