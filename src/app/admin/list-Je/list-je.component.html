@@ -31,9 +31,9 @@
         <td>{{ employee.birthDay }}</td>
         <td>Trạng thái tài khoản {{ employee.active }}</td>
         <td class="text-nowrap" style="width: 1px">
-          <button type="button" class="btn btn-danger" style="margin-right: 2px"
+          <button type="button" class="btn btn-danger"  style="margin-right: 2px"
             [routerLink]="['../update-Je/'+ employee.id]">
-            >
+            
             Sửa
           </button>
           <button type="button" class="btn btn-success" style="margin-right: 2px" (click)="deleteJE(employee.id)">
