@@ -16,6 +16,7 @@ import { EditInformationComponent } from './edit-information/edit-information.co
 import { HttpClientModule } from '@angular/common/http';
 import { ListJeComponent } from '../admin/list-Je/list-je.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UploadComponent } from './upload/upload.component';
 
 
 const routes: Routes = [
@@ -47,6 +48,10 @@ const routes: Routes = [
       {
         path:'editinfomation/:id',
         component:EditInformationComponent
+      },
+      {
+        path:'upload',
+        component:UploadComponent,
       }
     ]
   }
@@ -62,7 +67,8 @@ const routes: Routes = [
     PopupComponent,
     InfomationUserComponent,
 
-    EditInformationComponent
+    EditInformationComponent,
+      UploadComponent
 
 
 

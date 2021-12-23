@@ -1,5 +1,4 @@
-export const ROLE_PUBLIC = 'PUBLIC';
-export const ROLE_ADMIN = 'ADMIN';
-// export const ROLE_TEAM_LEAD = 'LEADER';
-// export const ROLE_MANAGER = 'MANAGER';
-export const ROLE_JOBEDITOR = 'JOBEDITOR';
+export const USER_TOKEN_KEY = 'user-token-key';
+export const USER_ID_KEY    = 'user-id-key';
+export const USERNAME_KEY   = 'user-username-key';
+export const USER_ROLE_KEY  = 'user-role-key'
