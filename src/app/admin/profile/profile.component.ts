@@ -60,10 +60,18 @@ export class ProfileComponent implements OnInit {
 
 
   onSearchJobRegister() {
-    debugger;
     this.JobRegisterService.searchJobRegister(this.searchForm.value).subscribe(data => {
       this.dataSource = data;
     })
+  }
+
+
+  displayStyle = "none";
+  openPopup() {
+    this.displayStyle = "block";
+  }
+  closePopup() {
+    this.displayStyle = "none";
   }
 
   // SearchName() {

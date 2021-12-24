@@ -15,7 +15,6 @@ export class ContactComponent implements OnInit {
   editForm: FormGroup;
   company: Company[] = [
   //  {
-  //     avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXQKxnlgxsOyKQ-bimseQCyJ5w_2TxbRwG1Q&usqp=CAU',
   //     name: 'Cong ty X',
   //     email: 'xxxxx@gmail.com',
   //     hotLine: '0123456789',
@@ -30,6 +29,8 @@ export class ContactComponent implements OnInit {
   //     backdropImg: 'xxxxxx12345'
   //   }
 ];
+   avatar:string = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXQKxnlgxsOyKQ-bimseQCyJ5w_2TxbRwG1Q&usqp=CAU';
+
   noAvatar: string = '../../../assets/imags/default-avatar.png';
   constructor(private companyService: CompanyService, public matDialog: MatDialog) { }
   // data:any

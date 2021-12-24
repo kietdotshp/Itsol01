@@ -41,6 +41,12 @@ export class AdminComponent implements OnInit {
     },
     {
       id: 6,
+      name: 'Danh sách tin tuyển dụng',
+      path: '/admin/list-job',
+      icon: 'nc-icon nc-notes'
+    },
+    {
+      id: 7,
       name: 'Thông tin và liên hệ',
       path: '/admin/contact',
       icon: 'nc-icon nc-circle-09'

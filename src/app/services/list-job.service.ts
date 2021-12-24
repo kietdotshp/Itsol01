@@ -10,12 +10,6 @@ import { ResponseData } from "../model/response-data";
 
 export class listJobService {
 
-    // API_URL:string = 'http://localhost:8080/jobs/'
-
-    // constructor(private http: HttpClient) { }
-    // public getAllJob():Observable<any> {
-    //     return this.http.get<any>(this.API_URL + 'getJob');
-    // }
     private API_URL = 'http://localhost:8001/jobs/';
 
     constructor(private http: HttpClient) { }
@@ -23,17 +17,6 @@ export class listJobService {
     getAllJob() {
         return this.http.get<any>(this.API_URL + 'getAll');
     }
-    // getAllJob(pageNumber: number, pageSize: number) :
-    //     Observable < ResponseData > {
-    //         return this.http.get<ResponseData>(`${this.API_URL}`, {
-    //             params: {
-    //                 pageNumber: pageNumber,
-    //                 pageSize: pageSize
-    //             }
-    //         })
-    //     }
-    // }
-
     public getJobById(id: number): Observable<Jobs> {
         return this.http.get<Jobs>(`${this.API_URL+'getJob'}/${id}`, {
           params: {
@@ -53,7 +36,6 @@ export class listJobService {
           },
         });
       }
-
 
 
 }

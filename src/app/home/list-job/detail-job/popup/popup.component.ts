@@ -1,6 +1,6 @@
 import { HttpErrorResponse, HttpEvent, HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import{saveAs} from 'file-saver'; 
+import { saveAs } from 'file-saver';
 import { FileService } from 'src/app/services/file.service';
 
 @Component({
@@ -8,17 +8,22 @@ import { FileService } from 'src/app/services/file.service';
   templateUrl: './popup.component.html',
   styleUrls: ['./popup.component.css']
 })
-export class PopupComponent  {
+export class PopupComponent {
 
   filenames: string[] = [];
   fileStatus = { status: '', requestType: '', percent: 0 };
-  
-  constructor(private fileService: FileService) {}
+
+  constructor(private fileService: FileService) { }
 
   // define a function to upload files
-  onUploadFiles(files: File[]): void {
+  onUploadFiles(event: any): void {
+    let file = event.target.files[0];
+    console.log("Event" + event);
+    console.log("File" + file);
     const formData = new FormData();
-    for (const file of files) { formData.append('files', file, file.name); }
+    // for (const file of File) { 
+      formData.append('files', file, file.name);
+    //  }
     this.fileService.upload(formData).subscribe(
       event => {
         console.log(event);
@@ -44,7 +49,7 @@ export class PopupComponent  {
   }
 
   private resportProgress(httpEvent: HttpEvent<string[] | Blob>): void {
-    switch(httpEvent.type) {
+    switch (httpEvent.type) {
       case HttpEventType.UploadProgress:
         this.updateStatus(httpEvent.loaded, httpEvent.total!, 'Uploading... ');
         break;
@@ -61,18 +66,18 @@ export class PopupComponent  {
             this.filenames.unshift(filename);
           }
         } else {
-          saveAs(new File([httpEvent.body!], httpEvent.headers.get('File-Name')!, 
-                  {type: `${httpEvent.headers.get('Content-Type')};charset=utf-8`}));
+          saveAs(new File([httpEvent.body!], httpEvent.headers.get('File-Name')!,
+            { type: `${httpEvent.headers.get('Content-Type')};charset=utf-8` }));
           // saveAs(new Blob([httpEvent.body!], 
           //   { type: `${httpEvent.headers.get('Content-Type')};charset=utf-8`}),
           //    httpEvent.headers.get('File-Name'));
         }
         this.fileStatus.status = 'done';
         break;
-        default:
-          console.log(httpEvent);
-          break;
-      
+      default:
+        console.log(httpEvent);
+        break;
+
     }
   }
 
