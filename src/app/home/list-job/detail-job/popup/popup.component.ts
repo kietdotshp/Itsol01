@@ -12,25 +12,27 @@ import { FileService } from 'src/app/services/file.service';
 export class PopupComponent  {
 
   // public validate!:FormGroup;
+  validate: FormGroup;
 
   filenames: string[] = [];
   fileStatus = { status: '', requestType: '', percent: 0 };
   
   constructor(private fileService: FileService, private formBuider: FormBuilder) {}
 
-  validate=this.formBuider.group({
-    "jobName":["ITSol",Validators.required],
-    "company":["",Validators.required],
-    "Address":["",Validators.required],
-    "Mess":["",Validators.required]
-   })
+  
 
    get f(){
      return this.validate.controls
    }
 
   ngOnInit(): void{
-    
+    this.validate=this.formBuider.group({
+      "jobName":[null,Validators.required],
+      "company":[null,Validators.required],
+      "Address":[null,Validators.required],
+      "Mess":[null,Validators.required],
+      "cv":[null,Validators.required]
+     })
   }
 
   // define a function to upload files
@@ -101,7 +103,11 @@ export class PopupComponent  {
   }
 
   onSubmit(){
-    console.log(this.validate.value);
+    
+    if (this.validate.valid) {
+      console.log('form submitted');
+    } else {}
   }
+  
 
 }
