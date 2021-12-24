@@ -55,7 +55,8 @@ export class listJobService {
         });
       }
 
-      public searchJobRegister(search: searchJob): Observable<Jobs[]>{
+      public searchJobs(search: searchJob): Observable<Jobs[]>{
+        debugger
         return this.http.post<Jobs[]>(`${this.API_URL+'search'}`, search);
       }
 

@@ -1,6 +1,6 @@
 export class searchJob{
-    JobsName: string;
-    Jobsposition: string;
+    searchName: string;
+    positionName: string;
     minSalary: any;
     maxSalary:any;
     applicationTimeFrom: string;

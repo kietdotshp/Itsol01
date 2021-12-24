@@ -26,8 +26,8 @@ export class ListJobComponent implements OnInit {
   constructor(private listJobService: listJobService,private route:ActivatedRoute,public form: FormBuilder) { }
 
   searchForm: FormGroup = this.form.group({
-    JobsName: new FormControl(""),
-    Jobsposition: new FormControl(""),
+    searchName: new FormControl(""),
+    positionName: new FormControl(""),
     minSalary: new FormControl(""),
     maxSalary: new FormControl(""),
     applicationTimeFrom: new FormControl(""),
@@ -75,7 +75,8 @@ export class ListJobComponent implements OnInit {
   
 
   onSearchJobRegister() {
-    this.listJobService.searchJobRegister(this.searchForm.value).subscribe(data => {
+    this.listJobService.searchJobs(this.searchForm.value).subscribe(data => {
+      console.log(data)
       this.jobs = data;
     })
   }

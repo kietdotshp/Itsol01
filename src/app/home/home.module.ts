@@ -64,12 +64,10 @@ const routes: Routes = [
     ProfileComponent,
     PopupComponent,
     InfomationUserComponent,
-
     EditInformationComponent
-
-
-
   ],
+
+
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -77,7 +75,7 @@ const routes: Routes = [
     MatTableModule,
     TableModule,
     PaginationModule,
-    HttpClientModule
+    HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
     ReactiveFormsModule,
