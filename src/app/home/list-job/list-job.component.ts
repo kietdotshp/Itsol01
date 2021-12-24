@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { Jobs } from 'src/app/model/job.model';
@@ -17,10 +18,21 @@ export class ListJobComponent implements OnInit {
   jobs: Jobs[];
   displayedColumns: string[] = [ 'name', 'addressWork'];
 
+
+
   
 
  
-  constructor(private listJobService: listJobService,private route:ActivatedRoute) { }
+  constructor(private listJobService: listJobService,private route:ActivatedRoute,public form: FormBuilder) { }
+
+  searchForm: FormGroup = this.form.group({
+    searchName: new FormControl(""),
+    positionName: new FormControl(""),
+    minSalary: new FormControl(""),
+    maxSalary: new FormControl(""),
+    applicationTimeFrom: new FormControl(""),
+    applicationTimeTo: new FormControl("")
+  })
 
   // dataSource: Jobs[] = [];
   totalRecord: number = 0;
@@ -62,7 +74,12 @@ export class ListJobComponent implements OnInit {
     
   
 
-
+  onSearchJobRegister() {
+    this.listJobService.searchJobs(this.searchForm.value).subscribe(data => {
+      console.log(data)
+      this.jobs = data;
+    })
+  }
 
 
  

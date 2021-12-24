@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Jobs } from "../model/job.model";
 import { ResponseData } from "../model/response-data";
+import { searchJob } from "../model/searchJob";
 
 @Injectable({
     providedIn: 'root'
@@ -37,6 +38,9 @@ export class listJobService {
         });
       }
 
+      public searchJobs(search: searchJob): Observable<Jobs[]>{
+        return this.http.post<Jobs[]>(`${this.API_URL+'search'}`, search);
+      }
 
 }
 

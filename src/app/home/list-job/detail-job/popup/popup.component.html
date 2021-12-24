@@ -1,183 +1,76 @@
-<!-- <header class="header"> -->
-
-<!-- <div class="top_bar background-color-orange">
-    <div class="top_bar_container">
-    <div class="container">
-    <div class="row">
-    <div class="col">
-    <div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
-    <ul class="top_bar_contact_list">
-    <li>
-    <i class="fa fa-phone coll" aria-hidden="true"></i>
-    <div class="contact-no">0123 4567 8912</div>
-    </li>
-    <li>
-    <i class="fa fa-envelope coll" aria-hidden="true"></i>
-    <div class="email"><a href="https://demo.technosarjan.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="aacfd2cbc7dac6cfeac0c5c8decfc4ce84c9c5c7">[email&#160;protected]</a></div>
-    </li>
-    </ul>
-    <div class=" ml-auto ">
-    <div class="search_button search"><i class="large material-icons search-icone">search</i></div>
-    <div class="hamburger menu_mm  search_button transparent search display"><i class="large material-icons font-color-white  search-icone  menu_mm ">menu</i></div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div> -->
-<!--
-    <div class="header_container background-color-orange-light">
-    <div class="container">
-    <div class="row">
-    <div class="col">
-    <div class="header_content d-flex flex-row align-items-center justify-content-start">
-    <div class="logo_container">
-    <a href="index.html">
-    <img src="assets/imags/logo_itsol-300x115.png" class="logo-text" alt="">
-    </a>
-    </div>
-    <nav class="main_nav_contaner ml-auto">
-    <ul class="main_nav">
-    <li class="dropdown ">
-    <a routerLink="./home" class="dropdown-toggle" data-toggle="dropdown" href="#">Home
-    <span class="caret"></span></a> -->
-<!-- <ul class="dropdown-menu">
-    <li><a href="index.html">Home variation 1</a></li>
-    <li><a href="index2.html">Home variation 2</a></li>
-     </ul> -->
-<!-- </li>
-    <li class="dropdown active ">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Job
-    <span class="caret"></span></a>
-    <ul class="dropdown-menu">
-    <li><a href="job_category.html">Job List</a></li>
-    <li><a href="job_detail.html">Job Detail</a></li>
-    </ul>
-    </li>
-    <li><a href="blog_page.html"> Blog</a></li>
-    <li><a href="about_us.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class=" Post-Jobs">
-    <a href="post_job.html" class="">
-    Post Jobs
-    </a>
-    </div>
-    <div class="hamburger menu_mm menu-vertical">
-    <i class="large material-icons font-color-white menu_mm menu-vertical">menu</i>
-    </div>
-    </nav>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-
-    <div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
-    <div class="menu_close_container">
-    <div class="menu_close">
-    <div></div>
-    <div></div>
-    </div>
-    </div>
-    <div class="search">
-    <form action="#" class="header_search_form menu_mm">
-    <input type="search" class="search_input menu_mm" placeholder="Search" required="required">
-    <button class="header_search_button d-flex flex-column align-items-center justify-content-center menu_mm">
-    <i class="fa fa-search menu_mm" aria-hidden="true"></i>
-    </button>
-    </form>
-    </div>
-    <nav class="menu_nav">
-    <ul class="menu_mm">
-    <li class="dropdown menu_mm">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Home
-    <span class="caret"></span></a>
-    <ul class="dropdown-menu">
-    <li><a href="index.html">Home 1</a></li>
-    <li><a href="index2.html">Home 2</a></li>
-    </ul>
-    </li>
-    <li class="dropdown menu_mm">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Job
-    <span class="caret"></span></a>
-    <ul class="dropdown-menu">
-    <li><a href="job_category.html">Job List</a></li>
-    <li><a href="job_detail.html">Job Detail</a></li>
-    </ul>
-    </li>
-    <li class="menu_mm"><a href="blog_page.html">Blog</a></li>
-    <li class="menu_mm"><a href="about_us.html">About</a></li>
-    <li class="menu_mm"><a href="contact.html">Contact</a></li>
-    </ul>
-    </nav>
-    </div>
-    </header> -->
-
-
-
-
 <section id="post_job">
     <div class="vertical-space-100"></div>
     <div class="vertical-space-101"></div>
     <div class="container">
-        <!-- <a href="#" class="Save">Save</a> -->
         <div class="vertical-space-60"></div>
         <div class="job-post-box">
-            <form>
+            <form [formGroup]="validate" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                     <label for="exampleInputJobtitle">Job title</label>
-                    <input type="text" class="form-control" id="exampleInputJobtitle" placeholder="Enter your job title"
-                        required />
+                    <input type="text" class="form-control" id="exampleInputJobtitle" formControlName="jobName">
+                    <div *ngIf="f['jobName'].invalid && (f['jobName'].dirty||f['jobName'].touched)">
+                        <div *ngIf="f ['jobName'].errors">
+                            <div>
+                                <small id="emailHelp" class="form-text text-muted err">* Không được để trống</small>
+
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label for="exampleInputCompany">Company</label>
                             <input type="text" class="form-control" id="exampleInputCompany"
-                                placeholder="Full name of company" required />
+                                placeholder="Full name of company" formControlName="company" />
+
+                            <div *ngIf="f['company'].invalid && (f['company'].dirty||f['company'].touched)">
+                                <div *ngIf="f ['company'].errors">
+                                    <div>
+                                        <small id="emailHelp" class="form-text text-muted err">* Không được để
+                                            trống</small>
+
+                                    </div>
+                                    <!-- {{f ['jobName'].errors.required|json}} -->
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label for="exampleInputLoction">Loction</label>
                             <input type="text" class="form-control" id="exampleInputLoction"
-                                placeholder="Company Address" required />
+                                placeholder="Company Address" formControlName="Address" />
+
+                            <div *ngIf="f['Address'].invalid && (f['Address'].dirty||f['Address'].touched)">
+                                <div *ngIf="f ['Address'].errors">
+                                    <div>
+                                        <small id="emailHelp" class="form-text text-muted err"> * Không được để
+                                            trống</small>
+
+                                    </div>
+                                    <!-- {{f ['jobName'].errors.required|json}} -->
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="row">
-    <div class="col-lg-6 col-md-6">
-    <div class="form-group ">
-    <label>Company Logo</label>
-    <div class="box text-center">
-    <input type="file" name="file-5[]" id="file-5" class="inputfile inputfile-4" data-multiple-caption="{count} files selected" multiple />
-    <label for="file-5">
-    <i>
-    <img src="assets/imags/job-post.png" class="imtges" alt="">
-    </i>
-    <span>Drop your file here, or <i class="font-color-orange">Browse</i></span>
-    </label>
-    </div>
-    </div>
-    </div>
-    <div class="col-lg-6 col-md-6">
-    <div class="form-group">
-    <label>Document</label>
-    <div class="box text-center">
-    <input type="file" name="file-7[]" id="file-7" class="inputfile1 inputfile-4" data-multiple-caption="{count} files selected" multiple />
-    <label for="file-7">
-    <i>
-    <img src="assets/imags/job-post.png" class="imtges" alt="">
-    </i>
-    <span>Drop your file here, or <i class="font-color-orange">Browse</i></span>
-    </label>
-    </div>
-    </div>
-    </div>
-    </div>
-     -->
+                <div class="form-group">
+                    <label for="exampleInputLongDescription">Write full description</label>
+                    <textarea class="form-control large" id="exampleInputLongDescription"
+                        placeholder="Write short description" rows="3" formControlName="Mess"></textarea>
+
+                    <div *ngIf="f['Mess'].invalid && (f['Mess'].dirty||f['Mess'].touched)">
+                        <div *ngIf="f ['Mess'].errors">
+                            <div>
+                                <small id="emailHelp" class="form-text text-muted err">* Không được để trống</small>
+
+                            </div>
+                            <!-- {{f ['jobName'].errors.required|json}} -->
+                        </div>
+                    </div>
+                </div>
                 <div class="container" style="margin-top: 20px;">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -200,9 +93,19 @@
                                 <fieldset>
                                     <div class="form-group">
                                         <div>
+                                            <input type="file" (change)="onUploadFiles($event.target.files)"
+                                                name="files" multiple class="form-control"  formControlName="cv"/>
+                                        </div>
 
-                                            <input type="file" (change)="onUploadFiles($event)"
-                                                name="files" multiple class="form-control" />
+                                        <div *ngIf="f['cv'].invalid && (f['cv'].dirty||f['cv'].touched)">
+                                            <div *ngIf="f ['cv'].errors">
+                                                <div>
+                                                    <small id="emailHelp" class="form-text text-muted err">* Không được
+                                                        để trống</small>
+
+                                                </div>
+                                                <!-- {{f ['jobName'].errors.required|json}} -->
+                                            </div>
                                         </div>
                                     </div>
                                 </fieldset>
@@ -224,59 +127,7 @@
                         </div>
                     </div>
                 </div>
-
-
-
-                <div class="form-group">
-                    <label for="exampleInputShortDescription">Short Description</label>
-                    <textarea class="form-control small" id="exampleInputShortDescription"
-                        placeholder="Write short description" rows="3" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputLongDescription">Write full description</label>
-                    <textarea class="form-control large" id="exampleInputLongDescription"
-                        placeholder="Write short description" rows="3" required></textarea>
-                </div>
-                <!-- <div class="row">
-    <div class="col-lg-6 col-md-12">
-    <div class="form-group mybtn" id="Job-Nature">
-    <label>Job Nature</label>
-    <div class="row">
-    <div class="col-lg-4 col-md-4">
-    <a class="Job-Nature active1">Full Time</a>
-    </div>
-    <div class="col-lg-4 col-md-4">
-    <a class="Job-Nature">Part Time</a>
-    </div>
-    <div class="col-lg-4 col-md-4">
-    <a class="Job-Nature">Freelancer</a>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div class="col-lg-6 col-md-12">
-    <div class="form-group">
-    <label for="sel1">Salary Range:</label>
-    <select class="form-control" id="sel1" name="sellist1">
-    <option>5,000 - 10,000</option>
-    <option>3,000 - 5,000</option>
-    <option>2,000 - 1,000</option>
-    <option>7,000 - 10,000</option>
-    </select>
-    </div>
-    </div>
-    </div>
-
-
-    <div class="form-group">
-    <label>Agree with term and conditions</label>
-    <div class="form-check">
-    <input type="checkbox" class="form-check-input " id="exampleCheck1" required />
-    <label class="form-check-label text-left" for="exampleCheck1">Lorem ipsum tempus amet conubia adipiscing fermentum viverra gravida, mollis suspendisse pretium dictumst inceptos mattis euismod lorem nulla magna duis nostra sodales luctus nulla</label>
-    </div>
-    </div>  -->
-                <button type="submit" class="btn Post-Job-Offer">Post Job Offer</button>
-                <a href="#" class="Save">Save</a>
+                <button type="submit" class="btn Post-Job-Offer"  [disabled]="validate.valid">Apply</button>
             </form>
         </div>
     </div>

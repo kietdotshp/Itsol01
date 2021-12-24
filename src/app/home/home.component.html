@@ -1,230 +1,184 @@
-
-
-
 <header class="header">
-  <!-- <div class="top_bar background-color-orange">
-    <div class="top_bar_container">
-    <div class="container">
-    <div class="row">
-    <div class="col">
-    <div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
-    <ul class="top_bar_contact_list">
-    <li>
-    <i class="fa fa-phone coll" aria-hidden="true"></i>
-    <div class="contact-no">0123456789</div>
-    </li>
-    <li>
-    <i class="fa fa-envelope coll" aria-hidden="true"></i>
-    <div class="email"><a href="https://demo.technosarjan.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c3a6bba2aeb3afa683a9aca1b7a6ada7eda0acae">[email&#160;protected]</a></div>
-    </li>
-    </ul>
-    <div class=" ml-auto ">
-    <div class="search_button search"><i class="large material-icons search-icone">search</i></div>
-    <div class="hamburger menu_mm  search_button transparent search display"><i class="large material-icons font-color-white  search-icone  menu_mm ">menu</i></div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div> -->
-
   <div class="header_container background-color-orange-light">
-  <div class="container">
-  <div class="row">
-  <div class="col">
-  <div class="header_content d-flex flex-row align-items-center justify-content-start">
-  <div class="logo_container">
-  <a href="#">
-  <img style="width: 150px; height: 80px;" src="assets/imags/logo_itsol-300x115.png" class="logo-text" alt="">
-  </a>
-  </div>
-  <nav class="main_nav_contaner ml-auto">
-  <ul class="main_nav">
-  <!-- <li class="dropdown active ">
-  <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Home
-  <span class="caret"></span></a>
-  <ul class="dropdown-menu">
-  <li><a href="index.html">Home variation 1</a></li>
-  <li><a href="index2.html">Home variation 2</a></li>
-  </ul>
-  </li> -->
-  <li><a routerLink=""> Home </a></li>
-
-  <!-- <li class="dropdown ">SS
-  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Job
-  <span class="caret"></span></a>
-  <ul class="dropdown-menu">
-  <li><a routerLink="../list-job">Job List</a></li>
-  <li><a routerLink="job_detail.html">Job Detail</a></li>
-  </ul>
-  </li> -->
-  <li><a routerLink="./list-job"> Job </a></li>
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Thông tin
-    </a>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <a class="dropdown-item" [routerLink]="['./infomation/11']">Thông tin cá nhân</a>
-      <a class="dropdown-item" [routerLink]="['../login']">Log out</a>
-      <a routerLink="../change-password" class="dropdown-item">
-        Đổi mật khẩu
-        </a>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="header_content d-flex flex-row align-items-center justify-content-start">
+            <div class="logo_container">
+              <a href="#">
+                <img style="width: 150px; height: 80px;" src="assets/imags/logo_itsol-300x115.png" class="logo-text"
+                  alt="">
+              </a>
+            </div>
+            <nav class="main_nav_contaner ml-auto">
+              <ul class="main_nav">
+                <li><a routerLink=""> Home </a></li>
+                <li><a routerLink="./list-job"> Job </a></li>
+              </ul>
+              <div class=" Post-Jobs">
+                <a routerLink="../login" class="">
+                  LOGIN
+                </a>
+              </div>
+              <div>
+                <a routerLink="../change-password" class="">
+                  Đổi mật khẩu
+                </a>
+              </div>
+              <div class="hamburger menu_mm menu-vertical">
+                <i class="large material-icons font-color-white menu_mm menu-vertical">menu</i>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
     </div>
-  </li>
-
-  <!-- <li><a href="about_us.html">About</a></li>
-  <li><a href="contact.html">Contact</a></li> -->
-
-  <!-- <li class="menu_mm"><a href="blog_page.html">Blog</a></li>
-  <li class="menu_mm"><a href="about_us.html">About</a></li>
-  <li class="menu_mm"><a href="contact.html">Contact</a></li> -->
-  </ul>
-  <div class=" Post-Jobs">
-  <a routerLink="../login" class="">
-  LOGIN
-  </a>
-  </div>
-  <!-- <div>
-
-    <img
-      [src]="'http://localhost:8001/api/user/files/11'"
-      (click)="uploadAvatar.click()"
-      style="width: 40px; height: 40px; margin: 14px;border-radius: 15px"
-    />
-    <input
-      type="file"
-      (change)="onChange($event, 11)"
-      #uploadAvatar
-      style="display: none"
-    />
-
-  </div> -->
 
 
+              <!-- <li><a href="about_us.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li> -->
+
+              <!-- <li class="menu_mm"><a href="blog_page.html">Blog</a></li>
+            <li class="menu_mm"><a href="about_us.html">About</a></li>
+            <li class="menu_mm"><a href="contact.html">Contact</a></li> -->
+
+    <div class=" Post-Jobs">
+      <a routerLink="../login" class="">
+        LOGIN
+      </a>
+    </div>
+                <!-- <div>
+
+                <img
+                  [src]="'http://localhost:8001/api/user/files/11'"
+                  (click)="uploadAvatar.click()"
+                  style="width: 40px; height: 40px; margin: 14px;border-radius: 15px"
+                />
+                <input
+                  type="file"
+                  (change)="onChange($event, 11)"
+                  #uploadAvatar
+                  style="display: none"
+                />
+
+              </div> -->
 
 
-  <div class="hamburger menu_mm menu-vertical">
-  <i class="large material-icons font-color-white menu_mm menu-vertical">menu</i>
-  </div>
-  </nav>
-  </div>
-  </div>
-  </div>
-  </div>
+
+
+    <div class="hamburger menu_mm menu-vertical">
+      <i class="large material-icons font-color-white menu_mm menu-vertical">menu</i>
+    </div>
+
   </div>
 
   <div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
-  <div class="menu_close_container">
-  <div class="menu_close">
-  <div></div>
-  <div></div>
+    <div class="menu_close_container">
+      <div class="menu_close">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="search">
+      <form action="#" class="header_search_form menu_mm">
+        <input type="search" class="search_input menu_mm" placeholder="Search" required="required">
+        <button class="header_search_button d-flex flex-column align-items-center justify-content-center menu_mm">
+          <i class="fa fa-search menu_mm" aria-hidden="true"></i>
+        </button>
+      </form>
+    </div>
+    <nav class="menu_nav">
+      <ul class="menu_mm">
+        <li class="dropdown menu_mm">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Home
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a routerLink="./">Home 1</a></li>
+            <li><a routerLink="index2.html">Home 2</a></li>
+          </ul>
+        </li>
+        <li class="dropdown menu_mm">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Job
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a routerLink="job_category.html">Job List</a></li>
+            <li><a routerLink="job_detail.html">Job Detail</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
   </div>
-  </div>
-  <div class="search">
-  <form action="#" class="header_search_form menu_mm">
-  <input type="search" class="search_input menu_mm" placeholder="Search" required="required">
-  <button class="header_search_button d-flex flex-column align-items-center justify-content-center menu_mm">
-  <i class="fa fa-search menu_mm" aria-hidden="true"></i>
-  </button>
-  </form>
-  </div>
-  <nav class="menu_nav">
-  <ul class="menu_mm">
-  <li class="dropdown menu_mm">
-  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Home
-  <span class="caret"></span></a>
-  <ul class="dropdown-menu">
-  <li><a routerLink="./">Home 1</a></li>
-  <li><a routerLink="index2.html">Home 2</a></li>
-  </ul>
-  </li>
-  <li class="dropdown menu_mm">
-  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Job
-  <span class="caret"></span></a>
-  <ul class="dropdown-menu">
-  <li><a routerLink="job_category.html">Job List</a></li>
-  <li><a routerLink="job_detail.html">Job Detail</a></li>
-  </ul>
-  </li>
-  <!-- <li class="menu_mm"><a href="blog_page.html">Blog</a></li>
-  <li class="menu_mm"><a href="about_us.html">About</a></li>
-  <li class="menu_mm"><a href="contact.html">Contact</a></li> -->
-  </ul>
-  </nav>
-  </div>
-  </header>
+</header>
 <router-outlet></router-outlet>
-
 
 <footer id="footer" class="background-color-white">
   <div class="container">
-  <div class="vertical-space-100"></div>
-  <div class="row">
-  <div class="col-lg-4 col-md-6 vertical-space-2">
-  <h5>About Us</h5>
-  <p class="paregraf">Tristique velit phasellus sed auctor leo eros luctus nibh fermentu ad impediet rhonus dolor habitant purus velit aliquet donecurna ut in turpis faucibus</p>
-  <a href="#">
-  <i class="fa fa-facebook social-icon facebook"></i></a>
-  <a href="#">
-  <i class="fa fa-twitter social-icon twitter"></i></a>
-  <a href="#">
-  <i class="fa fa-pinterest-p social-icon pinterest-p"></i></a>
-  <a href="#">
-  <i class="fa fa-map-marker social-icon map-marker"></i></a>
-  </div>
-  <div class="col-lg-2 col-md-6 vertical-space-2">
-  <h5>Company</h5>
-  <div class="text">
-  <a href="#">About</a>
-  <a href="#">Support</a>
-  <a href="#">Tems</a>
-  <a href="#">Privacy</a>
-  </div>
-  </div>
-  <div class="col-lg-2 col-md-6 vertical-space-2">
-  <h5>Supports</h5>
-  <div class="text">
-  <a href="#">About</a>
-  <a href="#">Support</a>
-  <a href="#">Tems</a>
-  <a href="#">Privacy</a>
-  </div>
-  </div>
-  <div class="col-lg-4 col-md-6 vertical-space-2">
-  <h5>Subscribe Us</h5>
-  <p>Get latest update and newsletter</p>
-  <div class="vertical-space-30"></div>
-  <form>
-  <input type="email" class="email " placeholder="Email Address " required="">
-  <span class="fa fa-envelope email-icone "></span>
-  <input type="submit" class="Subscribe" value="Subscribe">
-  </form>
-  </div>
-  </div>
-  <div class="vertical-space-60"></div>
+    <div class="vertical-space-100"></div>
+    <div class="row">
+      <div class="col-lg-4 col-md-6 vertical-space-2">
+        <h5>About Us</h5>
+        <p class="paregraf">Tristique velit phasellus sed auctor leo eros luctus nibh fermentu ad impediet rhonus dolor
+          habitant purus velit aliquet donecurna ut in turpis faucibus</p>
+        <a href="#">
+          <i class="fa fa-facebook social-icon facebook"></i></a>
+        <a href="#">
+          <i class="fa fa-twitter social-icon twitter"></i></a>
+        <a href="#">
+          <i class="fa fa-pinterest-p social-icon pinterest-p"></i></a>
+        <a href="#">
+          <i class="fa fa-map-marker social-icon map-marker"></i></a>
+      </div>
+      <div class="col-lg-2 col-md-6 vertical-space-2">
+        <h5>Company</h5>
+        <div class="text">
+          <a href="#">About</a>
+          <a href="#">Support</a>
+          <a href="#">Tems</a>
+          <a href="#">Privacy</a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 vertical-space-2">
+        <h5>Supports</h5>
+        <div class="text">
+          <a href="#">About</a>
+          <a href="#">Support</a>
+          <a href="#">Tems</a>
+          <a href="#">Privacy</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 vertical-space-2">
+        <h5>Subscribe Us</h5>
+        <p>Get latest update and newsletter</p>
+        <div class="vertical-space-30"></div>
+        <form>
+          <input type="email" class="email " placeholder="Email Address " required="">
+          <span class="fa fa-envelope email-icone "></span>
+          <input type="submit" class="Subscribe" value="Subscribe">
+        </form>
+      </div>
+    </div>
+    <div class="vertical-space-60"></div>
   </div>
   <div class="container-fluid background-color-orange main-footer">
-  <div class="container text-center">
-  <div class="vertical-space-30"></div>
-  <p><a target="_blank" href="https://itsol.vn/">ITSOL</a></p>
+    <div class="container text-center">
+      <div class="vertical-space-30"></div>
+      <p><a target="_blank" href="https://itsol.vn/">ITSOL</a></p>
+    </div>
   </div>
-  </div>
-  </footer>
-  <div class="modal" id="myModal">
-    <div class="container">
+</footer>
+<div class="modal" id="myModal">
+  <div class="container">
     <div class="vertical-space-85"></div>
     <div class="modal-dialog modal-lg">
-    <div class="modal-content">
+      <div class="modal-content">
 
-    <div class="modal-body">
-    <button class="button button-rounded  close" data-dismiss="modal">&times;</button>
-    <video class="" controls>
-    <source src="video/Pexels_Videos_2706.mp4" type="video/mp4">
-    </video>
+        <div class="modal-body">
+          <button class="button button-rounded  close" data-dismiss="modal">&times;</button>
+          <video class="" controls>
+            <source src="video/Pexels_Videos_2706.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
     </div>
-    </div>
-    </div>
-    </div>
-    </div>
-
+  </div>
+</div>

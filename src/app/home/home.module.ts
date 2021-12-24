@@ -66,13 +66,12 @@ const routes: Routes = [
     ProfileComponent,
     PopupComponent,
     InfomationUserComponent,
-
     EditInformationComponent,
-      UploadComponent
-
-
+    UploadComponent
 
   ],
+
+
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -83,7 +82,9 @@ const routes: Routes = [
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-
+    ReactiveFormsModule,
+    // BrowserModule,
+     HttpClientModule
   ]
 })
 export class HomeModule { }
