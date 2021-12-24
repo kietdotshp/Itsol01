@@ -14,11 +14,9 @@ import { PopupComponent } from './list-job/detail-job/popup/popup.component';
 import { InfomationUserComponent } from './infomation-user/infomation-user.component';
 import { EditInformationComponent } from './edit-information/edit-information.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { BrowserModule } from '@angular/platform-browser';
-
 import { ListJeComponent } from '../admin/list-Je/list-je.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UploadComponent } from './upload/upload.component';
 
 
 const routes: Routes = [
@@ -50,6 +48,10 @@ const routes: Routes = [
       {
         path:'editinfomation/:id',
         component:EditInformationComponent
+      },
+      {
+        path:'upload',
+        component:UploadComponent,
       }
     ]
   }
@@ -64,7 +66,9 @@ const routes: Routes = [
     ProfileComponent,
     PopupComponent,
     InfomationUserComponent,
-    EditInformationComponent
+    EditInformationComponent,
+    UploadComponent
+
   ],
 
 

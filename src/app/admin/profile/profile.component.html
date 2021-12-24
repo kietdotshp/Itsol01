@@ -1,7 +1,7 @@
 <div>
   <form class="needs-validation" [formGroup]="searchForm" (ngSubmit)="onSearchJobRegister()">
     <div class="form-row">
-      <div class="col-md-6 mb-3">
+      <div class="col-md-5 mb-3 marginLeft1">
         <label for="validationTooltip03">User Name</label>
         <input
           type="text"
@@ -11,7 +11,7 @@
         />
       </div>
 
-      <div class="col-md-6 mb-3">
+      <div class="col-md-5 mb-3">
         <label for="validationTooltip03">Vacancies</label>
         <input
           type="text"
@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="form-row">
-      <div class="col-md-4 mb-3">
+      <div class="col-md-3 mb-3 marginLeft1">
         <label for="validationTooltip03">APPLICATION TIME FROM</label>
         <input
           type="date"
@@ -32,7 +32,7 @@
         />
       </div>
 
-      <div class="col-md-4 mb-3">
+      <div class="col-md-3 mb-3 marginLeft3">
         <label for="validationTooltip03">APPLICATION TIME TO</label>
         <input
           type="date"
@@ -42,7 +42,7 @@
         />
       </div>
 
-      <div class="col-md-4 mb-3">
+      <div class="col-md-3 mb-3 marginLeft3">
         <label for="validationTooltip03">Status</label>
         <select
           class="form-select"
@@ -50,16 +50,17 @@
           class="form-control"
           id="jobRegisterStatus"
           formControlName="jobRegisterStatus">
-          <option value="cho xet duyet">cho xet duyet</option>
-          <option value="da tu choi">da tu choi</option>
-          <option value="dang tuyen">dang tuyen</option>
-          <option value="chua dang tuyen">chua dang tuyen</option>
-          <option value="da duyet">da duyet</option>
-          <option value="da dong">da dong</option>
+          <option></option>
+          <option value="cho duyet">cho duyet</option>
+          <option value="cho phong van">cho phong van</option>
+          <option value="dang phong van">dang phong van</option>
+          <option value="da tuyen">da tuyen</option>
+          <option value="ung vien bi tu choi">ung vien bi tu choi</option>
+          <option value="ung vien da huy ung tuyen">ung vien da huy ung tuyen</option>
         </select>
       </div>
     </div>
-    <button class="btn btn-primary" type="submit" (click)="onSearchJobRegister()">Search</button>
+    <button class="btn btn-primary marginLeft2" type="submit" (click)="onSearchJobRegister()">Search</button>
   </form>
 </div>
 
@@ -87,11 +88,7 @@
           <button mat-raised-button class="button btn-primary">Dowload</button>
         </td>
         <td>
-          <button
-            mat-raised-button
-            class="button btn-primary"
-            routerLink="../profile-detail/{{ element.id }}"
-          >
+          <button mat-raised-button class="button btn-primary" routerLink="../profile-detail/{{ element.id }}">
             Detail
           </button>
         </td>

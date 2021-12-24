@@ -7,8 +7,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EmployeeService {
   constructor(private http: HttpClient) { }
-  private API_URL = 'http://localhost:8080/api/admin/';
-  private API_URL_USER = 'http://localhost:8080/api/user/';
+  private API_URL = 'http://localhost:8001/api/admin/';
+  private API_URL_USER = 'http://localhost:8001/api/user/';
   public getAllJe(): Observable<Employee[]> {
     return this.http.get<Employee[]>(this.API_URL + 'getallje');
   }

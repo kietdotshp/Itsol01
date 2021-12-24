@@ -60,6 +60,18 @@
   </ul>
   </li> -->
   <li><a routerLink="./list-job"> Job </a></li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Thông tin
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" [routerLink]="['./infomation/11']">Thông tin cá nhân</a>
+      <a class="dropdown-item" [routerLink]="['../login']">Log out</a>
+      <a routerLink="../change-password" class="dropdown-item">
+        Đổi mật khẩu
+        </a>
+    </div>
+  </li>
 
   <!-- <li><a href="about_us.html">About</a></li>
   <li><a href="contact.html">Contact</a></li> -->
@@ -72,13 +84,27 @@
   <a routerLink="../login" class="">
   LOGIN
   </a>
-  
   </div>
-  <div>
-    <a routerLink="../change-password" class="">
-      Đổi mật khẩu
-      </a>
+  <!-- <div>
+
+    <img
+      [src]="'http://localhost:8001/api/user/files/11'"
+      (click)="uploadAvatar.click()"
+      style="width: 40px; height: 40px; margin: 14px;border-radius: 15px"
+    />
+    <input
+      type="file"
+      (change)="onChange($event, 11)"
+      #uploadAvatar
+      style="display: none"
+    />
+
+  </div> -->
+
   </div>
+  </div>
+
+
   <div class="hamburger menu_mm menu-vertical">
   <i class="large material-icons font-color-white menu_mm menu-vertical">menu</i>
   </div>

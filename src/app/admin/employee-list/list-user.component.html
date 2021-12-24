@@ -22,10 +22,10 @@
         <td>{{ employee.homeTown }}</td>
         <td>{{ employee.gender }}</td>
         <td>{{ employee.birthDay }}</td>
-        <td>{{ employee.active }}</td>
+        <td >Trạng thái tài khoản {{ employee.active }}</td>
         <td class="text-nowrap" style="width: 1px">
 
-          <button type="button" class="btn btn-success" style="margin-right: 2px" (click)="deleteJE(employee.id)">
+          <button type="button" class="btn btn-success" style="margin-right: 2px" (click)="deleteUSER(employee.id)">
             Xóa
           </button>
         </td>
@@ -33,5 +33,4 @@
     </tbody>
   </table>
 
-</form>
-<!---->
+</form> 
