@@ -48,17 +48,17 @@ export class EmployeeAddComponent implements OnInit {
   save() {
     debugger
     this.btnDisable = true;
-  
+
     if (this.validate()) {
       alert("đăng kí thành công! Vui lòng check mail và xác nhận.");
       this.router.navigate(['./login'])
       this.rest
         .post(this.url, this.employee)
-        
+
         .then((data) => {
           this.data.success('Employee is save');
           this.btnDisable = false;
-          
+
         })
         .catch((error) => {
           this.data.error(error['message']);
