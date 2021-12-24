@@ -12,61 +12,111 @@
   </div>
 </section>
 
-
 <section id="job-Details">
   <div class="container background-color-full-white job-Details">
 
     <img src="imags/job-detail.jpg" alt="" class="job-detail-img">
+    <div class="form-row">
+      <div style="margin-bottom: 10px;">
+        <div *ngIf="dataSource.jobStatus.statusName === 'cho duyet'" style="margin-left: 25px;">
+          <button type="button" class="btn btn-info" style="width: 81px;" (click)="onBrowsing()" routerLink="../">Duyệt</button>
+          <button type="button" class="btn btn-info" (click)="openPopup1()">Từ chối ứng viên</button>
+          <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle1}">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h4 class="modal-title">Lý do từ chối</h4>
+                      </div>
+                      <div class="modal-body">
+                          <input type="text" class="form-control" id="inputCity" formControlName="reason">
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" (click)="closePopup1()">
+                              Close
+                          </button>
+                          <button class="btn btn-danger" style="margin-right: 5px;" type="submit"
+                              (click)="onRefuse()">Lưu</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+    </div>
     <div class="Job-Description">
-      <button class="btn btn-primary" type="submit">Approval</button>
-      <h1>Information About Job Position</h1>
-      <ul>
-        <li class="list-style">
-          {{dataSource.jobs.jobPosition}}
-        </li>
-      </ul>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <h1>Information About Job Position</h1>
+          <input type="email" class="form-control" id="inputEmail4" value="{{dataSource.jobs.jobPosition}}" disabled>
+        </div>
+        <div class="form-group col-md-6">
+          <h1>Information About Job Status</h1>
+          <input type="email" class="form-control" id="inputEmail4" value="{{dataSource.jobStatus.statusName}}" disabled>
+        </div>
+      </div>
       <h1>Details of the candidate</h1>
-      <ul>
-        <li class="list-style">
-          name: {{dataSource.user.fullName}}
-        </li>
-        <li class="list-style">
-          email: {{dataSource.user.email}}
-        </li>
-        <li class="list-style">
-          skill: {{dataSource.profiles.skill}}
-        </li>
-        <li class="list-style">
-          phone number: {{dataSource.user.phoneNumber}}
-        </li>
-        <li class="list-style">
-          birthday: {{dataSource.user.birthDay}}
-        </li>
-        <li class="list-style">
-          gender: {{dataSource.user.gender}}
-        </li>
-        <li class="list-style">
-          hometown: {{dataSource.user.homeTown}}
-        </li>
-        <li class="list-style">
-          experience: {{dataSource.profiles.numberYearsExperience}}
-        </li>
-        <li class="list-style">
-          desired working address: {{dataSource.profiles.desiredWorkingAddress}}
-        </li>
-      </ul>
-      <h1>Desired Salary</h1>
-      <ul>
-        <li class="list-style">
-          {{dataSource.profiles.desiredSalary}}
-        </li>
-      </ul>
-      <h1>Desired Work</h1>
-      <ul>
-        <li class="list-style">
-          {{dataSource.profiles.desiredwork.description}}
-        </li>
-      </ul>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Name</label>
+          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.user.fullName}}" disabled>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Email</label>
+          <input type="email" class="form-control" id="inputEmail4" value="{{dataSource.user.email}}" disabled>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Skill</label>
+          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.profiles.skill}}" disabled>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Phone Number</label>
+          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.user.phoneNumber}}" disabled>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Birthday</label>
+          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.user.birthDay}}" disabled>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Gender</label>
+          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.user.gender}}" disabled>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Hometown</label>
+          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.user.homeTown}}" disabled>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Experience</label>
+          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.profiles.numberYearsExperience}}" disabled>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Desired Working Address</label>
+          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.profiles.desiredWorkingAddress}}" disabled>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">StatusName</label>
+          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.jobStatus.statusName}}" disabled>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <h1>Desired Salary</h1>
+          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.profiles.desiredSalary}}" disabled>
+        </div>
+        <div class="form-group col-md-6">
+          <h1>Desired Work</h1>
+          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.profiles.desiredwork.description}}" disabled>
+        </div>
+      </div>
     </div>
   </div>
 </section>
