@@ -36,14 +36,9 @@ export class PopupComponent {
   }
 
   // define a function to upload files
-  onUploadFiles(event: any): void {
-    let file = event.target.files[0];
-    console.log("Event" + event);
-    console.log("File" + file);
+  onUploadFiles(files: File[]): void {
     const formData = new FormData();
-    // for (const file of File) {
-      formData.append('files', file, file.name);
-    //  }
+    for (const file of files) { formData.append('files', file, file.name); }
     this.fileService.upload(formData).subscribe(
       event => {
         console.log(event);
