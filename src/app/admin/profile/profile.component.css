@@ -9,6 +9,20 @@ table {
   margin-left: 80%;
 }
 
+
+.marginLeft1 {
+  margin-left: 8%;
+}
+
+.marginLeft2 {
+  margin-left: 47%;
+}
+
+.marginLeft3 {
+  margin-left: 4.2%;
+}
+
+
 tr:hover {
   background-color: rgb(238, 238, 238);
 }
