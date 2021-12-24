@@ -2,7 +2,7 @@
     <a href="#" data-target="#pwdModal" data-toggle="modal">Forgot my password</a>
     <a href="#" routerLink="../login" d="cancel_signup"><i class="fas fa-angle-left"></i> Back</a>
   </div>
-  
+
   <!--modal-->
   <div id="pwdModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
@@ -18,7 +18,7 @@
                   <div class="panel panel-default">
                       <div class="panel-body">
                           <div class="text-center">
-                            
+
                             <p>If you have forgotten your password you can reset it here.</p>
                               <div class="panel-body">
                                   <fieldset>
@@ -29,7 +29,7 @@
                                             <div *ngIf="email.errors?.['required']">
                                               Email không được để rỗng
                                             </div>
-                                            <div *ngIf="email.errors.email">
+                                            <div *ngIf="email.errors?.['email']">
                                               <small id="emailHid" class="form-text text-muted">
                                                 Email không đúng định dạng
                                               </small>
@@ -39,9 +39,9 @@
 
                                       <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!emailFrom.valid" (click)="emailforgot()">Send My Password</button>
                                   </fieldset>
-                                
+
                               </div>
-                           
+
                           </div>
                       </div>
                   </div>
@@ -51,7 +51,7 @@
         <div class="modal-footer">
             <div class="col-md-12">
             <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-            </div>	
+            </div>
         </div>
     </div>
     </div>

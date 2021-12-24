@@ -24,10 +24,10 @@ export class AddJeComponent implements OnInit {
     private fb: FormBuilder
   ) { }
 
- 
+
   ngOnInit(): void {
     this.initForm();
-    
+
   }
   public initForm() {
     this.addForm = this.fb.group({
