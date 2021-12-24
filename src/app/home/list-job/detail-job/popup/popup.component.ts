@@ -1,5 +1,6 @@
 import { HttpErrorResponse, HttpEvent, HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
 import{saveAs} from 'file-saver'; 
 import { FileService } from 'src/app/services/file.service';
 
@@ -10,10 +11,27 @@ import { FileService } from 'src/app/services/file.service';
 })
 export class PopupComponent  {
 
+  // public validate!:FormGroup;
+
   filenames: string[] = [];
   fileStatus = { status: '', requestType: '', percent: 0 };
   
-  constructor(private fileService: FileService) {}
+  constructor(private fileService: FileService, private formBuider: FormBuilder) {}
+
+  validate=this.formBuider.group({
+    "jobName":["ITSol",Validators.required],
+    "company":["",Validators.required],
+    "Address":["",Validators.required],
+    "Mess":["",Validators.required]
+   })
+
+   get f(){
+     return this.validate.controls
+   }
+
+  ngOnInit(): void{
+    
+  }
 
   // define a function to upload files
   onUploadFiles(files: File[]): void {
@@ -80,6 +98,10 @@ export class PopupComponent  {
     this.fileStatus.status = 'progress';
     this.fileStatus.requestType = requestType;
     this.fileStatus.percent = Math.round(100 * loaded / total);
+  }
+
+  onSubmit(){
+    console.log(this.validate.value);
   }
 
 }

@@ -14,7 +14,7 @@
     </div>
 </section>
 
-<div id="search-box" class="margin-none">
+<!-- <div id="search-box" class="margin-none">
     <div class="container search-box">
         <form action="#" id="search-box_search_form_3"
             class="search-box_search_form d-flex flex-lg-row flex-column align-items-center justify-content-between ">
@@ -26,13 +26,78 @@
                     <option>Category1</option>
                     <option>Category2</option>
                 </select>
-               <span class="large material-icons margin-top search">place</span> 
+                <span class="large material-icons margin-top search">place</span>
                 <input class="search-box_search_input " placeholder="Location" required="required" type="search">
             </div>
             <button type="submit" class="search-box_search_button">Search Jobs</button>
         </form>
     </div>
-</div>
+</div> -->
+
+<div>
+    <form class="needs-validation" [formGroup]="searchForm" (ngSubmit)="onSearchJobRegister()">
+      <div class="form-row">
+        <div class="col-md-5 mb-3 marginLeft1">
+          <label for="validationTooltip03">User Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="applicantName"
+            formControlName="applicantName"
+          />
+        </div>
+  
+        <div class="col-md-5 mb-3">
+          <label for="validationTooltip03">Vacancies</label>
+          <input
+            type="text"
+            class="form-control"
+            id="positionName"
+            formControlName="positionName"
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-3 mb-3 marginLeft1">
+          <label for="validationTooltip03">APPLICATION TIME FROM</label>
+          <input
+            type="date"
+            class="form-control"
+            id="applicationTimeFrom"
+            formControlName="applicationTimeFrom"
+          />
+        </div>
+  
+        <div class="col-md-3 mb-3 marginLeft3">
+          <label for="validationTooltip03">APPLICATION TIME TO</label>
+          <input
+            type="date"
+            class="form-control"
+            id="applicationTimeTo"
+            formControlName="applicationTimeTo"
+          />
+        </div>
+  
+        <div class="col-md-3 mb-3 marginLeft3">
+          <label for="validationTooltip03">Status</label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            class="form-control"
+            id="jobRegisterStatus"
+            formControlName="jobRegisterStatus">
+            <option value="cho xet duyet">cho xet duyet</option>
+            <option value="da tu choi">da tu choi</option>
+            <option value="dang tuyen">dang tuyen</option>
+            <option value="chua dang tuyen">chua dang tuyen</option>
+            <option value="da duyet">da duyet</option>
+            <option value="da dong">da dong</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn btn-primary marginLeft2" type="submit" (click)="onSearchJobRegister()">Search</button>
+    </form>
+  </div>
 
 <section id="resent-job-post" class="background-color-white-drak">
     <div class="vertical-space-85"></div>
@@ -141,21 +206,12 @@
 
                 <div class="paging">
                     <span>
-                      <pagination
-                        [boundaryLinks]="true"
-                        [totalItems]="totalRecord"
-                        [(ngModel)]="pageN"
-                        [itemsPerPage]="pageS"
-                        previousText="&lsaquo;"
-                        nextText="&rsaquo;"
-                        firstText="&laquo;"
-                        lastText="&raquo;"
-                        (pageChanged)="pageChanged($event)"
-                        (click)="setPage(pageN)"
-                      >
-                      </pagination>
+                        <pagination [boundaryLinks]="true" [totalItems]="totalRecord" [(ngModel)]="pageN"
+                            [itemsPerPage]="pageS" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;"
+                            lastText="&raquo;" (pageChanged)="pageChanged($event)" (click)="setPage(pageN)">
+                        </pagination>
                     </span>
-                  </div>
+                </div>
             </div>
 
 
