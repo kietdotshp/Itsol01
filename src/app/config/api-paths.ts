@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:8888';
+const API_BASE = 'http://localhost:8001';
 
 export const API_LOGIN = API_BASE + '/api/auth/login';
 export const API_REGISTER_USER = API_BASE + '/api/employee/add';

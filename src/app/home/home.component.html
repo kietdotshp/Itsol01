@@ -72,7 +72,22 @@
   <a routerLink="../login" class="">
   LOGIN
   </a>
-  
+  <div>
+    <!--
+      còn chỗ này thì lấy id tự động của acccount rồi thay vào số 44 là được
+    -->
+    <img
+      [src]="'http://localhost:8001/api/user/files/11'"
+      (click)="uploadAvatar.click()"
+      style="width: 40px; height: 40px; margin: 14px;border-radius: 15px"
+    />
+    <input
+      type="file"
+      (change)="onChange($event, 11)"
+      #uploadAvatar
+      style="display: none"
+    />
+  </div>
   </div>
   <div>
     <a routerLink="../change-password" class="">

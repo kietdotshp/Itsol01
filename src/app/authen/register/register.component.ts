@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
   constructor(private rests: RestApiService, private data: DataService, private router: Router, private http: HttpClient, private fb: FormBuilder) {
     this.forgotPassword = new Forgotpassword();
   }
-  
+
 
   ngOnInit(): void {this.initForm();}
     public initForm() {
@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
   //   this.btnDisable = true;
   //   let email = prompt("email:");
   //   (data:DataService) => {
-     
+
 
   //     let email = prompt("email:");
 
@@ -70,5 +70,5 @@ export class RegisterComponent implements OnInit {
       });
   }
 }
-   
+
 }
