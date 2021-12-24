@@ -1,6 +1,9 @@
-import { Component, OnInit, ViewChild,AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { JobRegister } from '../../model/job-register';
 import { JobRegisterService } from '../../services/job-register.service';
+import { User } from '../../model/User';
+import { FormBuilder, FormControl, FormGroup, Form } from '@angular/forms';
 
 
 @Component({
@@ -8,44 +11,86 @@ import { JobRegisterService } from '../../services/job-register.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit  {
+export class ProfileComponent implements OnInit {
   showDirectionLinks = true;
 
-  constructor(private JobRegisterService:JobRegisterService) {
+  constructor(public JobRegisterService: JobRegisterService, public form: FormBuilder) {
     // this.paginator =Object.create(null)
   }
   // data:any
 
-  displayedColumns: string[] = [
-    'user',
-    'vacancies',
-    'applicationTime',
-    'status',
-    'cvFile'
-  ];
-
+  searchForm: FormGroup = this.form.group({
+    applicantName: new FormControl(""),
+    positionName: new FormControl(""),
+    jobRegisterStatus: new FormControl(""),
+    applicationTimeFrom: new FormControl(""),
+    applicationTimeTo: new FormControl(""),
+  })
 
   dataSource: JobRegister[] = [];
   totalRecord: number = 0;
-  currentPage: number = 0;
-  // dataSource = Object.create(null)
-  ngOnInit(): void {
+  pageN: number = 0;
+  pageS: number = 2;
+  page?: number;
+  name: any;
+  vacancies: any;
 
-    // this.loaddata();
-    this.JobRegisterService.getAllJobregister().subscribe(data => {
+  pageChanged(event: PageChangedEvent): void {
+    this.pageN = event.page - 1;
+    console.log("pageN " + this.pageN);
+    this.JobRegisterService.getAllJobregister(this.pageN, this.pageS).subscribe(data => {
       this.totalRecord = data.totalRecord;
       this.dataSource = data.data;
-      // this.dataSource = new MatTableDataSource<JobRegister>(data);
       console.log(this.dataSource);
-
     })
-
   }
 
-  // @ViewChild(MatPaginator) paginator: MatPaginator;
+  setPage(pageNo: number): void {
+    this.pageN = pageNo;
+  }
 
-  // ngAfterViewInit() {
-  //   this.dataSource.paginator = this.paginator;
+
+  ngOnInit(): void {
+    this.JobRegisterService.getAllJobregister(this.pageN, this.pageS).subscribe((data) => {
+      this.totalRecord = data.totalRecord;
+      this.dataSource = data.data;
+      console.log(this.dataSource);
+    })
+  }
+
+
+  onSearchJobRegister() {
+    debugger;
+    this.JobRegisterService.searchJobRegister(this.searchForm.value).subscribe(data => {
+      this.dataSource = data;
+    })
+  }
+
+  // SearchName() {
+  //   if (this.name == "") {
+  //     this.JobRegisterService.getAllJobregister(this.pageN - 1, this.pageS).subscribe(data => {
+  //       this.totalRecord = data.totalRecord;
+  //       return this.dataSource = data.data;
+  //     })
+  //   } else {
+  //     this.dataSource = this.dataSource.filter(data => {
+  //       return data.user.fullName.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+  //     })
+  //   }
   // }
 
+  // SearchVacancies() {
+  //   if (this.vacancies == "") {
+  //     this.JobRegisterService.getAllJobregister(this.pageN - 1, this.pageS).subscribe(data => {
+  //       this.totalRecord = data.totalRecord;
+  //       return this.dataSource = data.data;
+  //     })
+  //   } else {
+  //     this.dataSource = this.dataSource.filter(data => {
+  //       return data.jobs.jobPosition.toLocaleLowerCase().match(this.vacancies.toLocaleLowerCase());
+  //     })
+  //   }
+  // }
 }
+
+

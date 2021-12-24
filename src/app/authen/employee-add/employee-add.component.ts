@@ -15,7 +15,7 @@ export class EmployeeAddComponent implements OnInit {
   exform: FormGroup;
   employee: Employee;
   btnDisable = false;
-  url = 'http://localhost:8080/signup';
+  url = 'http://localhost:8001/signup';
   constructor(private rest: RestApiService, private data: DataService) {
     this.employee = new Employee();
   }
@@ -57,6 +57,6 @@ export class EmployeeAddComponent implements OnInit {
         });
     }
   }
-  
- 
+
+
 }

@@ -30,11 +30,17 @@ export class AdminComponent implements OnInit {
     {
       id: 4,
       name: 'Danh sách QTV',
-      path: '/admin/admin-list',
+      path: '/admin/list-je',
       icon: 'nc-icon nc-notes'
     },
     {
       id: 5,
+      name: 'Danh sách User',
+      path: '/admin/employee-list',
+      icon: 'nc-icon nc-notes'
+    },
+    {
+      id: 6,
       name: 'Thông tin và liên hệ',
       path: '/admin/contact',
       icon: 'nc-icon nc-circle-09'
