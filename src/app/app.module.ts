@@ -18,6 +18,7 @@ import { AuthenComponent } from './authen/authen.component';
 
 import { RegisterComponent } from './authen/register/register.component';
 import { EmployeeAddComponent } from './authen/employee-add/employee-add.component';
+import { InterceptorInterceptor } from './interceptor/interceptor.interceptor';
 
 
 
@@ -49,7 +50,11 @@ import { EmployeeAddComponent } from './authen/employee-add/employee-add.compone
     ReactiveFormsModule
   ],
   providers: [
-
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: InterceptorInterceptor,
+        multi: true,
+      },
   ],
   bootstrap: [AppComponent]
 })

@@ -13,7 +13,7 @@ export class OtpComponent implements OnInit {
 
   otp: Otp;
   btnDisable = false;
-  url = 'http://localhost:8080/api/user/users/info/change-password';
+  url = 'http://localhost:8001/api/user/users/info/change-password';
   constructor(private rest: RestApiService, private data: DataService,private router:Router) {
     this.otp = new Otp();
   }
