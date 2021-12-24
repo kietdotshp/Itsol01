@@ -38,7 +38,7 @@
                   <div *ngIf="email.errors?.['required']">
                     Email không được để rỗng
                   </div>
-                  <div *ngIf="email.errors.email">
+                  <div *ngIf="email.errors?.['email']">
                     <small id="emailHid" class="form-text text-muted">
                       Email không đúng định dạng
                     </small>

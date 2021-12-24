@@ -37,7 +37,7 @@
                   <div *ngIf="email.errors?.['required']">
                     Email không được để rỗng
                   </div>
-                  <div *ngIf="email.errors.email">
+                  <div *ngIf="email.errors?.['email']">
                     <small id="emailHid" class="form-text text-muted">
                       Email không đúng định dạng
                     </small>
@@ -62,7 +62,7 @@
                 </div>
 
               </div>
-             
+
               <div class="form-group col-md-6">
                 <label for="phone">Phone</label>
                 <input type="phone" formControlName="phoneNumber" class="form-control" name="phone" id="phone"
