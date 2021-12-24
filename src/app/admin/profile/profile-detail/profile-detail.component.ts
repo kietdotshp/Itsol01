@@ -35,7 +35,7 @@ export class ProfileDetailComponent implements OnInit {
   });
 
   public getJobRegisterById(): void {
-     const id = this.route.snapshot.params['id'];
+      const id = this.route.snapshot.params['id'];
     this.JobRegisterService.getJobregisterById(id).subscribe(data => {
       this.dataSource = data;
       console.log(this.dataSource);

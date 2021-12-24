@@ -42,7 +42,7 @@ export class JobRegisterService {
   }
 
   public updateJobRegister(update: AddJobRegister): Observable<AddJobRegister[]>{
-    return this.http.post<AddJobRegister[]>(`${this.API_URL_Update}`, update);
+    return this.http.put<AddJobRegister[]>(`${this.API_URL_Update}`, update);
   }
 
   // public getAllByName(name: string): Observable<JobRegister> {

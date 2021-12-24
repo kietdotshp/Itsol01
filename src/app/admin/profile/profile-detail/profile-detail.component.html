@@ -15,34 +15,36 @@
 <section id="job-Details">
   <div class="container background-color-full-white job-Details">
 
-    <img src="imags/job-detail.jpg" alt="" class="job-detail-img">
-    <div class="form-row">
-      <div style="margin-bottom: 10px;">
-        <div *ngIf="dataSource.jobStatus.statusName === 'cho duyet'" style="margin-left: 25px;">
-          <button type="button" class="btn btn-info" style="width: 81px;" (click)="onBrowsing()" routerLink="../">Duyệt</button>
-          <button type="button" class="btn btn-info" (click)="openPopup1()">Từ chối ứng viên</button>
-          <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle1}">
-              <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <h4 class="modal-title">Lý do từ chối</h4>
-                      </div>
-                      <div class="modal-body">
-                          <input type="text" class="form-control" id="inputCity" formControlName="reason">
-                      </div>
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-danger" (click)="closePopup1()">
-                              Close
-                          </button>
-                          <button class="btn btn-danger" style="margin-right: 5px;" type="submit"
-                              (click)="onRefuse()">Lưu</button>
-                      </div>
-                  </div>
-              </div>
-          </div>
+    <form [formGroup]="editForm" (ngSubmit)="onUpdateJobRegister()">
+      <div class="form-row">
+        <div style="margin-bottom: 10px;">
+          <div *ngIf="dataSource.jobStatus.statusName === 'cho duyet'" style="margin-left: 25px;">
+            <button type="button" class="btn btn-info" style="width: 81px;" (click)="onBrowsing()" >Duyệt</button>
+            <button type="button" class="btn btn-info" (click)="openPopup1()">Từ chối ứng viên</button>
+            <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle1}">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Lý do từ chối</h4>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" class="form-control" id="inputCity" formControlName="reason">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" (click)="closePopup1()">
+                                Close
+                            </button>
+                            <button class="btn btn-danger" style="margin-right: 5px;" type="submit"
+                                (click)="onRefuse()">Lưu</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
       </div>
-      </div>
-    </div>
+    </form>
+
     <div class="Job-Description">
 
       <div class="form-row">
