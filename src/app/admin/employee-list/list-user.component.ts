@@ -5,6 +5,7 @@ import { EmployeeService } from './../../services/employee.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Employee } from './../../model/employee';
 import { Component, OnInit } from '@angular/core';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-list-je',
@@ -12,12 +13,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-user.component.css']
 })
 export class ListUserComponent implements OnInit {
-
+  employee: Employee;
   showDirectionLinks = true;
   addForm!: FormGroup;
 
   btnDisable = false;
   constructor(private EmployeeService: EmployeeService,
+   
     private router: Router,
     private route: ActivatedRoute,
     private rest: EmployeeService,
@@ -57,15 +59,26 @@ export class ListUserComponent implements OnInit {
       console.log(this.employees);
     });
   }
-  deleteJE(id: number) {
+  checkActive(){
+    // if(this.employee.userStatus){
+    //   return "Dang hoat dong";
 
+    // }
+  
+  }
+  deleteUSER(id: number) {
+    debugger
+    this.router.navigate(['/admin/employee-list'])
+    alert('xoa thanh cong');
+   
     this.btnDisable = true;
-
+   
 
     this.rest.deleteUSER(id).subscribe(data => {
-      alert('xoa thanh cong');
+     
       this.data.success('Employee is save');
       this.btnDisable = false;
+      alert('xoa thanh cong');
     },
 
     );

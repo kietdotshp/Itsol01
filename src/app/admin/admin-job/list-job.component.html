@@ -1,0 +1,48 @@
+<!-- <buton type="button" style="text-align: center" class="btn btn-info" style="margin-right: 2px"
+  routerLink="/admin/add-Je">
+  Thêm
+</buton> -->
+<form [formGroup]="addForm">
+
+  <table id="tb-view" class="table table-bordered table-sm table-hover table-striped">
+    <thead>
+      <tr>
+        <th>jobName</th>
+        <th>jobPosition</th>
+        <th>createDate</th>
+        <th>dueDate</th>
+        <th>minSalary</th>
+        <th>maxSalary</th>
+        <th>view</th>
+        <th>isDelete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <div *ngIf="employee.active==true">
+         dang hoat dong ,{{employee.active}}
+      </div> -->
+      <tr *ngFor="let job of job">
+        <td>{{ job.jobName }}</td>
+        <td>{{ job.jobPosition }}</td>
+        <td>{{ job.createDate }}</td>
+        <td>{{ job.dueDate }}</td>
+        <td>{{ job.minSalary }}</td>
+        <td>{{ job.maxSalary }}</td>
+        <td>{{ job.view }}</td>
+        <td>{{ job.delete }}</td>
+        <td class="text-nowrap" style="width: 1px">
+          <button type="button" class="btn btn-danger" style="margin-right: 2px"
+
+            >
+            Sửa
+          </button>
+          <button type="button" class="btn btn-success" style="margin-right: 2px" >
+            Xóa
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</form>
+<!---->

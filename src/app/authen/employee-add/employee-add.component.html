@@ -5,6 +5,7 @@
         <!-- <app-message>
         </app-message> -->
         <hr />
+        {{exform.valid}}
         <form [formGroup]="exform">
           <div class="card">
             <div class="card-header">
@@ -12,166 +13,137 @@
             </div>
             <div class="card-body">
               <div class="form-group col-md-6">
-                <label for="name">Name</label>
-                <input
-                  formControlName="fullName"
-                  type="text"
-                  [(ngModel)]="employee.fullName"
-                  class="form-control"
-                  name="name"
-                  id="name"
-                  aria-describedby="helpid"
-                  placeholder="name"
-                />
-                <small
-                  *ngIf="f['fullName'].invalid && f['fullName'].touched"
-                  id="nameid"
-                  class="form-text text-muted"
-                >
-                  name is required
-                </small>
+                <label for="name">fullName</label>
+                <input formControlName="fullName" type="text" [(ngModel)]="employee.fullName" class="form-control"
+                  name="name" id="name" aria-describedby="helpid" placeholder="name" />
+                <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="alert alert-danger">
+
+                  <div *ngIf="fullName.errors?.['required']">
+                    fullName không được để rỗng
+                  </div>
+                  <div *ngIf="fullName.errors?.['minlength']">
+                    fullName phải ít nhất 8 kí tự
+                  </div>
+                  <div *ngIf="fullName.errors?.['forbiddenName']">
+                    Name cannot be Bob.
+                  </div>
+                </div>
               </div>
               <div class="form-group col-md-6">
                 <label for="email">Email</label>
-                <input
-                  formControlName="email"
-                  type="email"
-                  [(ngModel)]="employee.email"
-                  class="form-control"
-                  name="name"
-                  id="email"
-                  aria-describedby="emailHid"
-                  placeholder="Email"
-                />
-                <small
-                  *ngIf="f['email'].invalid && f['email'].touched"
-                  id="emailHid"
-                  class="form-text text-muted"
-                >
-                  Email is required
-                </small>
+                <input formControlName="email" type="email" [(ngModel)]="employee.email" class="form-control"
+                  name="name" id="email" aria-describedby="emailHid" placeholder="Email" />
+                <div *ngIf="email.invalid && (email.dirty||email.touched)" class="alert alert-danger">
+
+                  <div *ngIf="email.errors?.['required']">
+                    Email không được để rỗng
+                  </div>
+                  <div *ngIf="email.errors.email">
+                    <small id="emailHid" class="form-text text-muted">
+                      Email không đúng định dạng
+                    </small>
+                  </div>
+                </div>
               </div>
               <div class="form-group col-md-6">
                 <label for="userName">UserName</label>
-                <input
-                  formControlName="userName"
-                  type="userName"
-                  [(ngModel)]="employee.userName"
-                  class="form-control"
-                  name="userName"
-                  id="userName"
-                  aria-describedby="userNameHid"
-                  placeholder="userName"
-                />
-                <small
-                  *ngIf="f['userName'].errors?.['required']"
-                  id="userNameHid"
-                  class="form-text text-muted"
-                >
-                  UserName is required
-                </small>
+                <input formControlName="userName" type="userName" [(ngModel)]="employee.userName" class="form-control"
+                  name="userName" id="userName" aria-describedby="userNameHid" placeholder="userName" />
+                <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="alert alert-danger">
+
+                  <div *ngIf="userName.errors?.['required']">
+                    userName không được để rỗng
+                  </div>
+                  <div *ngIf="userName.errors?.['minlength']">
+                    userName phải ít nhất 8 kí tự
+                  </div>
+                  <div *ngIf="userName.errors?.['forbiddenName']">
+                    Name cannot be Bob.
+                  </div>
+                </div>
               </div>
               <div class="form-group col-md-6">
                 <label for="password">Password</label>
-                <input
-                  formControlName="password"
-                  type="password"
-                  [(ngModel)]="employee.password"
-                  class="form-control"
-                  name="password"
-                  id="password"
-                  aria-describedby="passwordHid"
-                  placeholder="Password"
-                />
-                <small
-                  *ngIf="f['password'].invalid && f['password'].touched"
-                  id="passwordHid"
-                  class="form-text text-muted">
-                  Password is required
-                </small>
+                <input formControlName="password" type="password" [(ngModel)]="employee.password" class="form-control"
+                  name="password" id="password" aria-describedby="passwordHid" placeholder="Password" />
+                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+
+                  <div *ngIf="password.errors?.['required']">
+                    password không được để rỗng
+                  </div>
+                  <div *ngIf="password.errors?.['minlength']">
+                    password phải ít nhất 8 kí tự
+                  </div>
+                  <div *ngIf="password.errors?.['forbiddenName']">
+                    Name cannot be Bob.
+                  </div>
+                </div>
               </div>
               <div class="form-group col-md-6">
                 <label for="phone">Phone</label>
-                <input
-                  formControlName="phone"
-                  type="phone"
-                  [(ngModel)]="employee.phoneNumber"
-                  class="form-control"
-                  name="phone"
-                  id="phone"
-                  aria-describedby="phoneHid"
-                  placeholder="phone"
-                />
-                <small
-                  *ngIf="f['phone'].invalid && f['phone'].touched"
-                  id="phoneHid"
-                  class="form-text text-muted"
-                >
-                  Phone is required
-                </small>
+                <input formControlName="phoneNumber" type="phone" [(ngModel)]="employee.phoneNumber" class="form-control"
+                  name="phone" id="phone" aria-describedby="phoneHid" placeholder="phone" />
+                <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="phoneNumber.errors?.['required']">
+                    phoneNumber không được để trống.
+                  </div>
+                  <div *ngIf="phoneNumber.errors?.['minlength']">
+                    phoneNumber phải 10 số.
+                  </div>
+                  <div *ngIf="phoneNumber.errors?.['maxlength']">
+                    phoneNumber phải 10 số.
+                  </div>
+                  <div *ngIf="phoneNumber.errors?.['pattern']">
+                    phoneNumber phải là số.
+                  </div>
+                </div>
               </div>
               <div class="form-group col-md-6">
                 <label for="homeTown">HomeTown</label>
-                <input
-                  formControlName="homeTown"
-                  type="homeTown"
-                  [(ngModel)]="employee.homeTown"
-                  class="form-control"
-                  name="homeTown"
-                  id="homeTown"
-                  aria-describedby="homeTownHid"
-                  placeholder="homeTown"
-                />
-                <small
-                  *ngIf="f['homeTown'].invalid && f['homeTown'].touched"
-                  id="homeTownHid"
-                  class="form-text text-muted"
-                >
-                  HomeTown is required
-                </small>
+                <input formControlName="homeTown" type="homeTown" [(ngModel)]="employee.homeTown" class="form-control"
+                  name="homeTown" id="homeTown" aria-describedby="homeTownHid" placeholder="homeTown" />
+                <div *ngIf="homeTown.invalid && (homeTown.dirty || homeTown.touched)" class="alert alert-danger">
+
+                  <div *ngIf="homeTown.errors?.['required']">
+                    homeTown không được để rỗng
+                  </div>
+                  <div *ngIf="homeTown.errors?.['forbiddenName']">
+                    Name cannot be Bob.
+                  </div>
+                </div>
               </div>
               <div class="form-group col-md-6">
                 <label for="gender">Gender</label>
-                <input
-                  formControlName="gender"
-                  type="gender"
-                  [(ngModel)]="employee.gender"
-                  class="form-control"
-                  name="gender"
-                  id="gender"
-                  aria-describedby="genderHid"
-                  placeholder="gender"
-                />
-                <small
-                *ngIf="f['gender'].invalid && f['gender'].touched"
-                 id="genderHid" class="form-text text-muted">
-                  gender is required
-                </small>
+                <input formControlName="gender" type="gender" [(ngModel)]="employee.gender" class="form-control"
+                  name="gender" id="gender" aria-describedby="genderHid" placeholder="gender" />
+                <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="alert alert-danger">
+
+                  <div *ngIf="gender.errors?.['required']">
+                    gender không được để rỗng
+                  </div>
+                  <div *ngIf="gender.errors?.['forbiddenName']">
+                    Name cannot be Bob.
+                  </div>
+                </div>
               </div>
               <div class="form-group col-md-6">
                 <label for="birthDay">BirthDay</label>
-                <input
-                  formControlName="birthDay"
-                  type="date"
-                  [(ngModel)]="employee.birthDay"
-                  class="form-control"
-                  name="birthDay"
-                  id="birthDay"
-                  aria-describedby="birthDayHid"
-                  placeholder="birthDay"
-                />
-                <small
-                *ngIf="f['birthDay'].invalid && f['birthDay'].touched"
-                id="birthDayHid" class="form-text text-muted">
-                  birthDay is required
-                </small>
+                <input formControlName="birthDay" type="date" [(ngModel)]="employee.birthDay" class="form-control"
+                  name="birthDay" id="birthDay" aria-describedby="birthDayHid" placeholder="birthDay" />
+                <div *ngIf="birthDay.invalid && (birthDay.dirty || birthDay.touched)" class="alert alert-danger">
+
+                  <div *ngIf="birthDay.errors?.['required']">
+                    birthDay không được để rỗng
+                  </div>
+                  <div *ngIf="birthDay.errors?.['forbiddenName']">
+                    Name cannot be Bob.
+                  </div>
+                </div>
+
 
               </div>
-              <button
-                type="submit"
-                class="btn btn-primary"
-                (click)="save()"
-              >
+              <button type="submit" class="btn btn-primary" [disabled]="!exform.valid" (click)="save()">
                 Đăng kí
               </button>
               <a href="#" routerLink="../login" d="cancel_signup"><i class="fas fa-angle-left"></i> Back</a>

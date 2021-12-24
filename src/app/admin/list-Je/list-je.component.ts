@@ -60,12 +60,13 @@ export class ListJeComponent implements OnInit {
   deleteJE(id: number) {
 
     this.btnDisable = true;
-
-
+    alert('xoa thanh cong');
+    this.router.navigate(['./admin/list-je'])
     this.rest.deleteJE(id).subscribe(data => {
       alert('xoa thanh cong');
       this.data.success('Employee is save');
       this.btnDisable = false;
+      
     },
 
     );
