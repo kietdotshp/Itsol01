@@ -17,7 +17,27 @@ export class listJobService {
     getAllJob() {
         return this.http.get<any>(this.API_URL + 'getAll');
     }
-   
+    public getJobById(id: number): Observable<Jobs> {
+        return this.http.get<Jobs>(`${this.API_URL+'getJob'}/${id}`, {
+          params: {
+            IdNumber: id,
+          },
+        });
+      }
+
+      public getAllJobPage(
+        pageN: number,
+        pageS: number
+      ): Observable<ResponseData> {
+        return this.http.get<ResponseData>(`${this.API_URL+'getAllPage'}`, {
+          params: {
+            pageNumber: pageN,
+            pageSize: pageS,
+          },
+        });
+      }
+
+
 }
 
 

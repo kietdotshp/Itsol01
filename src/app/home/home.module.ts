@@ -9,10 +9,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material/table';
 import { TableModule } from 'primeng/table';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { PopupComponent } from './list-job/detail-job/popup/popup.component';
 import { InfomationUserComponent } from './infomation-user/infomation-user.component';
 import { EditInformationComponent } from './edit-information/edit-information.component';
+import { HttpClientModule } from '@angular/common/http';
 import { ListJeComponent } from '../admin/list-Je/list-je.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 const routes: Routes = [
   {
@@ -29,7 +33,7 @@ const routes: Routes = [
         component: ListJobComponent,
       },
       {
-        path:'detail-job',
+        path:'detail-job/:id',
         component:DetailJobComponent,
       },
       {
@@ -41,7 +45,7 @@ const routes: Routes = [
         component:InfomationUserComponent,
       },
       {
-        path:'editinfomation',
+        path:'editinfomation/:id',
         component:EditInformationComponent
       }
     ]
@@ -57,7 +61,10 @@ const routes: Routes = [
     ProfileComponent,
     PopupComponent,
     InfomationUserComponent,
+
     EditInformationComponent
+
+
 
   ],
   imports: [
@@ -65,7 +72,12 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     MatSliderModule,
     MatTableModule,
-    TableModule
+    TableModule,
+    PaginationModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+
   ]
 })
 export class HomeModule { }

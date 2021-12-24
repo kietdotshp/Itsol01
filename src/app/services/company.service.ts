@@ -9,18 +9,22 @@ import { Company } from '../model/company';
 export class CompanyService {
 
   constructor(private http: HttpClient) { }
-  private API_URL = 'http://localhost:8001/company'
+
+  private API_URL = 'http://localhost:8001/company/'
   // public getAll(): Observable<any>{
   //   return this.http.get(this.API_URL)
   // }
   public getAll(): Observable<Company[]>{
-    return this.http.get<Company[]>(`${this.API_URL+'/all'}`)
+    return this.http.get<Company[]>(`${this.API_URL+'all'}`)
   }
     // public update(id:number,data:any): Observable<any>{
     //   return this.http.put(this.API_URL+id, data)
     // }
-  updateById(id:number,company:Company): Observable<Company>{
-    return this.http.put<Company>(`${this.API_URL+'update'}/${id}`,company)
+  public updateById(company:Company,id:number): Observable<Company[]>{
+    return this.http.put<Company[]>(this.API_URL + 'updateCompany/' + id, company);
   }
+  public getCompanyById(id: number) {
+    return this.http.get<Company>(`${this.API_URL + 'getCompanyByID'}/${id}`);
 
+  }
 }

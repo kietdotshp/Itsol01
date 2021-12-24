@@ -1,30 +1,72 @@
 <section id="intro">
-<div class="carousel-item active">
-<div class="carousel-background"><img src="assets/imags/slider/slider1.jpg" alt=""></div>
-<div class="carousel-container">
-<div class="carousel-content">
-<h2 class="font-color-white">JobRegister Detail</h2>
-<p class="font-color-white width-100"><a href="index.html" class="font-color-white">Home /</a><a href="../../admin/profile" class="font-color-white"> JobRegister </a>
-</p>
-</div>
-</div>
-</div>
+  <div class="carousel-item active">
+    <div class="carousel-background"><img src="assets/imags/slider/slider1.jpg" alt=""></div>
+    <div class="carousel-container">
+      <div class="carousel-content">
+        <h2 class="font-color-white">JobRegister Detail</h2>
+        <p class="font-color-white width-100"><a href="index.html" class="font-color-white">Home /</a><a
+            href="../../admin/profile" class="font-color-white"> JobRegister </a>
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
 
 
 <section id="job-Details">
-<div class="container background-color-full-white job-Details">
+  <div class="container background-color-full-white job-Details">
 
-<img src="imags/job-detail.jpg" alt="" class="job-detail-img">
-<div class="Job-Description">
-<h3>Information About Job Position</h3>
-<ul>
-  <li class="list-style">
-    
-  </li>
-</ul>
-</div>
-</div>
+    <img src="imags/job-detail.jpg" alt="" class="job-detail-img">
+    <div class="Job-Description">
+      <button class="btn btn-primary" type="submit">Approval</button>
+      <h1>Information About Job Position</h1>
+      <ul>
+        <li class="list-style">
+          {{dataSource.jobs.jobPosition}}
+        </li>
+      </ul>
+      <h1>Details of the candidate</h1>
+      <ul>
+        <li class="list-style">
+          name: {{dataSource.user.fullName}}
+        </li>
+        <li class="list-style">
+          email: {{dataSource.user.email}}
+        </li>
+        <li class="list-style">
+          skill: {{dataSource.profiles.skill}}
+        </li>
+        <li class="list-style">
+          phone number: {{dataSource.user.phoneNumber}}
+        </li>
+        <li class="list-style">
+          birthday: {{dataSource.user.birthDay}}
+        </li>
+        <li class="list-style">
+          gender: {{dataSource.user.gender}}
+        </li>
+        <li class="list-style">
+          hometown: {{dataSource.user.homeTown}}
+        </li>
+        <li class="list-style">
+          experience: {{dataSource.profiles.numberYearsExperience}}
+        </li>
+        <li class="list-style">
+          desired working address: {{dataSource.profiles.desiredWorkingAddress}}
+        </li>
+      </ul>
+      <h1>Desired Salary</h1>
+      <ul>
+        <li class="list-style">
+          {{dataSource.profiles.desiredSalary}}
+        </li>
+      </ul>
+      <h1>Desired Work</h1>
+      <ul>
+        <li class="list-style">
+          {{dataSource.profiles.desiredwork.description}}
+        </li>
+      </ul>
+    </div>
+  </div>
 </section>
-
-

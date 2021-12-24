@@ -14,10 +14,6 @@ const routes: Routes = [
         path: 'profileDetail',
         component: ProfileDetailComponent,
       },
-      {
-        path: 'recruitmentDetail',
-        component: RecruitmentComponent,
-      }
     ],
   },
 ];

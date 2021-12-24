@@ -9,7 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { ProfileDetailComponent } from './profile/profile-detail/profile-detail.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -17,11 +17,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { RecruitmentDetailComponent } from './recruitment/recruitment-detail/recruitment-detail.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
+
 import { ListJeComponent } from './list-Je/list-je.component';
 import { AddJeComponent } from './add-Je/add-je.component';
 import { EditJeComponent } from './update-Je/edit-je.component';
 import { ListUserComponent } from './employee-list/list-user.component';
 import { ListJobComponent } from './admin-job/list-job.component';
+
+
+import { HttpClientModule } from '@angular/common/http';
+import { EditCompanyComponent } from './edit-company/edit-company.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -68,24 +76,25 @@ const routes: Routes = [
         component: AdminHomeComponent,
       },
       {
-        path: 'recruitment',
-        component: RecruitmentComponent,
-      },
-      {
-        path: 'profile-detail',
+        path: 'profile-detail/:id',
         component: ProfileDetailComponent,
       },
+
       {
         path: 'recruitment-detail',
         component: RecruitmentDetailComponent,
-      }
+      },
+      {
+        path: 'editcontact/:id',
+        component: EditCompanyComponent,
+      },
+
     ],
   },
 ];
 @NgModule({
   declarations: [
     AdminHomeComponent,
-    // RecruitmentComponent,
     AdminListComponent,
     ContactComponent,
     ProfileComponent,
@@ -98,19 +107,24 @@ const routes: Routes = [
     AddJeComponent,
     EditJeComponent,
     ListUserComponent,
-    ListJobComponent
+    ListJobComponent,
+    EditCompanyComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    FormsModule,
     MatDialogModule,
     MatTableModule,
     MatPaginatorModule,
     MatFormFieldModule,
     PaginationModule,
     Ng2SearchPipeModule,
-    ReactiveFormsModule
+    MatDatepickerModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
+
   ],
   exports: [RouterModule],
 })
