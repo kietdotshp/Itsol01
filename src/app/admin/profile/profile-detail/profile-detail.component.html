@@ -43,82 +43,89 @@
         </div>
         </div>
       </div>
+      <div class="Job-Description">
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <h1>Information About Job Position</h1>
+            <fieldset disabled>
+              <input type="email" class="form-control" id="jobPosition" formControlName="jobPosition" >
+            </fieldset>
+          </div>
+          <div class="form-group col-md-6">
+            <h1>Information About Job Status</h1>
+            <fieldset disabled>
+              <input type="email" class="form-control" id="statusName" formControlName="statusName" >
+            </fieldset>
+          </div>
+        </div>
+        <h1>Details of the candidate</h1>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Name</label>
+            <fieldset disabled>
+              <input type="text" class="form-control" id="fullName" formControlName="fullName">
+            </fieldset>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Email</label>
+            <input type="email" class="form-control" id="inputEmail4" value="{{dataSource.user.email}}" disabled>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Skill</label>
+            <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.profiles.skill}}" disabled>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Phone Number</label>
+            <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.user.phoneNumber}}" disabled>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Birthday</label>
+            <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.user.birthDay}}" disabled>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Gender</label>
+            <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.user.gender}}" disabled>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Hometown</label>
+            <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.user.homeTown}}" disabled>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Experience</label>
+            <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.profiles.numberYearsExperience}}" disabled>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Desired Working Address</label>
+            <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.profiles.desiredWorkingAddress}}" disabled>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">StatusName</label>
+            <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.jobStatus.statusName}}" disabled>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <h1>Desired Salary</h1>
+            <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.profiles.desiredSalary}}" disabled>
+          </div>
+          <div class="form-group col-md-6">
+            <h1>Desired Work</h1>
+            <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.profiles.desiredwork.description}}" disabled>
+          </div>
+        </div>
+      </div>
     </form>
 
-    <div class="Job-Description">
 
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <h1>Information About Job Position</h1>
-          <input type="email" class="form-control" id="inputEmail4" value="{{dataSource.jobs.jobPosition}}" disabled>
-        </div>
-        <div class="form-group col-md-6">
-          <h1>Information About Job Status</h1>
-          <input type="email" class="form-control" id="inputEmail4" value="{{dataSource.jobStatus.statusName}}" disabled>
-        </div>
-      </div>
-      <h1>Details of the candidate</h1>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputEmail4">Name</label>
-          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.user.fullName}}" disabled>
-        </div>
-        <div class="form-group col-md-6">
-          <label for="inputEmail4">Email</label>
-          <input type="email" class="form-control" id="inputEmail4" value="{{dataSource.user.email}}" disabled>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputEmail4">Skill</label>
-          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.profiles.skill}}" disabled>
-        </div>
-        <div class="form-group col-md-6">
-          <label for="inputEmail4">Phone Number</label>
-          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.user.phoneNumber}}" disabled>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputEmail4">Birthday</label>
-          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.user.birthDay}}" disabled>
-        </div>
-        <div class="form-group col-md-6">
-          <label for="inputEmail4">Gender</label>
-          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.user.gender}}" disabled>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputEmail4">Hometown</label>
-          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.user.homeTown}}" disabled>
-        </div>
-        <div class="form-group col-md-6">
-          <label for="inputEmail4">Experience</label>
-          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.profiles.numberYearsExperience}}" disabled>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputEmail4">Desired Working Address</label>
-          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.profiles.desiredWorkingAddress}}" disabled>
-        </div>
-        <div class="form-group col-md-6">
-          <label for="inputEmail4">StatusName</label>
-          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.jobStatus.statusName}}" disabled>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <h1>Desired Salary</h1>
-          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.profiles.desiredSalary}}" disabled>
-        </div>
-        <div class="form-group col-md-6">
-          <h1>Desired Work</h1>
-          <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.profiles.desiredwork.description}}" disabled>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
