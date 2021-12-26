@@ -46,11 +46,12 @@ export class ProfileDetailComponent implements OnInit {
   public getJobRegisterById(): void {
     this.jobRegisterService.getJobregisterById(this.jobRegId).subscribe((data) => {
       this.dataSource = data;
+      debugger;
       this.cvFileName = this.getCvFileName(data.cvFile);
       this.editForm.patchValue({
         id: this.jobRegId,
         statusName: this.dataSource.jobRegisterStatus.statusName,
-        reason: this.dataSource.jobRegisterStatus.reason
+        reason: this.dataSource.reason
       });
     });
 
@@ -111,7 +112,8 @@ export class ProfileDetailComponent implements OnInit {
 
   onRefuse() {
     this.addJobRegister = this.editForm.value;
-    this.addJobRegister.statusName = "5";
+    debugger;
+    this.addJobRegister.jobRegisterStatusId = 5;
     this.jobRegisterService
       .updateJobRegister(this.addJobRegister)
       .subscribe((res) => {
@@ -136,7 +138,7 @@ export class ProfileDetailComponent implements OnInit {
   }
   onRecruit() {
     this.addJobRegister = this.editForm.value;
-    this.addJobRegister.statusName = "3";
+    this.addJobRegister.jobRegisterStatusId = 3;
     this.jobRegisterService
       .updateJobRegister(this.addJobRegister)
       .subscribe((res) => {
@@ -148,7 +150,7 @@ export class ProfileDetailComponent implements OnInit {
   }
   onSchedule() {
     this.addJobRegister = this.editForm.value;
-    this.addJobRegister.statusName = "4";
+    this.addJobRegister.jobRegisterStatusId = 4;
     this.jobRegisterService
       .updateJobRegister(this.addJobRegister)
       .subscribe((res) => {
@@ -160,6 +162,7 @@ export class ProfileDetailComponent implements OnInit {
   }
 
   displayStyle = 'none';
+
   openPopup() {
     this.displayStyle = 'block';
   }
