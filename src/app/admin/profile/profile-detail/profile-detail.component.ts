@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { JobRegister } from '../../../model/job-register';
 import { AddJobRegister } from '../../../model/job-register-add';
 import { JobRegisterService } from '../../../services/job-register.service';
+import { saveAs } from 'file-saver';
 
 // import { JobRegisterService } from '../../../services/job-register.service';
 @Component({
@@ -20,6 +21,7 @@ export class ProfileDetailComponent implements OnInit {
   public addJobRegister: AddJobRegister;
   private jobRegId: number;
   private apiServerUrl: string;
+  private cvFileName: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -44,6 +46,7 @@ export class ProfileDetailComponent implements OnInit {
   public getJobRegisterById(): void {
     this.jobRegisterService.getJobregisterById(this.jobRegId).subscribe((data) => {
       this.dataSource = data;
+      this.cvFileName = this.getCvFileName(data.cvFile);
       this.editForm.patchValue({
         id: this.jobRegId,
         statusName: this.dataSource.jobRegisterStatus.statusName,
@@ -51,6 +54,14 @@ export class ProfileDetailComponent implements OnInit {
       });
     });
 
+  }
+
+  getCvFileName(cvFilePath: string) {
+    if (!cvFilePath) {
+      console.error("File path is null or undefined")
+    }
+    let cvFilePaths = cvFilePath.split("/");
+    return cvFilePaths[cvFilePaths.length - 1];
   }
 
   onDowload(){
@@ -66,18 +77,26 @@ export class ProfileDetailComponent implements OnInit {
     //   a.click();
     //   return data;
     // })
-    this.http.get(this.apiServerUrl + `/jobsRegister/cv/download/` + this.jobRegId).subscribe((res) => {
-      debugger;
-      const file = new Blob([res.toString()], {
-        type: 'application/pdf',
-      });
-      const a = document.createElement('a');
-      a.href = this.apiServerUrl + `/jobsRegister/cv/download/` + this.jobRegId + (<any>res)._body;
-      a.target = '_blank';
-      document.body.appendChild(a);
-      a.click();
-      return res;
-    });
+
+
+
+
+    // this.http.get(this.apiServerUrl + `/jobsRegister/cv/download/` + this.jobRegId).subscribe((res) => {
+    //   debugger;
+    //   const file = new Blob([res.toString()], {
+    //     type: 'application/pdf',
+    //   });
+    //   const a = document.createElement('a');
+    //   a.href = this.apiServerUrl + `/jobsRegister/cv/download/` + this.jobRegId + (<any>res)._body;
+    //   a.target = '_blank';
+    //   document.body.appendChild(a);
+    //   a.click();
+    //   return res;
+    // });
+
+    this.jobRegisterService.dowloadCvFile(this.jobRegId)
+      .subscribe(blob => saveAs(blob, this.cvFileName));
+
   }
 
   onUpdateJobRegister() {

@@ -45,6 +45,9 @@ export class JobRegisterService {
   }
 
   public dowloadCvFile(applicantId: number): Observable<Blob>{
-    return this.http.get<Blob>(`${this.apiServerUrl}` + `/jobsRegister/cv/download/` + `${applicantId}`);
+    // return this.http.get<Blob>(`${this.apiServerUrl}` + `/jobsRegister/cv/download/` + `${applicantId}`);
+    return this.http.get(`${this.apiServerUrl}` + `/jobsRegister/cv/download/` + `${applicantId}`, {
+      responseType: 'blob'
+    });
   }
 }
