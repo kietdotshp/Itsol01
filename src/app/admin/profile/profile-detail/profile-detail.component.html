@@ -18,7 +18,7 @@
     <form [formGroup]="editForm" (ngSubmit)="onUpdateJobRegister()">
       <div class="form-row">
         <div style="margin-bottom: 10px;">
-          <div *ngIf="dataSource.jobStatus.statusName === 'cho duyet'" style="margin-left: 25px;">
+          <div *ngIf=" dataSource.jobRegisterStatus.id === 1" style="margin-left: 25px;">
             <button type="button" class="btn btn-info" style="width: 81px;" (click)="onBrowsing()" >Duyệt</button>
             <button type="button" class="btn btn-info" (click)="openPopup1()">Từ chối ứng viên</button>
             <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle1}">
@@ -41,6 +41,9 @@
                 </div>
             </div>
         </div>
+        <div>
+          <button type="button" class="btn btn-info" style="width: 81px;" (click)="onDowload()">Dowload</button>
+        </div>
         </div>
       </div>
       <div class="Job-Description">
@@ -48,14 +51,12 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <h1>Information About Job Position</h1>
-            <fieldset disabled>
-              <input type="email" class="form-control" id="jobPosition" formControlName="jobPosition" >
-            </fieldset>
+              <input type="email" class="form-control" id="jobPosition" value="{{dataSource.jobs.jobPosition}}" disabled>
           </div>
           <div class="form-group col-md-6">
             <h1>Information About Job Status</h1>
             <fieldset disabled>
-              <input type="email" class="form-control" id="statusName" formControlName="statusName" >
+              <input type="email" class="form-control" id="statusName" formControlName="statusName">
             </fieldset>
           </div>
         </div>
@@ -63,9 +64,7 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputEmail4">Name</label>
-            <fieldset disabled>
-              <input type="text" class="form-control" id="fullName" formControlName="fullName">
-            </fieldset>
+              <input type="text" class="form-control" id="fullName" value="{{dataSource.user.fullName}}" disabled>
           </div>
           <div class="form-group col-md-6">
             <label for="inputEmail4">Email</label>
@@ -109,7 +108,7 @@
           </div>
           <div class="form-group col-md-6">
             <label for="inputEmail4">StatusName</label>
-            <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.jobStatus.statusName}}" disabled>
+            <input type="text" class="form-control" id="inputEmail4" value="{{dataSource.jobRegisterStatus.statusName}}" disabled>
           </div>
         </div>
 

@@ -1,7 +1,6 @@
 export interface AddJobRegister {
   id: string,
-  fullName: string,
-  jobPosition: string,
   statusName: string,
-  reason: string
+  reason: string,
+  jobRegisterStatusId: number
 }

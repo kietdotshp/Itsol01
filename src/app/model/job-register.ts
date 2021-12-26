@@ -1,7 +1,7 @@
 import { User } from './User';
 import { Profiles } from './profiles';
 import { Jobs } from './job.model';
-import { JobStatus } from './job-status';
+import { JobRegisterStatus } from './job-register-status';
 export interface JobRegister {
   id?: number;
   applicationTime?: any;
@@ -9,7 +9,7 @@ export interface JobRegister {
   isDelete?: any,
   status?: any,
   jobs: Jobs,
-  jobStatus: JobStatus,
+  jobRegisterStatus: JobRegisterStatus,
   user: User,
   profiles: Profiles,
   reason: string

@@ -4,6 +4,7 @@ import { JobRegister } from '../../model/job-register';
 import { JobRegisterService } from '../../services/job-register.service';
 import { User } from '../../model/User';
 import { FormBuilder, FormControl, FormGroup, Form } from '@angular/forms';
+import { JobRegisterStatus } from '../../model/job-register-status';
 
 
 @Component({
@@ -34,6 +35,7 @@ export class ProfileComponent implements OnInit {
   page?: number;
   name: any;
   vacancies: any;
+
 
   pageChanged(event: PageChangedEvent): void {
     this.pageN = event.page - 1;

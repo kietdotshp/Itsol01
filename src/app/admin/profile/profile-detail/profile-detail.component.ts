@@ -1,4 +1,5 @@
 import { formatDate } from '@angular/common';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,40 +18,66 @@ export class ProfileDetailComponent implements OnInit {
   formUpdate: FormGroup;
   public dataSource: JobRegister;
   public addJobRegister: AddJobRegister;
+  private jobRegId: number;
+  private apiServerUrl: string;
 
   constructor(
     private route: ActivatedRoute,
     private jobRegisterService: JobRegisterService,
     private fb: FormBuilder,
-    private router: Router
-  ) {}
+    private router: Router,
+    private http: HttpClient
+  ) { }
 
   ngOnInit(): void {
+    this.jobRegId = this.route.snapshot.params['id'];
     this.getJobRegisterById();
+    this.apiServerUrl = 'http://localhost:8001/api'
   }
 
   editForm: FormGroup = this.fb.group({
     id: new FormControl(''),
-    fullName: new FormControl(''),
-    jobPosition: new FormControl(''),
     statusName: new FormControl(''),
     reason: new FormControl('')
   });
 
   public getJobRegisterById(): void {
-    const job_reg_id = this.route.snapshot.params['id'];
-    debugger;
-    this.jobRegisterService.getJobregisterById(job_reg_id).subscribe((data) => {
+    this.jobRegisterService.getJobregisterById(this.jobRegId).subscribe((data) => {
       this.dataSource = data;
       this.editForm.patchValue({
-        id: job_reg_id,
-        fullName: this.dataSource.user.fullName,
-        jobPosition: this.dataSource.jobs.jobPosition,
-        statusName: this.dataSource.jobStatus.statusName,
-        reason: this.dataSource.reason
+        id: this.jobRegId,
+        statusName: this.dataSource.jobRegisterStatus.statusName,
+        reason: this.dataSource.jobRegisterStatus.reason
       });
     });
 
+  }
+
+  onDowload(){
+    // this.jobRegisterService.dowloadCvFile(this.jobRegId).subscribe(data =>{
+    //   debugger;
+    //   const file = new Blob([data], {
+    //     type: 'application/pdf',
+    //   });
+    //   const a = document.createElement('a');
+    //   a.href = this.apiServerUrl + `/jobsRegister/cv/download/`+ this.jobRegId + (<any>data)._body;
+    //   a.target = '_blank';
+    //   document.body.appendChild(a);
+    //   a.click();
+    //   return data;
+    // })
+    this.http.get(this.apiServerUrl + `/jobsRegister/cv/download/` + this.jobRegId).subscribe((res) => {
+      debugger;
+      const file = new Blob([res.toString()], {
+        type: 'application/pdf',
+      });
+      const a = document.createElement('a');
+      a.href = this.apiServerUrl + `/jobsRegister/cv/download/` + this.jobRegId + (<any>res)._body;
+      a.target = '_blank';
+      document.body.appendChild(a);
+      a.click();
+      return res;
+    });
   }
 
   onUpdateJobRegister() {
@@ -65,7 +92,7 @@ export class ProfileDetailComponent implements OnInit {
 
   onRefuse() {
     this.addJobRegister = this.editForm.value;
-    this.addJobRegister.statusName = 'ung vien bi tu choi';
+    this.addJobRegister.statusName = "5";
     this.jobRegisterService
       .updateJobRegister(this.addJobRegister)
       .subscribe((res) => {
@@ -78,8 +105,7 @@ export class ProfileDetailComponent implements OnInit {
 
   onBrowsing() {
     this.addJobRegister = this.editForm.value;
-    debugger;
-    this.addJobRegister.statusName = 'cho phong van';
+    this.addJobRegister.jobRegisterStatusId = 2;
     this.jobRegisterService
       .updateJobRegister(this.addJobRegister)
       .subscribe((res) => {
@@ -91,7 +117,7 @@ export class ProfileDetailComponent implements OnInit {
   }
   onRecruit() {
     this.addJobRegister = this.editForm.value;
-    this.addJobRegister.statusName = 'dang phong van';
+    this.addJobRegister.statusName = "3";
     this.jobRegisterService
       .updateJobRegister(this.addJobRegister)
       .subscribe((res) => {
@@ -103,7 +129,7 @@ export class ProfileDetailComponent implements OnInit {
   }
   onSchedule() {
     this.addJobRegister = this.editForm.value;
-    this.addJobRegister.statusName = 'da tuyen';
+    this.addJobRegister.statusName = "4";
     this.jobRegisterService
       .updateJobRegister(this.addJobRegister)
       .subscribe((res) => {

@@ -43,4 +43,8 @@ export class JobRegisterService {
   public updateJobRegister(update: AddJobRegister): Observable<AddJobRegister[]> {
     return this.http.put<AddJobRegister[]>(`${this.apiServerUrl}` + '/jobsRegister/update', update);
   }
+
+  public dowloadCvFile(applicantId: number): Observable<Blob>{
+    return this.http.get<Blob>(`${this.apiServerUrl}` + `/jobsRegister/cv/download/` + `${applicantId}`);
+  }
 }
