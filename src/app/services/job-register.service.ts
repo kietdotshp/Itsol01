@@ -50,4 +50,9 @@ export class JobRegisterService {
       responseType: 'blob'
     });
   }
+
+  public apply(formData: FormData): Observable<Blob>{
+    return this.http.post(`${this.apiServerUrl}` + `/jobsRegister`,formData);
+  }
+
 }

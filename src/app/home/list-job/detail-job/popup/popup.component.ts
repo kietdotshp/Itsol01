@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
 import{saveAs} from 'file-saver';
 import { FileService } from 'src/app/services/file.service';
+import {JobRegisterService} from "../../../../services/job-register.service";
 
 @Component({
   selector: 'app-popup',
@@ -17,7 +18,7 @@ export class PopupComponent {
   filenames: string[] = [];
   fileStatus = { status: '', requestType: '', percent: 0 };
 
-  constructor(private fileService: FileService, private formBuider: FormBuilder) {}
+  constructor(private fileService: FileService, private formBuider: FormBuilder, private jobRegisterService: JobRegisterService) {}
 
 
 
@@ -102,11 +103,30 @@ export class PopupComponent {
     this.fileStatus.percent = Math.round(100 * loaded / total);
   }
 
+  onFileSelect(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.validate.get('cv').setValue(file);
+    }
+  }
+
   onSubmit(){
 
-    if (this.validate.valid) {
-      console.log('form submitted');
-    } else {}
+    // if (this.validate.valid) {
+    //   console.log('form submitted');
+    // } else {}
+
+    const formData = new FormData();
+    formData.append('userId', "1"); // TODO - lấy user id cho vào đây (để ở dạng string, ví dụ "1")
+    formData.append('cvFile', this.validate.get('cv').value);
+    formData.append('jobId', "1"); // TODO - lấy jobId cho vào đây (để ở dạng string, ví dụ "1")
+    formData.append('shortDescription', this.validate.get("Mess").value);
+
+    this.jobRegisterService.apply(formData).subscribe(
+      (res) => console.log(res),
+      (err) => console.log(err)
+    );
+
   }
 
 

@@ -93,8 +93,9 @@
                                 <fieldset>
                                     <div class="form-group">
                                         <div>
-                                            <input type="file" (change)="onUploadFiles($event.target.files)"
-                                                name="files" multiple class="form-control"  formControlName="cv"/>
+<!--                                            <input type="file" (change)="onUploadFiles($event.target.files)"-->
+                                            <input type="file" (change)="onFileSelect($event)"
+                                                name="files" multiple class="form-control"  formControlName="cv"></input>
                                         </div>
 
                                         <div *ngIf="f['cv'].invalid && (f['cv'].dirty||f['cv'].touched)">
