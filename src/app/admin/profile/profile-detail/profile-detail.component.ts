@@ -46,7 +46,6 @@ export class ProfileDetailComponent implements OnInit {
   public getJobRegisterById(): void {
     this.jobRegisterService.getJobregisterById(this.jobRegId).subscribe((data) => {
       this.dataSource = data;
-      debugger;
       this.cvFileName = this.getCvFileName(data.cvFile);
       this.editForm.patchValue({
         id: this.jobRegId,
@@ -112,7 +111,6 @@ export class ProfileDetailComponent implements OnInit {
 
   onRefuse() {
     this.addJobRegister = this.editForm.value;
-    debugger;
     this.addJobRegister.jobRegisterStatusId = 5;
     this.jobRegisterService
       .updateJobRegister(this.addJobRegister)
