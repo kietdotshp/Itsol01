@@ -4,6 +4,9 @@
 
 export const environment = {
   production: false,
+
+  API_URL: 'http://localhost:8001/api'
+
   firebaseConfig : {
     apiKey: 'AIzaSyDqzNZhflQrB6QYMAOfTQve81CMSB6-Kvo',
     databaseURL:'https://upload-eb8f0-default-rtdb.firebaseio.com/',

@@ -15,13 +15,17 @@ table {
 }
 
 .marginLeft2 {
-  margin-left: 47%;
+  margin-left: 45.6%;
 }
 
 .marginLeft3 {
   margin-left: 4.2%;
 }
 
+
+.marginLeft4 {
+  margin-left: 39.5%;
+}
 
 tr:hover {
   background-color: rgb(238, 238, 238);
