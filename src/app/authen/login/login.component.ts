@@ -48,7 +48,9 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token',value.token);
          // await this.data.getProfile();
          alert("login thanh cong")
-          this.router.navigate(['./home'])
+
+          this.router.navigate(['./home/popup'])
+
         })
 
         .catch((error) => {
