@@ -51,7 +51,7 @@ export class JobRegisterService {
     });
   }
 
-  public apply(formData: FormData): Observable<Blob>{
+  public apply(formData: FormData): Observable<any>{
     return this.http.post(`${this.apiServerUrl}` + `/jobsRegister`,formData);
   }
 
