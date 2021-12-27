@@ -6,6 +6,9 @@ import { User } from '../../model/User';
 import { FormBuilder, FormControl, FormGroup, Form } from '@angular/forms';
 import { JobRegisterStatus } from '../../model/job-register-status';
 
+import { MatDialog } from '@angular/material/dialog';
+import { saveAs } from 'file-saver';
+
 
 @Component({
   selector: 'app-profile',
@@ -14,11 +17,11 @@ import { JobRegisterStatus } from '../../model/job-register-status';
 })
 export class ProfileComponent implements OnInit {
   showDirectionLinks = true;
+  private jobjr: JobRegister;
+  private cvFileName: string;
 
-  constructor(public JobRegisterService: JobRegisterService, public form: FormBuilder) {
-    // this.paginator =Object.create(null)
+  constructor(public jobRegisterService: JobRegisterService, public form: FormBuilder, public dialog: MatDialog) {
   }
-  // data:any
 
   searchForm: FormGroup = this.form.group({
     applicantName: new FormControl(""),
@@ -40,7 +43,7 @@ export class ProfileComponent implements OnInit {
   pageChanged(event: PageChangedEvent): void {
     this.pageN = event.page - 1;
     console.log("pageN " + this.pageN);
-    this.JobRegisterService.getAllJobregister(this.pageN, this.pageS).subscribe(data => {
+    this.jobRegisterService.getAllJobregister(this.pageN, this.pageS).subscribe(data => {
       this.totalRecord = data.totalRecord;
       this.dataSource = data.data;
       console.log(this.dataSource);
@@ -53,18 +56,37 @@ export class ProfileComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.JobRegisterService.getAllJobregister(this.pageN, this.pageS).subscribe((data) => {
+
+    this.jobRegisterService.getAllJobregister(this.pageN, this.pageS).subscribe((data) => {
       this.totalRecord = data.totalRecord;
       this.dataSource = data.data;
       console.log(this.dataSource);
     })
   }
-
-
   onSearchJobRegister() {
-    this.JobRegisterService.searchJobRegister(this.searchForm.value).subscribe(data => {
+    this.jobRegisterService.searchJobRegister(this.searchForm.value).subscribe(data => {
       this.dataSource = data;
     })
+  }
+
+
+  getCvFileName(cvFilePath: string) {
+    if (!cvFilePath) {
+      console.error("File path is null or undefined")
+    }
+    let cvFilePaths = cvFilePath.split("/");
+    return cvFilePaths[cvFilePaths.length - 1];
+  }
+
+  onDowload(id: any) {
+    this.jobRegisterService.getJobregisterById(id).subscribe(
+      data => {
+        this.jobjr = data;
+        this.cvFileName = this.getCvFileName(this.jobjr.cvFile);
+      })
+    this.jobRegisterService.dowloadCvFile(id).subscribe(
+      blod => saveAs(blod, this.cvFileName)
+    );
   }
 
 
@@ -75,32 +97,6 @@ export class ProfileComponent implements OnInit {
   closePopup() {
     this.displayStyle = "none";
   }
-
-  // SearchName() {
-  //   if (this.name == "") {
-  //     this.JobRegisterService.getAllJobregister(this.pageN - 1, this.pageS).subscribe(data => {
-  //       this.totalRecord = data.totalRecord;
-  //       return this.dataSource = data.data;
-  //     })
-  //   } else {
-  //     this.dataSource = this.dataSource.filter(data => {
-  //       return data.user.fullName.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
-  //     })
-  //   }
-  // }
-
-  // SearchVacancies() {
-  //   if (this.vacancies == "") {
-  //     this.JobRegisterService.getAllJobregister(this.pageN - 1, this.pageS).subscribe(data => {
-  //       this.totalRecord = data.totalRecord;
-  //       return this.dataSource = data.data;
-  //     })
-  //   } else {
-  //     this.dataSource = this.dataSource.filter(data => {
-  //       return data.jobs.jobPosition.toLocaleLowerCase().match(this.vacancies.toLocaleLowerCase());
-  //     })
-  //   }
-  // }
 }
 
 

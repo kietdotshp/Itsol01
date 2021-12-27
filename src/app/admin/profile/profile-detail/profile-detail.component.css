@@ -1,3 +1,11 @@
 .margin1{
-  margin-bottom: 6%;
+  margin-top: 30%;
+  margin-left: 7%;
+}
+
+.edit {
+  border-radius: 5px;
+  width: 100px;
+  margin-top: 60px;
+  margin-left: 25px;
 }

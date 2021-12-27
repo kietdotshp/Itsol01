@@ -3,52 +3,28 @@
     <div class="form-row">
       <div class="col-md-5 mb-3 marginLeft1">
         <label for="validationTooltip03">User Name</label>
-        <input
-          type="text"
-          class="form-control"
-          id="applicantName"
-          formControlName="applicantName"
-        />
+        <input type="text" class="form-control" id="applicantName" formControlName="applicantName" />
       </div>
 
       <div class="col-md-5 mb-3">
         <label for="validationTooltip03">Vacancies</label>
-        <input
-          type="text"
-          class="form-control"
-          id="positionName"
-          formControlName="positionName"
-        />
+        <input type="text" class="form-control" id="positionName" formControlName="positionName" />
       </div>
     </div>
     <div class="form-row">
       <div class="col-md-3 mb-3 marginLeft1">
         <label for="validationTooltip03">APPLICATION TIME FROM</label>
-        <input
-          type="date"
-          class="form-control"
-          id="applicationTimeFrom"
-          formControlName="applicationTimeFrom"
-        />
+        <input type="date" class="form-control" id="applicationTimeFrom" formControlName="applicationTimeFrom" />
       </div>
 
       <div class="col-md-3 mb-3 marginLeft3">
         <label for="validationTooltip03">APPLICATION TIME TO</label>
-        <input
-          type="date"
-          class="form-control"
-          id="applicationTimeTo"
-          formControlName="applicationTimeTo"
-        />
+        <input type="date" class="form-control" id="applicationTimeTo" formControlName="applicationTimeTo" />
       </div>
 
       <div class="col-md-3 mb-3 marginLeft3">
         <label for="validationTooltip03">Status</label>
-        <select
-          class="form-select"
-          aria-label="Default select example"
-          class="form-control"
-          id="jobRegisterStatus"
+        <select class="form-select" aria-label="Default select example" class="form-control" id="jobRegisterStatus"
           formControlName="jobRegisterStatus">
           <option></option>
           <option value="cho duyet">cho duyet</option>
@@ -60,11 +36,10 @@
         </select>
       </div>
     </div>
-    <button class="btn btn-primary marginLeft2" type="submit" (click)="onSearchJobRegister()">Search</button>
+    <button class="button btn-primary marginLeft2" type="submit" (click)="onSearchJobRegister()">Search</button>
   </form>
 </div>
-
-<div>
+<form>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -73,7 +48,6 @@
         <th>APPLICATION TIME</th>
         <th>STATUS</th>
         <th>CV FILE</th>
-        <th></th>
         <th></th>
         <th></th>
       </tr>
@@ -85,31 +59,46 @@
         <td>{{ element.applicationTime }}</td>
         <td>{{ element.jobRegisterStatus.statusName}}</td>
         <td>
-          <button mat-raised-button class="button btn-primary">Dowload</button>
+          <button mat-raised-button class="button btn-primary" (click)="onDowload(element.id)">Dowload</button>
         </td>
         <td>
           <button mat-raised-button class="button btn-primary" routerLink="../profile-detail/{{ element.id }}">
             Detail
           </button>
         </td>
+        <td>
+            <div *ngIf=" element.jobRegisterStatus.id == 5 || element.jobRegisterStatus.id == 6 ">
+              <button type="button" class="button btn-primary" (click)="openPopup()">Reason</button>
+              <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div>
+                      <h4 class="modal-title" style="text-align: center">Reason</h4>
+                    </div>
+                    <div class="modal-body">
+                      <input type="email" class="form-control" id="inputEmail4" value="{{element.reason}}" disabled>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="button btn-primary marginLeft4" (click)="closePopup()">
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </td>
       </tr>
     </tbody>
   </table>
-</div>
+</form>
+
 <div class="paging">
   <span>
-    <pagination
-      [boundaryLinks]="true"
-      [totalItems]="totalRecord"
-      [(ngModel)]="pageN"
-      [itemsPerPage]="pageS"
-      previousText="&lsaquo;"
-      nextText="&rsaquo;"
-      firstText="&laquo;"
-      lastText="&raquo;"
-      (pageChanged)="pageChanged($event)"
-      (click)="setPage(pageN)"
-    >
+    <pagination [boundaryLinks]="true" [totalItems]="totalRecord" [(ngModel)]="pageN" [itemsPerPage]="pageS"
+      previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"
+      (pageChanged)="pageChanged($event)" (click)="setPage(pageN)">
     </pagination>
   </span>
 </div>
+

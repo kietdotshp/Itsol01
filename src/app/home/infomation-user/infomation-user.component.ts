@@ -39,6 +39,7 @@ export class InfomationUserComponent implements OnInit {
     })
   }
   getRoute(id: any) {
+
     this.infomationUserService.find(id).subscribe((res: any) => {
       this.item = res;
       console.log(this.item);
