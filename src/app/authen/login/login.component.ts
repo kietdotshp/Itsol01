@@ -24,21 +24,21 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {this.initForm();}
   public initForm() {
     this.loginForm = this.Fb.group({
-      
-     
+
+
       password: new FormControl('',[Validators.required]),
       username: new FormControl('',[Validators.required]),
-    
+
     });
   }
-  
+
   get password() { return this.loginForm.get('password'); }
   get username() { return this.loginForm.get('username'); }
   validate() {
     return true;
   }
   async login() {
-    
+
     this.btnDisable = true;
     if (this.validate()) {
       this.rest
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token',value.token);
          // await this.data.getProfile();
          alert("login thanh cong")
-          this.router.navigate(['./admin'])
+          this.router.navigate(['./home'])
         })
 
         .catch((error) => {

@@ -25,6 +25,7 @@ export class AuthService {
     }
 
     login(loginRequest: LoginRequestModel): Observable<any> {
+      debugger
         return this.http.post(`'http://localhost:8001/login'}`, loginRequest).pipe(
             retry(2),
             catchError(err => {
