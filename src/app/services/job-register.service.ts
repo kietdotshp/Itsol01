@@ -38,6 +38,7 @@ export class JobRegisterService {
 
   public searchJobRegister(search: searchJobRegister): Observable<JobRegister[]> {
     return this.http.post<JobRegister[]>(`${this.apiServerUrl}` + '/jobsRegister/search', search);
+
   }
 
   public updateJobRegister(update: AddJobRegister): Observable<AddJobRegister[]> {

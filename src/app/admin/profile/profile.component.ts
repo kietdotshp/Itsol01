@@ -5,8 +5,10 @@ import { JobRegisterService } from '../../services/job-register.service';
 import { User } from '../../model/User';
 import { FormBuilder, FormControl, FormGroup, Form } from '@angular/forms';
 import { JobRegisterStatus } from '../../model/job-register-status';
+
 import { MatDialog } from '@angular/material/dialog';
 import { saveAs } from 'file-saver';
+
 
 @Component({
   selector: 'app-profile',
