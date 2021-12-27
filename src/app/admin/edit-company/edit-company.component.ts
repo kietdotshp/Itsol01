@@ -1,11 +1,11 @@
 import { HttpErrorResponse, HttpEvent, HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Company } from 'src/app/model/company';
 import { CompanyService } from 'src/app/services/company.service';
 import { FiletestService } from 'src/app/services/filetest.service';
-import { saveAs } from 'file-saver';
+// import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-edit-company',
@@ -32,18 +32,18 @@ export class EditCompanyComponent implements OnInit {
   public initForm() {
     this.formUpdate = this.fb.group({
       avatar: new FormControl(''),
-      name: new FormControl(''),
-      email: new FormControl(''),
-      hotLine: new FormControl(''),
-      dateIncorporation: new FormControl(''),
-      taxCode: new FormControl(''),
-      taxDate: new FormControl(''),
-      taxPlace: new FormControl(''),
-      headOffice: new FormControl(''),
-      numberStaff: new FormControl(''),
-      linkWeb: new FormControl(''),
-      description: new FormControl(''),
-      backdropImg: new FormControl(''),
+      name: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      hotLine: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(10), Validators.maxLength(10)]),
+      dateIncorporation: new FormControl('', [Validators.required]),
+      taxCode: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+      taxDate: new FormControl('', [Validators.required]),
+      taxPlace: new FormControl('', [Validators.required]),
+      headOffice: new FormControl('', [Validators.required]),
+      numberStaff: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+      linkWeb: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required]),
+      backdropImg: new FormControl('', [Validators.required]),
     });
   }
   getcompany() {
@@ -77,71 +77,82 @@ export class EditCompanyComponent implements OnInit {
         this.router.navigate(['admin/contact'])
       });
   }
-  onUploadFiles(files: File[]): void {
-    const formData = new FormData();
-    for (const file of files) { formData.append('files', file, file.name); }
-    this.fileService.upload(formData).subscribe(
-      event => {
-        console.log(event);
-        this.resportProgress(event);
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error);
-      }
-    );
-  }
+  // onUploadFiles(files: File[]): void {
+  //   const formData = new FormData();
+  //   for (const file of files) { formData.append('files', file, file.name); }
+  //   this.fileService.upload(formData).subscribe(
+  //     event => {
+  //       console.log(event);
+  //       this.resportProgress(event);
+  //     },
+  //     (error: HttpErrorResponse) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 
   // define a function to download files
-  onDownloadFile(filename: string): void {
-    this.fileService.download(filename).subscribe(
-      event => {
-        console.log(event);
-        this.resportProgress(event);
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error);
-      }
-    );
-  }
+  // onDownloadFile(filename: string): void {
+  //   this.fileService.download(filename).subscribe(
+  //     event => {
+  //       console.log(event);
+  //       this.resportProgress(event);
+  //     },
+  //     (error: HttpErrorResponse) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 
-  private resportProgress(httpEvent: HttpEvent<string[] | Blob>): void {
-    switch(httpEvent.type) {
-      case HttpEventType.UploadProgress:
-        this.updateStatus(httpEvent.loaded, httpEvent.total!, 'Uploading... ');
-        break;
-      case HttpEventType.DownloadProgress:
-        this.updateStatus(httpEvent.loaded, httpEvent.total!, 'Downloading... ');
-        break;
-      case HttpEventType.ResponseHeader:
-        console.log('Header returned', httpEvent);
-        break;
-      case HttpEventType.Response:
-        if (httpEvent.body instanceof Array) {
-          this.fileStatus.status = 'done';
-          for (const filename of httpEvent.body) {
-            this.filenames.unshift(filename);
-          }
-        } else {
-          saveAs(new File([httpEvent.body!], httpEvent.headers.get('File-Name')!,
-                  {type: `${httpEvent.headers.get('Content-Type')};charset=utf-8`}));
-          // saveAs(new Blob([httpEvent.body!],
-          //   { type: `${httpEvent.headers.get('Content-Type')};charset=utf-8`}),
-          //    httpEvent.headers.get('File-Name'));
-        }
-        this.fileStatus.status = 'done';
-        break;
-        default:
-          console.log(httpEvent);
-          break;
+  // private resportProgress(httpEvent: HttpEvent<string[] | Blob>): void {
+  //   switch(httpEvent.type) {
+  //     case HttpEventType.UploadProgress:
+  //       this.updateStatus(httpEvent.loaded, httpEvent.total!, 'Uploading... ');
+  //       break;
+  //     case HttpEventType.DownloadProgress:
+  //       this.updateStatus(httpEvent.loaded, httpEvent.total!, 'Downloading... ');
+  //       break;
+  //     case HttpEventType.ResponseHeader:
+  //       console.log('Header returned', httpEvent);
+  //       break;
+  //     case HttpEventType.Response:
+  //       if (httpEvent.body instanceof Array) {
+  //         this.fileStatus.status = 'done';
+  //         for (const filename of httpEvent.body) {
+  //           this.filenames.unshift(filename);
+  //         }
+  //       } else {
+  //         saveAs(new File([httpEvent.body!], httpEvent.headers.get('File-Name')!,
+  //                 {type: `${httpEvent.headers.get('Content-Type')};charset=utf-8`}));
+  //         // saveAs(new Blob([httpEvent.body!],
+  //         //   { type: `${httpEvent.headers.get('Content-Type')};charset=utf-8`}),
+  //         //    httpEvent.headers.get('File-Name'));
+  //       }
+  //       this.fileStatus.status = 'done';
+  //       break;
+  //       default:
+  //         console.log(httpEvent);
+  //         break;
 
-    }
-  }
+  //   }
+  // }
 
-  private updateStatus(loaded: number, total: number, requestType: string): void {
-    this.fileStatus.status = 'progress';
-    this.fileStatus.requestType = requestType;
-    this.fileStatus.percent = Math.round(100 * loaded / total);
-  }
+  // private updateStatus(loaded: number, total: number, requestType: string): void {
+  //   this.fileStatus.status = 'progress';
+  //   this.fileStatus.requestType = requestType;
+  //   this.fileStatus.percent = Math.round(100 * loaded / total);
+  // }
+  get name() { return this.formUpdate.get('fullName'); }
+  get hotLine() { return this.formUpdate.get('birthDay'); }
+  get email() { return this.formUpdate.get('email'); }
+  get dateIncorporation() { return this.formUpdate.get('homeTown'); }
+  get taxCode() { return this.formUpdate.get('phoneNumber'); }
+  get taxDate() { return this.formUpdate.get('gender'); }
+  get taxPlace() { return this.formUpdate.get('skill'); }
+  get headOffice() { return this.formUpdate.get('numberYearsExperience'); }
+  get numberStaff() { return this.formUpdate.get('desiredSalary'); }
+  get linkWeb() { return this.formUpdate.get('desiredWorkingAddress'); }
+  get description() { return this.formUpdate.get('desiredworkname'); }
 }
 
 

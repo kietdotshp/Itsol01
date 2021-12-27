@@ -71,3 +71,104 @@ mat-slider {
 .page-link:hover {
   color: red; 
 }
+
+table {
+  margin-top: 10px;
+  width: 100%;
+}
+.absolute {
+  position: relative;
+}
+.margin {
+  margin-left: 80%;
+}
+
+.marginLeft1 {
+  margin-left: 8%;
+}
+
+.marginLeft2 {
+  margin-left: 47%;
+}
+
+.marginLeft3 {
+  margin-left: 4.2%;
+}
+
+
+tr:hover {
+  background-color: rgb(238, 238, 238);
+}
+
+.paging {
+  display: block;
+  margin-left: 80%;
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+}
+
+.button {
+  border-radius: 5px;
+  width: 100px;
+  height: 30px;
+}
+
+.img-size {
+  height: 200px;
+}
+
+.img-size {
+  height: 200px;
+}
+
+
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  width: 490px;
+}
+.example-button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+
+.container {
+  padding-top: 50px;
+  padding-bottom: 10px;
+  color: #405065;
+}
+
+.search-hero {
+  display: block;
+  max-width: 500px;
+  padding-bottom: 50px;
+  margin: auto;
+}
+
+.form-control {
+  box-shadow: 0 10px 40px 0 #b0c1d9;
+}
+.form-control::placeholder {
+  font-family: FontAwesome;
+}
+
+

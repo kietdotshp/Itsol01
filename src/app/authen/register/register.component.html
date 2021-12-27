@@ -2,7 +2,7 @@
     <a href="#" data-target="#pwdModal" data-toggle="modal">Forgot my password</a>
     <a href="#" routerLink="../login" d="cancel_signup"><i class="fas fa-angle-left"></i> Back</a>
   </div>
-  
+
   <!--modal-->
   <div id="pwdModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
@@ -11,31 +11,47 @@
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h1 class="text-center">What's My Password?</h1>
         </div>
+        {{emailFrom.valid}}
+        <form [formGroup]="emailFrom">
         <div class="modal-body">
             <div class="col-md-12">
                   <div class="panel panel-default">
                       <div class="panel-body">
                           <div class="text-center">
-                            
+
                             <p>If you have forgotten your password you can reset it here.</p>
                               <div class="panel-body">
                                   <fieldset>
                                       <div class="form-group">
-                                          <input class="form-control input-lg"  [(ngModel)]="forgotPassword.email" placeholder="E-mail Address" name="email" type="email">
+                                          <input class="form-control input-lg"  [(ngModel)]="forgotPassword.email" placeholder="E-mail Address" name="email" formControlName="email" type="email">
+                                          <div *ngIf="email.invalid && (email.dirty||email.touched)" class="alert alert-danger">
+
+                                            <div *ngIf="email.errors?.['required']">
+                                              Email không được để rỗng
+                                            </div>
+                                            <div *ngIf="email.errors?.['email']">
+                                              <small id="emailHid" class="form-text text-muted">
+                                                Email không đúng định dạng
+                                              </small>
+                                            </div>
+                                          </div>
                                       </div>
 
-                                      <button type="submit" class="btn btn-lg btn-primary btn-block"  (click)="emailforgot()">Send My Password</button>
+                                      <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!emailFrom.valid" (click)="emailforgot()">Send My Password</button>
                                   </fieldset>
+
                               </div>
+
                           </div>
                       </div>
                   </div>
               </div>
         </div>
+        </form>
         <div class="modal-footer">
             <div class="col-md-12">
             <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-            </div>	
+            </div>
         </div>
     </div>
     </div>

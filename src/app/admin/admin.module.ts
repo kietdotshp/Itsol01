@@ -24,6 +24,7 @@ import { ListJeComponent } from './list-Je/list-je.component';
 import { AddJeComponent } from './add-Je/add-je.component';
 import { EditJeComponent } from './update-Je/edit-je.component';
 import { ListUserComponent } from './employee-list/list-user.component';
+import { ListJobComponent } from './admin-job/list-job.component';
 
 
 import { HttpClientModule } from '@angular/common/http';
@@ -58,6 +59,11 @@ const routes: Routes = [
         component: AddJeComponent,
       },
       {
+        path: 'list-job',
+        component: ListJobComponent,
+      },
+      
+      {
         path: 'employee-list',
         component: ListUserComponent,
         pathMatch: 'full'
@@ -90,7 +96,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AdminHomeComponent,
-    // RecruitmentComponent,
     AdminListComponent,
     ContactComponent,
     ProfileComponent,
@@ -103,8 +108,8 @@ const routes: Routes = [
     AddJeComponent,
     EditJeComponent,
     ListUserComponent,
+    ListJobComponent,
     EditCompanyComponent
-
   ],
   imports: [
     CommonModule,
@@ -115,9 +120,7 @@ const routes: Routes = [
     MatFormFieldModule,
     PaginationModule,
     Ng2SearchPipeModule,
-
     MatDatepickerModule,
-
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
