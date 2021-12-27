@@ -30,9 +30,9 @@ import { Profiles } from "./profiles";
     password: string;
     phoneNumber: string;
     userName: string;
-    profile:Profiles;
-    academicLevel:AcademicLevel;
-    disireWork:DesiredWork;
+    // profile:Profiles;
+    // academicLevel:AcademicLevel;
+    // disireWork:DesiredWork;
   }
 
 

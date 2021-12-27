@@ -1,6 +1,6 @@
 import { HttpErrorResponse, HttpEvent, HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Company } from 'src/app/model/company';
 import { CompanyService } from 'src/app/services/company.service';
@@ -32,18 +32,18 @@ export class EditCompanyComponent implements OnInit {
   public initForm() {
     this.formUpdate = this.fb.group({
       avatar: new FormControl(''),
-      name: new FormControl(''),
-      email: new FormControl(''),
-      hotLine: new FormControl(''),
-      dateIncorporation: new FormControl(''),
-      taxCode: new FormControl(''),
-      taxDate: new FormControl(''),
-      taxPlace: new FormControl(''),
-      headOffice: new FormControl(''),
-      numberStaff: new FormControl(''),
-      linkWeb: new FormControl(''),
-      description: new FormControl(''),
-      backdropImg: new FormControl(''),
+      name: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      hotLine: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(10), Validators.maxLength(10)]),
+      dateIncorporation: new FormControl('', [Validators.required]),
+      taxCode: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+      taxDate: new FormControl('', [Validators.required]),
+      taxPlace: new FormControl('', [Validators.required]),
+      headOffice: new FormControl('', [Validators.required]),
+      numberStaff: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+      linkWeb: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required]),
+      backdropImg: new FormControl('', [Validators.required]),
     });
   }
   getcompany() {
@@ -142,6 +142,17 @@ export class EditCompanyComponent implements OnInit {
   //   this.fileStatus.requestType = requestType;
   //   this.fileStatus.percent = Math.round(100 * loaded / total);
   // }
+  get name() { return this.formUpdate.get('fullName'); }
+  get hotLine() { return this.formUpdate.get('birthDay'); }
+  get email() { return this.formUpdate.get('email'); }
+  get dateIncorporation() { return this.formUpdate.get('homeTown'); }
+  get taxCode() { return this.formUpdate.get('phoneNumber'); }
+  get taxDate() { return this.formUpdate.get('gender'); }
+  get taxPlace() { return this.formUpdate.get('skill'); }
+  get headOffice() { return this.formUpdate.get('numberYearsExperience'); }
+  get numberStaff() { return this.formUpdate.get('desiredSalary'); }
+  get linkWeb() { return this.formUpdate.get('desiredWorkingAddress'); }
+  get description() { return this.formUpdate.get('desiredworkname'); }
 }
 
 

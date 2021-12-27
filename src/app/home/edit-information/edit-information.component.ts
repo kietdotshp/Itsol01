@@ -33,7 +33,7 @@ export class EditInformationComponent implements OnInit {
   initEdit() {
     this.profileForm = this.fb.group({
       id: new FormControl(''),
-      fullName: new FormControl('',[Validators.required,Validators.minLength(6)]),
+      fullName: new FormControl('',[Validators.required]),
       avatar: new FormControl(''),
       birthDay: new FormControl('',[Validators.required]),
       homeTown: new FormControl('',[Validators.required]),
@@ -70,7 +70,7 @@ export class EditInformationComponent implements OnInit {
     });
   }
   public updateProfile() {
-    debugger;
+
     const data =
     {
       data:{
