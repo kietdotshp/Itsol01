@@ -1,15 +1,15 @@
 export interface Company {
-  id?: number;
-  name?: string;
-  email?: string;
-  hotLine?: any;
-  dateIncorporation?: any;
-  taxCode?: any;
-  taxDate?:any;
-  taxPlace?:any;
-  headOffice?: any;
-  numberStaff?:any;
-  linkWeb?:any;
+  id: number;
+  name: string;
+  email: string;
+  hotLine: string;
+  dateIncorporation: Date;
+  taxCode: number;
+  taxDate:Date;
+  taxPlace:string;
+  headOffice: string;
+  numberStaff:string;
+  linkWeb:any;
   description?:any;
   avatar?:any;
   backdropImg?:any;

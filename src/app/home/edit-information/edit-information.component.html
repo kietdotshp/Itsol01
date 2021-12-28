@@ -13,8 +13,8 @@
                 <div class="col">
                   <div class="form-group">
                     <label for="hoten">Họ Tên</label>
-                    <input type="text" class="form-control" formControlName="fullName" name="fullName" id="fullName"
-                      aria-describedby="fullNameid" placeholder="Họ và tên" />
+                    <input type="text" class="form-control"  name="fullName" id="fullName"
+                      aria-describedby="fullNameid" formControlName="fullName" placeholder="Họ và tên" />
                     <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="alert alert-danger">
                       <div *ngIf="fullName.errors?.['required']">
                         Tên không được để trống

@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
          // await this.data.getProfile();
          alert("login thanh cong")
 
-          this.router.navigate(['./home/popup'])
+          this.router.navigate(['./home'])
 
         })
 
