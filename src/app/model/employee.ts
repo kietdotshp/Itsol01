@@ -12,5 +12,6 @@ export class Employee {
   birthDay!:string;
   userStatus!:string;
   is_Delete!:string;
-  role!:string;
+  role:string;
+
  }

@@ -1,10 +1,10 @@
+import { NgIf } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from '../model/employee';
 import { User } from '../model/User';
 import { UsersService } from '../services/users.service';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,15 +15,19 @@ export class HomeComponent implements OnInit {
   loading: boolean = false;
   file: File;
   item: any;
+  users = [];
   formUser: FormGroup;
   employee: Employee;
+  localStorage: any;
+  name:any;
   constructor(private userService: UsersService, private router: Router,
     private route: ActivatedRoute,private fb: FormBuilder,) { }
 
   ngOnInit(): void {
     // this.getEmployee();
     this.initForm();
-    // this.getRoute(this.route.snapshot.params['id']);
+    this.name = localStorage.getItem("username");
+    console.log(this.employee);
   }
   onChange(event: any, id: any) {
     this.file = event.target.files[0];
@@ -41,7 +45,14 @@ export class HomeComponent implements OnInit {
         }
       });
   }
-
+  // username : any
+  getUser(){
+    debugger;
+    this.localStorage.username = this.employee.username;
+      // return JSON.parse(localStorage.getItem(username));
+    // this.username =  localStorage.getItem('username')
+    // console.log(this.username);
+  };
   public initForm() {
     this.formUser = this.fb.group({
       id:new FormControl(''),
@@ -53,9 +64,15 @@ export class HomeComponent implements OnInit {
   //   this.userService.find(id).subscribe((res: any) => {
   //     this.item = res;
   //     console.log(this.item);
+<<<<<<< HEAD
 
   //   });
   // }
+=======
+  //   });
+  // }
+
+>>>>>>> master
   // public getEmployee() {
   //   debugger
   //   this.userService
@@ -67,5 +84,6 @@ export class HomeComponent implements OnInit {
   //       console.log(data);
   //     });
   // }
+
 
 }
