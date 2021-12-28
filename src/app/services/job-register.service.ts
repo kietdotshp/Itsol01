@@ -27,7 +27,7 @@ export class JobRegisterService {
       },
     });
   }
-
+  
   public getJobregisterById(id: number): Observable<JobRegister> {
     return this.http.get<JobRegister>(`${this.apiServerUrl}`+ '/jobsRegister/getById/' + `${id}`, {
       params: {
@@ -51,4 +51,7 @@ export class JobRegisterService {
       responseType: 'blob'
     });
   }
+  // public apply(formData: FormData): Observable<any>{
+  //   return this.http.post(${this.apiServerUrl} + /jobsRegister,formData);
+  // }
 }

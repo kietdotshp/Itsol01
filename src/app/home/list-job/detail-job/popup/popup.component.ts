@@ -124,10 +124,10 @@ export class PopupComponent {
       formData.append('cvFile', this.validate.get('cv').value);
       formData.append('jobId', "1"); // TODO - lấy jobId cho vào đây (để ở dạng string, ví dụ "1")
       formData.append('shortDescription', this.validate.get("Mess").value);
-      this.jobRegisterService.apply(formData).subscribe(
-        (res) => console.log(res),
-        (err) => console.log(err)
-      );
+      // this.jobRegisterService.apply(formData).subscribe(
+      //   (res) => console.log(res),
+      //   (err) => console.log(err)
+      // );
     }
 
   }
