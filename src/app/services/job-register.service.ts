@@ -36,8 +36,13 @@ export class JobRegisterService {
     });
   }
 
-  public searchJobRegister(search: searchJobRegister): Observable<JobRegister[]> {
-    return this.http.post<JobRegister[]>(`${this.apiServerUrl}` + '/jobsRegister/search', search);
+  public searchJobRegister(search: searchJobRegister, pageN: number, pageS: number): Observable<ResponseData> {
+    return this.http.post<ResponseData>(`${this.apiServerUrl}` + '/jobsRegister/search', search, {
+      params: {
+        pageNumber: pageN,
+        pageSize: pageS,
+      },
+    });
 
   }
 
@@ -51,7 +56,13 @@ export class JobRegisterService {
       responseType: 'blob'
     });
   }
+
+  public sendMail(send: AddJobRegister): Observable<AddJobRegister[]> {
+    return this.http.put<AddJobRegister[]>(`${this.apiServerUrl}` + '/jobsRegister/sendMail', send);
+  }
+
   // public apply(formData: FormData): Observable<any>{
   //   return this.http.post(${this.apiServerUrl} + /jobsRegister,formData);
   // }
+
 }

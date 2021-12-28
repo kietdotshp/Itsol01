@@ -12,5 +12,6 @@ export interface JobRegister {
   jobRegisterStatus: JobRegisterStatus,
   user: User,
   profiles: Profiles,
-  reason: string
+  reason: string,
+  methodWork: string
 }
