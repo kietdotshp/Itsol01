@@ -72,6 +72,8 @@ export class ListJeComponent implements OnInit {
     this.onSearchJe();
   }
   onSearchJe() {
+    console.log(this.searchForm.value);
+    
     this.EmployeeService.searchJe(this.searchForm.value,this.fullName,this.email ).subscribe(data => {
       console.log(data)
       this.searchJe = data;
