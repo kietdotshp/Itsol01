@@ -50,6 +50,7 @@
         <th>CV FILE</th>
         <th></th>
         <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -88,6 +89,48 @@
               </div>
             </div>
         </td>
+        <td>
+          <div *ngIf="element.jobRegisterStatus.id === 2">
+            <button type="button" class="button btn-primary" (click)="openPopup1()">Book</button>
+            <form [formGroup]="editForm" (ngSubmit)="onAccept(element.id)">
+              <input type="hidden" formControlName="id" name="id" class="form-control" id="id" value="{{element.id}}">
+              <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle1}">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <div class="form-row">
+                        <div class="col-md-12">
+                          <label for="validationTooltip03">Time</label>
+                          <input type="datetime-local" class="form-control" id="dateInterview"
+                            formControlName="dateInterview">
+                        </div>
+                        <div class="col-md-6">
+                          <label for="validationTooltip04">Method Work</label><br>
+                          <mat-radio-group aria-label="Select an option">
+                            <mat-radio-button  formControlName="methodinterview" value="offline" (change) ="closeCombobox()">Offline</mat-radio-button>
+                            <mat-radio-button value="online" (change) ="openCombobox()" style="margin-left: 50px;" >Online</mat-radio-button>
+                            <div [ngStyle]="{'display': licensed}">
+                              <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" formControlName="methodInterview" >
+                                <option value="Skype">Skype</option>
+                                <option value="Google meet">Google meet</option>
+                                <option value="Classroom">Classroom</option>
+                              </select>
+                            </div>
+                          </mat-radio-group>
+                        </div>
+                      </div>
+                      </div>
+                      <div >
+                        <button type="button" class="button btn-primary" style="margin-left: 120px;"
+                          (click)="closePopup1()">Close</button>
+                        <button type="button" class="button btn-primary" style="margin-left: 50px;" (click)="onAccept(element.id)">Xác nhận</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </form>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -100,5 +143,6 @@
       (pageChanged)="pageChanged($event)" (click)="setPage(pageN)">
     </pagination>
   </span>
+
 </div>
 

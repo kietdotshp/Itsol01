@@ -15,6 +15,7 @@ import { saveAs } from 'file-saver';
   templateUrl: './profile-detail.component.html',
   styleUrls: ['./profile-detail.component.css'],
 })
+
 export class ProfileDetailComponent implements OnInit {
   formUpdate: FormGroup;
   public dataSource: JobRegister;
@@ -22,6 +23,7 @@ export class ProfileDetailComponent implements OnInit {
   private jobRegId: number;
   private apiServerUrl: string;
   private cvFileName: string;
+  private jobAdd: AddJobRegister;
 
   constructor(
     private route: ActivatedRoute,
@@ -40,8 +42,11 @@ export class ProfileDetailComponent implements OnInit {
   editForm: FormGroup = this.fb.group({
     id: new FormControl(''),
     statusName: new FormControl(''),
-    reason: new FormControl('')
+    reason: new FormControl(''),
+    dateInterview: new FormControl(""),
+    methodInterview: new FormControl(""),
   });
+
 
   public getJobRegisterById(): void {
     this.jobRegisterService.getJobregisterById(this.jobRegId).subscribe((data) => {
@@ -64,36 +69,7 @@ export class ProfileDetailComponent implements OnInit {
     return cvFilePaths[cvFilePaths.length - 1];
   }
 
-  onDowload(){
-    // this.jobRegisterService.dowloadCvFile(this.jobRegId).subscribe(data =>{
-    //   debugger;
-    //   const file = new Blob([data], {
-    //     type: 'application/pdf',
-    //   });
-    //   const a = document.createElement('a');
-    //   a.href = this.apiServerUrl + `/jobsRegister/cv/download/`+ this.jobRegId + (<any>data)._body;
-    //   a.target = '_blank';
-    //   document.body.appendChild(a);
-    //   a.click();
-    //   return data;
-    // })
-
-
-
-
-    // this.http.get(this.apiServerUrl + `/jobsRegister/cv/download/` + this.jobRegId).subscribe((res) => {
-    //   debugger;
-    //   const file = new Blob([res.toString()], {
-    //     type: 'application/pdf',
-    //   });
-    //   const a = document.createElement('a');
-    //   a.href = this.apiServerUrl + `/jobsRegister/cv/download/` + this.jobRegId + (<any>res)._body;
-    //   a.target = '_blank';
-    //   document.body.appendChild(a);
-    //   a.click();
-    //   return res;
-    // });
-
+  onDowload() {
     this.jobRegisterService.dowloadCvFile(this.jobRegId)
       .subscribe(blob => saveAs(blob, this.cvFileName));
 
@@ -134,6 +110,7 @@ export class ProfileDetailComponent implements OnInit {
     this.closePopup1();
     this.getJobRegisterById();
   }
+
   onRecruit() {
     this.addJobRegister = this.editForm.value;
     this.addJobRegister.jobRegisterStatusId = 3;
@@ -146,6 +123,7 @@ export class ProfileDetailComponent implements OnInit {
     this.closePopup1();
     this.getJobRegisterById();
   }
+
   onSchedule() {
     this.addJobRegister = this.editForm.value;
     this.addJobRegister.jobRegisterStatusId = 4;
@@ -159,11 +137,26 @@ export class ProfileDetailComponent implements OnInit {
     this.getJobRegisterById();
   }
 
+  onAccept(id: any) {
+    debugger;
+    this.jobAdd = this.editForm.value;
+    this.jobAdd.id = id;
+    this.jobAdd.jobRegisterStatusId = 3;
+    this.jobRegisterService.sendMail(this.jobAdd).subscribe(
+      res => {
+        this.displayStyle1 = "none";
+      },
+    );
+    console.log(this.jobAdd)
+    this.displayStyle1 = "none";
+  }
+
   displayStyle = 'none';
 
   openPopup() {
     this.displayStyle = 'block';
   }
+
   closePopup() {
     this.displayStyle = 'none';
   }
@@ -174,5 +167,13 @@ export class ProfileDetailComponent implements OnInit {
   }
   closePopup1() {
     this.displayStyle1 = 'none';
+  }
+
+  licensed = "none";
+  openCombobox() {
+    this.licensed = "block";
+  }
+  closeCombobox() {
+    this.licensed = "none";
   }
 }

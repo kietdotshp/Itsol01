@@ -1,5 +1,7 @@
 export interface AddJobRegister {
-  id: string,
+  id: any,
   reason: string,
-  jobRegisterStatusId: number
+  jobRegisterStatusId: number,
+  dateInterview: any,
+  methodInterview: any
 }
