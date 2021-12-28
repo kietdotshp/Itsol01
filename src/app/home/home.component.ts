@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from '../model/employee';
 import { User } from '../model/User';
 import { UsersService } from '../services/users.service';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -67,5 +66,6 @@ export class HomeComponent implements OnInit {
   //       console.log(data);
   //     });
   // }
+
 
 }

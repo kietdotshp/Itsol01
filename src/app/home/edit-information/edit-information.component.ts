@@ -24,11 +24,7 @@ export class EditInformationComponent implements OnInit {
   ngOnInit(): void {
     this.initEdit();
     this.getdata();
-  //   this.profileForm = this.fb.group({
-  //     phoneNumber: ['', [ Validators.required,
-  //      Validators.pattern("09"),
-  //      Validators.minLength(10), Validators.maxLength(10)]]
-  //  });
+
   }
   initEdit() {
     this.profileForm = this.fb.group({
@@ -53,6 +49,7 @@ export class EditInformationComponent implements OnInit {
     this.updateservice.find(this.route.snapshot.params['id']).subscribe((data) => {
       const profile = data.data
       this.profileForm.patchValue({
+        id: profile.users.id,
         fullName: profile.users.fullName,
         birthday: profile.users.birthDay,
         avatar: profile.users.avatar,
@@ -69,6 +66,20 @@ export class EditInformationComponent implements OnInit {
       });
     });
   }
+  public initForm() {
+    this.profileForm = this.fb.group({
+      id:new FormControl(''),
+      fullName: new FormControl(''),
+    });
+  }
+  // getRoute(id: number) {
+
+  //   this.profileForm.find(id).subscribe((res: any) => {
+  //     this.item = res;
+  //     console.log(this.item);
+
+  //   });
+  // }
   public updateProfile() {
 
     const data =
@@ -87,7 +98,7 @@ export class EditInformationComponent implements OnInit {
 
       console.log( data);
       alert('Chỉnh sửa thành công')
-      this.router.navigate(['./home'] );
+      this.router.navigate(['home/infomation/'+ this.profileForm.value.id] );
     })
 
   }
