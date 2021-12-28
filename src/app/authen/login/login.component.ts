@@ -38,14 +38,17 @@ export class LoginComponent implements OnInit {
     return true;
   }
   async login() {
-
+   
     this.btnDisable = true;
     if (this.validate()) {
       this.rest
         .post(this.url, this.employee)
         .then((data) => {
-          let value = data as{employeeId:string, token: string};
+          let value = data as{employeeId:string,username:string, token: string};
+        
           localStorage.setItem('token',value.token);
+          localStorage.setItem('username',value.username);
+          
          // await this.data.getProfile();
          alert("login thanh cong")
 
@@ -56,6 +59,7 @@ export class LoginComponent implements OnInit {
         .catch((error) => {
           this.data.error(error['error']);
           this.btnDisable = false;
+          alert("login that bai")
         });
     }
   }

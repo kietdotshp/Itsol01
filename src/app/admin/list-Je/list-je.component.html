@@ -1,3 +1,50 @@
+<div>
+  <form class="needs-validation" [formGroup]="searchForm" (ngSubmit)="onSearchJe()">
+    <div class="form-row">
+      <div class="col-md-5 mb-3 marginLeft1">
+        <label for="validationTooltip03">User Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="fullName"
+          formControlName="fullName"
+        />
+      </div>
+
+      <div class="col-md-5 mb-3">
+        <label for="validationTooltip03">email</label>
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          formControlName="email"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-3 mb-3 marginLeft1">
+        <label for="validationTooltip03">username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          formControlName="username"
+        />
+      </div>
+
+      <div class="col-md-3 mb-3 marginLeft3">
+        <label for="validationTooltip03">phoneNumber </label>
+        <input
+          type="text"
+          class="form-control"
+          id="phoneNumber"
+          formControlName="phoneNumber"
+        />
+      </div>
+      <button class="btn btn-primary marginLeft2" type="submit" (click)="onSearchJe()">Search</button>
+    
+    </div>
+    </form>
 <buton type="button" style="text-align: center" class="btn btn-info" style="margin-right: 2px"
   routerLink="/admin/add-Je">
   Thêm
@@ -18,9 +65,7 @@
       </tr>
     </thead>
     <tbody>
-      <!-- <div *ngIf="employee.active==true">
-         dang hoat dong ,{{employee.active}}
-      </div> -->
+   
       <tr *ngFor="let employee of employees">
         <td>{{ employee.fullName }}</td>
         <td>{{ employee.email }}</td>
@@ -29,7 +74,11 @@
         <td>{{ employee.homeTown }}</td>
         <td>{{ employee.gender }}</td>
         <td>{{ employee.birthDay }}</td>
-        <td>Trạng thái tài khoản {{ employee.active }}</td>
+        <!-- <td> {{ employee.active }}</td> -->
+        <div  *ngIf="employee.active then thenBlock else elseBlock"> </div>
+          <ng-template #thenBlock> Đang hoạt động</ng-template>
+          <ng-template #elseBlock> Dừng hoạt động</ng-template>
+       
         <td class="text-nowrap" style="width: 1px">
           <button type="button" class="btn btn-danger"  style="margin-right: 2px"
             [routerLink]="['../update-Je/'+ employee.id]">
