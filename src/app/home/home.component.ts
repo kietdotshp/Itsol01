@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     // this.getEmployee();
     this.initForm();
-    this.getRoute(this.route.snapshot.params['id']);
+    // this.getRoute(this.route.snapshot.params['id']);
   }
   onChange(event: any, id: any) {
     this.file = event.target.files[0];
@@ -48,14 +48,14 @@ export class HomeComponent implements OnInit {
       fullName: new FormControl(''),
     });
   }
-  getRoute(id: number) {
+  // getRoute(id: number) {
 
-    this.userService.find(id).subscribe((res: any) => {
-      this.item = res;
-      console.log(this.item);
+  //   this.userService.find(id).subscribe((res: any) => {
+  //     this.item = res;
+  //     console.log(this.item);
 
-    });
-  }
+  //   });
+  // }
   // public getEmployee() {
   //   debugger
   //   this.userService
