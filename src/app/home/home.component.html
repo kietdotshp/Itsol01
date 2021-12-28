@@ -23,10 +23,10 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" routerLink="" id="navbarDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span>{{ item.fullName }}</span>
+                    <span>{{name}}</span>
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['./infomation/3']">Thông tin cá nhân</a>
+                    <a class="dropdown-item" [routerLink]="['./infomation']">Thông tin cá nhân</a>
                     <a class="dropdown-item" routerLink="../authen/register">Đổi mật khẩu</a>
                     <a class="dropdown-item" routerLink="../login">Log out</a>
                   </div>
@@ -50,28 +50,7 @@
       </div>
     </div>
 
-    <!-- <li><a href="about_us.html">About</a></li>
-              <li><a href="contact.html">Contact</a></li> -->
 
-    <!-- <li class="menu_mm"><a href="blog_page.html">Blog</a></li>
-              <li class="menu_mm"><a href="about_us.html">About</a></li>
-              <li class="menu_mm"><a href="contact.html">Contact</a></li> -->
-
-    <!-- <div>
-
-    <img
-      [src]="'http://localhost:8001/api/user/files/11'"
-      (click)="uploadAvatar.click()"
-      style="width: 40px; height: 40px; margin: 14px;border-radius: 15px"
-    />
-    <input
-      type="file"
-      (change)="onChange($event, 11)"
-      #uploadAvatar
-      style="display: none"
-    />
-
-  </div> -->
 
     <div class="hamburger menu_mm menu-vertical">
       <i class="large material-icons font-color-white menu_mm menu-vertical">menu</i>

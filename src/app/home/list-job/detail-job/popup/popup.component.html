@@ -8,14 +8,11 @@
                 <div class="form-group">
                     <label for="exampleInputJobtitle">Job title</label>
                     <input type="text" class="form-control" id="exampleInputJobtitle" formControlName="jobName">
-                    <div *ngIf="f['jobName'].invalid && (f['jobName'].dirty||f['jobName'].touched)">
-                        <div *ngIf="f ['jobName'].errors">
-                            <div>
-                                <small id="emailHelp" class="form-text text-muted err">* Không được để trống</small>
-
-                            </div>
-
+                    <div *ngIf="isSubmmited && f['jobName'].errors?.['required']">
+                        <div>
+                            <small id="emailHelp" class="form-text text-muted err">* Không được để trống</small>
                         </div>
+
                     </div>
                 </div>
                 <div class="row">
@@ -25,16 +22,14 @@
                             <input type="text" class="form-control" id="exampleInputCompany"
                                 placeholder="Full name of company" formControlName="company" />
 
-                            <div *ngIf="f['company'].invalid && (f['company'].dirty||f['company'].touched)">
-                                <div *ngIf="f ['company'].errors">
-                                    <div>
-                                        <small id="emailHelp" class="form-text text-muted err">* Không được để
-                                            trống</small>
-
-                                    </div>
-                                    <!-- {{f ['jobName'].errors.required|json}} -->
+                            <!-- <div *ngIf="f['company'].invalid && (f['company'].dirty||f['company'].touched)"> -->
+                            <div *ngIf="isSubmmited && f ['company'].errors?.['required']">
+                                <div>
+                                    <small id="emailHelp" class="form-text text-muted err">* Không được để
+                                        trống</small>
                                 </div>
                             </div>
+                            <!-- </div> -->
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -42,17 +37,14 @@
                             <label for="exampleInputLoction">Loction</label>
                             <input type="text" class="form-control" id="exampleInputLoction"
                                 placeholder="Company Address" formControlName="Address" />
-
-                            <div *ngIf="f['Address'].invalid && (f['Address'].dirty||f['Address'].touched)">
-                                <div *ngIf="f ['Address'].errors">
-                                    <div>
-                                        <small id="emailHelp" class="form-text text-muted err"> * Không được để
-                                            trống</small>
-
-                                    </div>
-                                    <!-- {{f ['jobName'].errors.required|json}} -->
+                            <!-- <div *ngIf="f['Address'].invalid && (f['Address'].dirty||f['Address'].touched)"> -->
+                            <div *ngIf="isSubmmited && f ['Address'].errors?.['required']">
+                                <div>
+                                    <small id="emailHelp" class="form-text text-muted err"> * Không được để
+                                        trống</small>
                                 </div>
                             </div>
+                            <!-- </div> -->
                         </div>
                     </div>
                 </div>
@@ -61,15 +53,14 @@
                     <textarea class="form-control large" id="exampleInputLongDescription"
                         placeholder="Write short description" rows="3" formControlName="Mess"></textarea>
 
-                    <div *ngIf="f['Mess'].invalid && (f['Mess'].dirty||f['Mess'].touched)">
-                        <div *ngIf="f ['Mess'].errors">
+                    <!-- <div *ngIf="f['Mess'].invalid && (f['Mess'].dirty||f['Mess'].touched)"> -->
+                        <div *ngIf="isSubmmited &&f ['Mess'].errors?.['required']">
                             <div>
                                 <small id="emailHelp" class="form-text text-muted err">* Không được để trống</small>
 
                             </div>
-                            <!-- {{f ['jobName'].errors.required|json}} -->
                         </div>
-                    </div>
+                    <!-- </div> -->
                 </div>
                 <div class="container" style="margin-top: 20px;">
                     <div class="panel panel-default">
@@ -93,20 +84,20 @@
                                 <fieldset>
                                     <div class="form-group">
                                         <div>
-                                            <!-- <input type="file" (change)="onUploadFiles($event.target.files)" -->
-                                                name="files" multiple class="form-control"  formControlName="cv"/>
+                                            <input type="file" (change)="onFileSelect($event)" name="files" multiple
+                                                class="form-control" formControlName="cv">
+
+
                                         </div>
 
-                                        <div *ngIf="f['cv'].invalid && (f['cv'].dirty||f['cv'].touched)">
-                                            <div *ngIf="f ['cv'].errors">
+                                        <!-- <div *ngIf="f['cv'].invalid && (f['cv'].dirty||f['cv'].touched)"> -->
+                                            <div *ngIf="isSubmmited &&f ['cv'].errors?.['required']">
                                                 <div>
                                                     <small id="emailHelp" class="form-text text-muted err">* Không được
                                                         để trống</small>
-
                                                 </div>
-                                                <!-- {{f ['jobName'].errors.required|json}} -->
                                             </div>
-                                        </div>
+                                        <!-- </div> -->
                                     </div>
                                 </fieldset>
                             </form>
@@ -127,7 +118,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn Post-Job-Offer"  [disabled]="validate.valid">Apply</button>
+                <button type="submit" class="btn Post-Job-Offer" >Apply</button>
             </form>
         </div>
     </div>

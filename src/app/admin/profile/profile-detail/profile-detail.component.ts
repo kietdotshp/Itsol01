@@ -55,6 +55,7 @@ export class ProfileDetailComponent implements OnInit {
       this.editForm.patchValue({
         id: this.jobRegId,
         statusName: this.dataSource.jobRegisterStatus.statusName,
+
         reason: this.dataSource.reason
       });
     });
@@ -72,6 +73,7 @@ export class ProfileDetailComponent implements OnInit {
   onDowload() {
     this.jobRegisterService.dowloadCvFile(this.jobRegId)
       .subscribe(blob => saveAs(blob, this.cvFileName));
+
 
   }
 
@@ -97,6 +99,7 @@ export class ProfileDetailComponent implements OnInit {
     this.closePopup1();
     this.getJobRegisterById();
   }
+
 
   onBrowsing() {
     this.addJobRegister = this.editForm.value;
@@ -152,6 +155,7 @@ export class ProfileDetailComponent implements OnInit {
   }
 
   displayStyle = 'none';
+
 
   openPopup() {
     this.displayStyle = 'block';

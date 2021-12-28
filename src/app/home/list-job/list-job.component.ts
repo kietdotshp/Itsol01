@@ -28,10 +28,10 @@ export class ListJobComponent implements OnInit {
   searchForm: FormGroup = this.form.group({
     searchName: new FormControl(""),
     positionName: new FormControl(""),
+    applicationTimeFrom: new FormControl(""),
+    applicationTimeTo: new FormControl(""),
     minSalary: new FormControl(""),
     maxSalary: new FormControl(""),
-    applicationTimeFrom: new FormControl(""),
-    applicationTimeTo: new FormControl("")
   })
 
   // dataSource: Jobs[] = [];
@@ -43,7 +43,6 @@ export class ListJobComponent implements OnInit {
   vacancies: any;
   
   pageChanged(event: PageChangedEvent): void {
-    // debugger;
     this.pageN = event.page - 1;
     this.listJobService.getAllJobPage(this.pageN, this.pageS).subscribe(data => {
       this.totalRecord = data.totalRecord;
@@ -52,7 +51,6 @@ export class ListJobComponent implements OnInit {
   }
 
   setPage(pageNo: number): void {
-    // debugger;
     this.pageN = pageNo;
   }
 
@@ -64,25 +62,17 @@ export class ListJobComponent implements OnInit {
     })
 
   }
- 
   // public getAllData() {
   //   this.listJobService.getAllJob().subscribe(data => {
   //     this.jobs = data;
   //     console.log(this.jobs);
-      
   //   });
     
-  
-
   onSearchJobRegister() {
     this.listJobService.searchJobs(this.searchForm.value).subscribe(data => {
       console.log(data)
       this.jobs = data;
     })
   }
-
-
- 
   // }
-
 }

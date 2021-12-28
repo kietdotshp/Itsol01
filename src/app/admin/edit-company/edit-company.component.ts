@@ -43,7 +43,7 @@ export class EditCompanyComponent implements OnInit {
       numberStaff: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
       linkWeb: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
-      backdropImg: new FormControl('', [Validators.required]),
+      // backdropImg: new FormControl('', [Validators.required]),
     });
   }
   getcompany() {
@@ -142,17 +142,17 @@ export class EditCompanyComponent implements OnInit {
   //   this.fileStatus.requestType = requestType;
   //   this.fileStatus.percent = Math.round(100 * loaded / total);
   // }
-  get name() { return this.formUpdate.get('fullName'); }
-  get hotLine() { return this.formUpdate.get('birthDay'); }
+  get name() { return this.formUpdate.get('name'); }
+  get hotLine() { return this.formUpdate.get('hotLine'); }
   get email() { return this.formUpdate.get('email'); }
-  get dateIncorporation() { return this.formUpdate.get('homeTown'); }
-  get taxCode() { return this.formUpdate.get('phoneNumber'); }
-  get taxDate() { return this.formUpdate.get('gender'); }
-  get taxPlace() { return this.formUpdate.get('skill'); }
-  get headOffice() { return this.formUpdate.get('numberYearsExperience'); }
-  get numberStaff() { return this.formUpdate.get('desiredSalary'); }
-  get linkWeb() { return this.formUpdate.get('desiredWorkingAddress'); }
-  get description() { return this.formUpdate.get('desiredworkname'); }
+  get dateIncorporation() { return this.formUpdate.get('dateIncorporation'); }
+  get taxCode() { return this.formUpdate.get('taxCode'); }
+  get taxDate() { return this.formUpdate.get('taxDate'); }
+  get taxPlace() { return this.formUpdate.get('taxPlace'); }
+  get headOffice() { return this.formUpdate.get('headOffice'); }
+  get numberStaff() { return this.formUpdate.get('numberStaff'); }
+  get linkWeb() { return this.formUpdate.get('linkWeb'); }
+  get description() { return this.formUpdate.get('description'); }
 }
 
 

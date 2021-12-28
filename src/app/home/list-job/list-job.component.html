@@ -36,69 +36,44 @@
 
 <div>
     <form class="needs-validation" [formGroup]="searchForm" (ngSubmit)="onSearchJobRegister()">
-      <div class="form-row">
-        <div class="col-md-5 mb-3 marginLeft1">
-          <label for="validationTooltip03">User Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="searchName"
-            formControlName="searchName"
-          />
-        </div>
-  
-        <div class="col-md-5 mb-3">
-          <label for="validationTooltip03">Vacancies</label>
-          <input
-            type="text"
-            class="form-control"
-            id="positionName"
-            formControlName="positionName"
-          />
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="col-md-3 mb-3 marginLeft1">
-          <label for="validationTooltip03">APPLICATION TIME FROM</label>
-          <input
-            type="date"
-            class="form-control"
-            id="applicationTimeFrom"
-            formControlName="applicationTimeFrom"
-          />
-        </div>
-  
-        <div class="col-md-3 mb-3 marginLeft3">
-          <label for="validationTooltip03">APPLICATION TIME TO</label>
-          <input
-            type="date"
-            class="form-control"
-            id="applicationTimeTo"
-            formControlName="applicationTimeTo"
-          />
-        </div>
-  
-        <!-- <div class="col-md-3 mb-3 marginLeft3">
-          <label for="validationTooltip03">Status</label>
-          <select
-            class="form-select"
-            aria-label="Default select example"
-            class="form-control"
-            id="jobRegisterStatus"
-            formControlName="jobRegisterStatus">
-            <option value="cho xet duyet">cho xet duyet</option>
-            <option value="da tu choi">da tu choi</option>
-            <option value="dang tuyen">dang tuyen</option>
-            <option value="chua dang tuyen">chua dang tuyen</option>
-            <option value="da duyet">da duyet</option>
-            <option value="da dong">da dong</option>
-          </select>
-        </div> -->
-      </div>
-      <button class="btn btn-primary marginLeft2" type="submit" (click)="onSearchJobRegister()">Search</button>
-    </form>
-  </div>
+        <div class="form-row">
+            <div class="col-md-5 mb-3 marginLeft1">
+                <label for="validationTooltip03">User Name</label>
+                <input type="text" class="form-control" id="searchName" formControlName="searchName" />
+            </div>
 
+            <div class="col-md-5 mb-3">
+                <label for="validationTooltip03">Job Position</label>
+                <input type="text" class="form-control" id="positionName" formControlName="positionName" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-3 mb-3 marginLeft1">
+                <label for="validationTooltip03">APPLICATION TIME FROM</label>
+                <input type="date" class="form-control" id="applicationTimeFrom"
+                    formControlName="applicationTimeFrom" />
+            </div>
+
+            <div class="col-md-3 mb-3 marginLeft3">
+                <label for="validationTooltip03">APPLICATION TIME TO</label>
+                <input type="date" class="form-control" id="applicationTimeTo" formControlName="applicationTimeTo" />
+            </div>
+        </div>
+        <div class="form-row" >
+            <div class="col-md-3 mb-3 marginLeft1">
+                <label for="validationTooltip03">SALARY FROM</label>
+                <input type="number" class="form-control" id="minSalary"
+                    formControlName="minSalary" />
+            </div>
+
+            <div class="col-md-3 mb-3 marginLeft3">
+                <label for="validationTooltip03">SALARY TO</label>
+                <input type="number" class="form-control" id="maxSalary" formControlName="maxSalary" />
+            </div>
+        </div>
+        <button class="btn btn-primary marginLeft2" type="submit" (click)="onSearchJobRegister()">Search</button>
+    </form>
+</div>
 <section id="resent-job-post" class="background-color-white-drak">
     <div class="vertical-space-85"></div>
     <div class="container text-center">
@@ -148,20 +123,8 @@
                             <option>Senior</option>
                             <option>Leade</option>
                         </select>
-                        <!-- <p class="small-title">Location</p> -->
-                        <!-- <input class="search-box_search_input Location " placeholder="Location" required="required"
-                            type="search"> -->
-                        <!-- <span class="fa fa-map-marker location-icone"></span> -->
                     </form>
                 </div>
-                <!-- <div class="Industry-box">
-                    <p class="title">Industry</p>
-                    <ul>
-                        <li class="deactivate"><a href="#" class="font-color-black">Full Time jobs</a></li>
-                        <li class="list-item1 "><a href="#" class="font-color-black">Part Time jobs</a></li>
-                        <li class="list-item1 "><a href="#" class="font-color-black">Hourly</a></li>
-                    </ul>
-                </div> -->
             </div>
 
             <div class="col-lg-8 col-md-12">

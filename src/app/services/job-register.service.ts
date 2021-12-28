@@ -27,7 +27,7 @@ export class JobRegisterService {
       },
     });
   }
-
+  
   public getJobregisterById(id: number): Observable<JobRegister> {
     return this.http.get<JobRegister>(`${this.apiServerUrl}`+ '/jobsRegister/getById/' + `${id}`, {
       params: {
@@ -43,6 +43,7 @@ export class JobRegisterService {
         pageSize: pageS,
       },
     });
+
   }
 
   public updateJobRegister(update: AddJobRegister): Observable<AddJobRegister[]> {
@@ -59,4 +60,9 @@ export class JobRegisterService {
   public sendMail(send: AddJobRegister): Observable<AddJobRegister[]> {
     return this.http.put<AddJobRegister[]>(`${this.apiServerUrl}` + '/jobsRegister/sendMail', send);
   }
+
+  // public apply(formData: FormData): Observable<any>{
+  //   return this.http.post(${this.apiServerUrl} + /jobsRegister,formData);
+  // }
+
 }

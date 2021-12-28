@@ -3,10 +3,12 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { JobRegister } from '../../model/job-register';
 import { JobRegisterService } from '../../services/job-register.service';
 import { FormBuilder, FormControl, FormGroup, Form } from '@angular/forms';
+import { JobRegisterStatus } from '../../model/job-register-status';
 import { MatDialog } from '@angular/material/dialog';
 import { saveAs } from 'file-saver';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AddJobRegister } from 'src/app/model/job-register-add';
+
 
 @Component({
   selector: 'app-profile',

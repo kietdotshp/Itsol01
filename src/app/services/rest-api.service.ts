@@ -22,9 +22,7 @@ export class RestApiService {
     return this.http.get(link + '/'+id).toPromise();
   }
   post(link: string,body: any){
-    // let headers = this.getHeaders();
-    // if(headers instanceof HttpHeaders)
-    // return this.http.post(link,body,{headers:headers}).toPromise();
+    
     return this.http.post(link,body).toPromise();
   }
   put(link: string,body: any){
