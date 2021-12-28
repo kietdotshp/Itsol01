@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Employee } from './../../model/employee';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { USER_ROLE_KEY } from 'src/app/config/user-roles-keys';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,11 +15,12 @@ export class LoginComponent implements OnInit {
   employee: Employee;
   btnDisable = false;
   url = 'http://localhost:8001/login';
+  API_URL='http://localhost:8001/api/user'
 
   constructor(private rest: RestApiService, private data: DataService,private router:Router, private Fb: FormBuilder) {
 
 
-    this.employee = new Employee();
+    this.employee = new Employee  ();
   }
 
   ngOnInit(): void {this.initForm();}
@@ -44,14 +46,18 @@ export class LoginComponent implements OnInit {
       this.rest
         .post(this.url, this.employee)
         .then((data) => {
-          let value = data as{employeeId:string,username:string, token: string};
-        
+          console.log(data)
+          let value = data as{username:string, token: string,roles: string};
           localStorage.setItem('token',value.token);
           localStorage.setItem('username',value.username);
-          
-         // await this.data.getProfile();
+         
          alert("login thanh cong")
-
+         this.rest.get(`${this.API_URL}/getuserinfo`).then((res) => {
+          console.log(res)
+          let value = res as any[];
+          localStorage.setItem('user-role-key', value.toString())
+        }
+        )
           this.router.navigate(['./home/popup'])
 
         })
