@@ -42,6 +42,7 @@ export class AuthService {
 
     isLoggedIn(): boolean {
         return localStorage.getItem(USER_ID_KEY) != null;
+        return localStorage.getItem(USERNAME_KEY) != null;
     }
 
     activatedAccount(confirmationToken: string): Observable<any> {
