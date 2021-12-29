@@ -64,15 +64,14 @@ export class HomeComponent implements OnInit {
   //   this.userService.find(id).subscribe((res: any) => {
   //     this.item = res;
   //     console.log(this.item);
-<<<<<<< HEAD
+
 
   //   });
   // }
-=======
+
   //   });
   // }
 
->>>>>>> master
   // public getEmployee() {
   //   debugger
   //   this.userService
