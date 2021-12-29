@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from '../model/employee';
 import { User } from '../model/User';
+import { AuthService } from '../services/auth.service';
 import { UsersService } from '../services/users.service';
 @Component({
   selector: 'app-home',
@@ -21,13 +22,16 @@ export class HomeComponent implements OnInit {
   localStorage: any;
   name:any;
   constructor(private userService: UsersService, private router: Router,
-    private route: ActivatedRoute,private fb: FormBuilder,) { }
+    private route: ActivatedRoute,private fb: FormBuilder,private restapi: AuthService) { }
 
   ngOnInit(): void {
     // this.getEmployee();
     this.initForm();
     this.name = localStorage.getItem("username");
     console.log(this.employee);
+  }
+  onLogout() {
+    this.restapi.logout()
   }
   onChange(event: any, id: any) {
     this.file = event.target.files[0];
