@@ -4,7 +4,7 @@
       <div class="col-8 offset-2">
 
         <hr />
-        {{editForm.valid}}
+   
         <form [formGroup]="editForm" (submit)="updateEmployee()">
           <div class="card">
             <div class="card-header">
@@ -100,8 +100,8 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="gender">Gender</label>
-                <input type="gender" formControlName="gender" class="form-control" name="gender" id="gender"
-                  aria-describedby="genderHid" placeholder="gender" />
+                <input type="text" formControlName="gender" class="form-control" name="gender" id="gender"
+                  aria-describedby="genderHid" placeholder="gender" /> 
                 <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="alert alert-danger">
 
                   <div *ngIf="gender.errors?.['required']">
