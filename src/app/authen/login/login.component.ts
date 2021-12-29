@@ -51,14 +51,14 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token',value.token);
           localStorage.setItem('username',value.username);
          
-         alert("login thanh cong")
          this.rest.get(`${this.API_URL}/getuserinfo`).then((res) => {
           console.log(res)
           let value = res as any[];
           localStorage.setItem('user-role-key', value.toString())
+          alert("login thanh cong")
         }
         )
-          this.router.navigate(['./home/popup'])
+          this.router.navigate(['./home'])
 
         })
 
