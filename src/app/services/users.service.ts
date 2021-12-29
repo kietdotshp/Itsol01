@@ -22,7 +22,7 @@ export class UsersService {
   //   return this.http.get<User>(`${this.URL_USER + '/getuser'}/${id}`)
   // }
   find(id: number): Observable<User> {
-    return this.http.get<User>(`${this.URL_USER + '/getuser'}/${11}`)
+    return this.http.get<User>(`${this.URL_USER + '/getuser'}/${id}`)
   }
 // public getbyId(id: number): Observable<User> {
 //   return this.http.get<User>(`${this.URL_USER+'/getuser'}/${id}`, {
