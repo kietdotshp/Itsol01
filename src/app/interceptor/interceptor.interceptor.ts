@@ -33,7 +33,7 @@ export class InterceptorInterceptor implements HttpInterceptor {
         if (error['status'] === 403) {
           // this.tokenService.removeToken();
           localStorage.removeItem("token");
-          this.router.navigate(['/auth/login']);
+          this.router.navigate(['./login']);
         }
         return throwError(error);
       }),

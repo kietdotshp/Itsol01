@@ -30,6 +30,7 @@ import { ListJobComponent } from './admin-job/list-job.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditCompanyComponent } from './edit-company/edit-company.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -62,7 +63,7 @@ const routes: Routes = [
         path: 'list-job',
         component: ListJobComponent,
       },
-      
+
       {
         path: 'employee-list',
         component: ListUserComponent,
@@ -124,7 +125,8 @@ const routes: Routes = [
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatRadioModule
 
   ],
   exports: [RouterModule],

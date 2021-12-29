@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     return true;
   }
   async login() {
-   
+
     this.btnDisable = true;
     if (this.validate()) {
       this.rest
