@@ -46,7 +46,7 @@ export class EmployeeAddComponent implements OnInit {
     return true;
   }
   save() {
-    debugger
+   
     this.btnDisable = true;
 
     if (this.validate()) {
