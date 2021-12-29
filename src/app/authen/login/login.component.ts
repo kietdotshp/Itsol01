@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     return true;
   }
   async login() {
-   
+
     this.btnDisable = true;
     if (this.validate()) {
       this.rest
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
           let value = data as{username:string, token: string,roles: string};
           localStorage.setItem('token',value.token);
           localStorage.setItem('username',value.username);
-         
+
          alert("login thanh cong")
 
          this.rest.get(`${this.API_URL}/getuserinfo`).then((res) => {
