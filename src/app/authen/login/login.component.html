@@ -1,43 +1,56 @@
-<section class="loginPage">
-  <div class="container">
-    <div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
-      <form>
-        <img class="img-responsive" alt="logo" src="http://itsol.vn/wp-content/uploads/2019/11/logo_itsol.png" />
-        {{loginForm.valid}}
-        <form [formGroup]="loginForm">
-          <div class="form-gorup">
-            <input type="text" [(ngModel)]="employee.username" class="form-control" name="username"
-              formControlName="username" id="username" aria-describedby="usernameHid" placeholder="User Name" />
-            <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
 
-              <div *ngIf="username.errors?.['required']">
-                userName không được để rỗng
-              </div>
+<div class="login-wrap">
+	<div class="login-html" >
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked>
+    <label for="tab-1" class="tab">Sign In</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up">
+    <label class="tab"></label>
+		<div class="login-form">
+      <form [formGroup]="loginForm">
+			<div class="sign-in-htm">
+				<div class="group">
+					<label for="user" class="label">Username</label>
+          <input type="text" [(ngModel)]="employee.username" class="form-control" name="username"
+          formControlName="username" id="username" aria-describedby="usernameHid" placeholder="User Name" />
+          <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
 
-
+            <div *ngIf="username.errors?.['required']">
+              userName không được để rỗng
             </div>
+
+
           </div>
-          <div class="form-group">
-            <input type="password" [(ngModel)]="employee.password" class="form-control" name="password"
-              formControlName="password" id="password" aria-describedby="passwordHid" placeholder="Password" />
-            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
 
-              <div *ngIf="password.errors?.['required']">
-                password không được để rỗng
-              </div>
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+          <input type="password" [(ngModel)]="employee.password" class="form-control" name="password"
+          formControlName="password" id="password" aria-describedby="passwordHid" placeholder="Password" />
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
 
+            <div *ngIf="password.errors?.['required']">
+              password không được để rỗng
             </div>
-          </div>
-          <button class="btn btn-primary btn-block" routerLink="../employee-add" type="button" id="btn-signup">
-            <i class="fas fa-user-plus"></i> Sign up New Account
-          </button>
-          <a href="#" id="cancel_reset"><i class="fas fa-angle-left"></i> Back</a>
 
-          <label><a href="" routerLink="../authen/register">Forget Password?</a></label>
-          <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid" (click)="login()">Login</button>
-        </form>
-      
-      </form>
-    </div>
-  </div>
-</section>
+          </div>
+				</div>
+				<div class="group">
+					<input id="check" type="checkbox" class="check" checked>
+					<label for="check"><span class="icon"></span> Keep me Signed in</label>
+				</div>
+				<div class="group">
+					<input type="submit" class="button" (click)="login()" value="Sign In">
+				</div>
+				<div class="hr"></div>
+				<div class="foot-lnk">
+					<a routerLink="../authen/register" >Forgot Password?</a>
+				</div>
+        <div class="foot-lnk" >
+					<a routerLink="../employee-add">Sign Up</a>
+				</div>
+			</div>
+    </form>
+		
+		</div>
+	</div>
+</div>

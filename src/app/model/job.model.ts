@@ -14,7 +14,7 @@ export interface Jobs {
     dueDate?: any;
     skills?: any;
     description?: any;
-    interrest?: any;
+    interest?: any;
     minSalary?: any;
     views?: any;
     isDelete?: any;

@@ -56,9 +56,13 @@ export class ListJobComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getAllData();
-    this.listJobService.getAllJobPage(this.pageN, this.pageS).subscribe((data) => {
-      this.totalRecord = data.totalRecord;
-      this.jobs = data.data;
+    // this.listJobService.getAllJobPage(this.pageN, this.pageS).subscribe((data) => {
+    //   this.totalRecord = data.totalRecord;
+    //   this.jobs = data.data;
+    // })
+    this.listJobService.searchJobs(this.searchForm.value).subscribe(data => {
+      console.log(data)
+      this.jobs = data;
     })
 
   }

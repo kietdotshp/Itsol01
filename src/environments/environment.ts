@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
 
-  API_URL: 'http://localhost:8001/api'
+  API_URL: 'http://localhost:8001/api/admin'
 
   // firebaseConfig : {
   //   apiKey: 'AIzaSyDqzNZhflQrB6QYMAOfTQve81CMSB6-Kvo',
