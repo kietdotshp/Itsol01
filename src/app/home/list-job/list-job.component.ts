@@ -55,8 +55,9 @@ export class ListJobComponent implements OnInit {
   }
 
   ngOnInit(): void {
+ 
     // this.getAllData();
-    this.listJobService.getAllJobPage(this.pageN, this.pageS).subscribe((data) => {
+      this.listJobService.getAllJobPage(this.pageN, this.pageS).subscribe((data) => {
       this.totalRecord = data.totalRecord;
       this.jobs = data.data;
     })
@@ -67,6 +68,7 @@ export class ListJobComponent implements OnInit {
   //     this.jobs = data;
   //     console.log(this.jobs);
   //   });
+  // }
     
   onSearchJobRegister() {
     this.listJobService.searchJobs(this.searchForm.value).subscribe(data => {
