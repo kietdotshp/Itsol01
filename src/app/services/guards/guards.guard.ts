@@ -22,7 +22,10 @@ export class GuardsGuard implements CanActivate {
         if (((role === ROLE_JE) || (role === ROLE_ADMIN))) {
             return true;
         }
+        else{
+          this.router.navigate(['./login'])
         return false;
+        }
     }
 
 }
