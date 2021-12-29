@@ -13,6 +13,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { EmployeeAddComponent } from './authen/employee-add/employee-add.component';
 import { AuthenComponent } from './authen/authen.component';
 import { LoginComponent } from './authen/login/login.component';
+import { GuardsGuard } from './services/guards/guards.guard';
 
 const routes: Routes = [
   {
@@ -54,7 +55,8 @@ const routes: Routes = [
 
   {
     path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canActivate:[GuardsGuard]
   },
 
   {
